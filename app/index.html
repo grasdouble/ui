@@ -11,42 +11,7 @@
 </head>
 <body ng-app="SlmApp">
 <!-- Add your site or application content here -->
-<div class="header">
-    <div class="navbar navbar-inverse" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#js-navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a class="navbar-brand" href="/">sebastien-lemouillour.fr</a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="js-navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a ng-href="/experience">Expérience</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projets
-                            <span class="caret"></span></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a ng-href="/projetspro">Projets Professionnels</a></li>
-                            <li><a ng-href="/projetsperso">Projets Personnels</a></li>
-                        </ul>
-                    </li>
-                    <li><a ng-href="/contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container">
+<div>
     <div ng-view=""></div>
 </div>
 
