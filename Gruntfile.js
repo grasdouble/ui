@@ -123,7 +123,7 @@ module.exports = function (grunt) {
                     'tmp/components/**/angular*.min.js',
                     'tmp/components/**/bootstrap*.min.js',
                     'tmp/components/jquery/dist/jquery.min.js',
-                    'tmp/components/angular-i18n/angular-locale_fr-fr.js',
+                    'tmp/components/angular-i18n/angular-locale_fr-fr.js'
                 ],
                 dest: 'app/vendors/js/',
                 expand: true,
@@ -135,7 +135,7 @@ module.exports = function (grunt) {
                     'tmp/components/**/angular*.js',
                     'tmp/components/**/bootstrap*.js',
                     'tmp/components/jquery/dist/jquery.js',
-                    'tmp/components/angular-i18n/angular-locale_fr-fr.js',
+                    'tmp/components/angular-i18n/angular-locale_fr-fr.js'
                 ],
                 dest: 'app/vendors/js/',
                 expand: true,
@@ -168,6 +168,15 @@ module.exports = function (grunt) {
                 expand: true,
                 flatten: true,
                 filter: 'isFile'
+            },
+            imgFiles: {
+                src: [
+                    'app/img/*'
+                ],
+                dest: 'dist/img/',
+                expand: true,
+                flatten: true,
+                filter: 'isFile'
             }
         },
         bower: {
@@ -183,12 +192,20 @@ module.exports = function (grunt) {
             "end-build": ["dist/amc-script.js", "dist/script.js", 'dist/style.css'],
             nomin: ["app/vendors/**/*.min.*"],
             vendors: ["app/vendors"]
+        },
+        express: {
+            dev: {
+                options: {
+                    script: 'server.js'
+                }
+            }
         }
     });
 
     grunt.registerTask('default', [
         'clean:dist',
         'copy:fontFiles',
+        "copy:imgFiles",
         'concat',
         'autoprefixer',
         'cssmin',
@@ -200,6 +217,31 @@ module.exports = function (grunt) {
         'csslint'
     ]);
 
-    grunt.registerTask('bower-task', ["bower", "clean:vendors", "copy:bowerJSFiles", "copy:bowerCSSFiles", "copy:bowerFontsFiles", "clean:tmp"]);
-    grunt.registerTask('bower-task-dev', ["bower", "clean:vendors", "copy:bowerJSFilesNoMin", "copy:bowerCSSFiles", "copy:bowerFontsFiles", "clean:nomin"]);
+    grunt.registerTask('dwatch', [
+        'default',
+        'watch'
+    ]);
+
+    grunt.registerTask('default + express + watch', [
+        'default',
+        'express',
+        'watch'
+    ]);
+
+    grunt.registerTask('bower-task', [
+        "bower",
+        "clean:vendors",
+        "copy:bowerJSFiles",
+        "copy:bowerCSSFiles",
+        "copy:bowerFontsFiles",
+        "clean:tmp"]);
+
+    grunt.registerTask('bower-task-dev', [
+        "bower",
+        "clean:vendors",
+        "copy:bowerJSFilesNoMin",
+        "copy:bowerCSSFiles",
+        "copy:bowerFontsFiles",
+        "clean:nomin"
+    ]);
 };

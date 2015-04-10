@@ -1,13 +1,18 @@
 angular.module('SlmApp').run(['$templateCache', function($templateCache) {
   'use strict';
 
-  $templateCache.put('app/components/experience/experience.html',
-    "<div id=experience><li class=exp-mission>TEAM Leader, Steria (ERDF)<ul><li class=exp-mission-date></li><li class=exp-mission-desc></li><li class=exp-mission-techno></li></ul></li><li class=exp-mission>Ingénieur d'étude et développement, Steria (POLE-EMPLOI)<ul><li class=exp-mission-date></li><li class=exp-mission-desc></li><li class=exp-mission-techno></li></ul></li><li class=exp-mission>Ingénieur d'étude et développement, Steria (POLE-EMPLOI)<ul><li class=exp-mission-date></li><li class=exp-mission-desc></li><li class=exp-mission-techno></li></ul></li><li class=exp-mission>Ingénieur d'étude et développement, Steria (Ministère de l'intérieur)<ul><li class=exp-mission-date></li><li class=exp-mission-desc></li><li class=exp-mission-techno></li></ul></li><li class=exp-mission>Développeur/Formateur, Im'Info<ul><li class=exp-mission-date></li><li class=exp-mission-desc></li><li class=exp-mission-techno></li></ul></li></div>"
+  $templateCache.put('app/components/competence/competence.html',
+    ""
   );
 
 
-  $templateCache.put('app/components/experience2/experience.html',
-    "<div id=experience2><div class=mission><div class=mission-ico><span></span></div><div class=mission-detail><h3 class=mission-titre>TEAM Leader, Steria (ERDF)</h3><p class=mission-desc></p><div class=mission-date></div></div></div><div class=mission><div class=mission-ico><span></span></div><div class=mission-detail><h3 class=mission-titre>Ingénieur d'étude et développement, Steria (POLE-EMPLOI)</h3><p class=mission-desc></p><div class=mission-date></div></div></div><div class=mission><div class=mission-ico><span></span></div><div class=mission-detail><h3 class=mission-titre>Ingénieur d'étude et développement, Steria (Ministère de l'intérieur)</h3><p class=mission-desc></p><div class=mission-date></div></div></div><div class=mission><div class=mission-ico><span></span></div><div class=mission-detail><h3 class=mission-titre>Développeur/Formateur, Im'Info</h3><p class=mission-desc></p><div class=mission-date></div></div></div></div>"
+  $templateCache.put('app/components/experience/experience.html',
+    "<div id=experience class=experience><div class=mission><div class=mission-ico><span></span></div><div class=mission-detail><h3 class=mission-titre>TEAM Leader, Steria (ERDF)</h3><p class=mission-desc>Dans l'optique de la migration de l'activité de développement de Paris à Nantes, une équipe de 4 personnes a été créée. J'ai pour rôle de coordonner le travail de l'équipe Nantaise avec le CP Parisien. Le poste a évolué en suivant la croissance du projet (passage de 4 à 40 personnes). Dans un premier temps chef de projet évolution adjoint puis chef de projet MCO.</p><div class=mission-date>2013 - 2015</div></div></div><div class=mission><div class=mission-ico><span></span></div><div class=mission-detail><h3 class=mission-titre>Ingénieur d'étude et développement, Steria (POLE-EMPLOI)</h3><p class=mission-desc></p><div class=mission-date></div></div></div><div class=mission><div class=mission-ico><span></span></div><div class=mission-detail><h3 class=mission-titre>Ingénieur d'étude et développement, Steria (Ministère de l'intérieur)</h3><p class=mission-desc></p><div class=mission-date></div></div></div><div class=mission><div class=mission-ico><span></span></div><div class=mission-detail><h3 class=mission-titre>Développeur/Formateur, Im'Info</h3><p class=mission-desc></p><div class=mission-date></div></div></div></div>"
+  );
+
+
+  $templateCache.put('app/components/header/header.html',
+    ""
   );
 
 
@@ -33,7 +38,7 @@ angular.module('SlmApp').run(['$templateCache', function($templateCache) {
     "                js.src = p + \"://platform.twitter.com/widgets.js\";\n" +
     "                fjs.parentNode.insertBefore(js, fjs);\n" +
     "            }\n" +
-    "        }(document, \"script\", \"twitter-wjs\");</script></div><div class=\"col-xs-12 col-sm-9\"><slm-experience2>test</slm-experience2></div></div>"
+    "        }(document, \"script\", \"twitter-wjs\");</script></div><div class=\"col-xs-12 col-sm-9\"><slm-experience></slm-experience></div></div>"
   );
 
 }]);
