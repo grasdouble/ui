@@ -3,6 +3,6 @@
  */
 angular.module('SlmApp').controller('ExperienceController',
     function () {
-        this.maValeur = "coucou";
+
     }
 );
