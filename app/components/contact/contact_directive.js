@@ -1,17 +1,17 @@
 /**
  * Created by sebastien on 09/04/15.
  */
-angular.module('SlmApp').directive('slmCompetence', function () {
+angular.module('SlmApp').directive('slmContact', function () {
     'use strict';
     return {
         restrict: 'E',
         //priority: 0,
-        templateUrl: 'app/components/competence/competence.html',
+        templateUrl: 'app/components/contact/contact.html',
         //replace: bool,
         //transclude: bool,
         scope: true,
-        controller: "CompetenceController",
-        controllerAs: "competence"
+        controller: "ContactController",
+        controllerAs: "contact"
         //require: string,
         //link: function postLink(scope, iElement, iAttrs) {},
         //compile: function compile(tElement, tAttrs, transclude) {
