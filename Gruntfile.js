@@ -61,8 +61,6 @@ module.exports = function (grunt) {
             },
             'js': {
                 src: [
-                    "app/vendors/js/jquery.js",
-                    "app/vendors/js/jquery.min.js",
                     "app/vendors/js/angular.min.js",
                     "app/vendors/js/angular.js",
                     "app/app.js",
@@ -119,61 +117,87 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            bowerJSFiles: {
-                src: [
-                    'tmp/components/**/angular*.min.js',
-                    'tmp/components/angular-i18n/angular-locale_fr-fr.js'
+            bowerCSS: {
+                css: [
+                    {
+                        src: [
+                            'tmp/components/**/css/*.css'
+                        ],
+                        dest: 'app/vendors/css/',
+                        expand: true,
+                        flatten: true,
+                        filter: 'isFile'
+                    }
                 ],
-                dest: 'app/vendors/js/',
-                expand: true,
-                flatten: true,
-                filter: 'isFile'
+                fonts: [
+                    {
+                        src: [
+                            'tmp/components/**/dist/fonts/*'
+                        ],
+                        dest: 'app/vendors/fonts/',
+                        expand: true,
+                        flatten: true,
+                        filter: 'isFile'
+                    }
+                ]
             },
-            bowerJSFilesNoMin: {
-                src: [
-                    'tmp/components/**/angular*.js',
-                    'tmp/components/angular-i18n/angular-locale_fr-fr.js'
+            bowerJS: {
+                js: [
+                    {
+                        src: [
+                            'tmp/components/**/*.js',
+                            'tmp/components/angular-i18n/angular-locale_fr-fr.js'
+                        ],
+                        dest: 'app/vendors/js/',
+                        expand: true,
+                        flatten: true,
+                        filter: 'isFile'
+                    }
                 ],
-                dest: 'app/vendors/js/',
-                expand: true,
-                flatten: true,
-                filter: 'isFile'
+                jsMin: [
+                    {
+                        expand: true,
+                        src: [
+                            'tmp/components/**/*.min.js',
+                            'tmp/components/angular-i18n/angular-locale_fr-fr.js'
+                        ],
+                        dest: 'app/vendors/js/',
+                        filter: 'isFile'
+                    }
+                ]
             },
-            bowerCSSFiles: {
-                src: [
-                    'tmp/components/**/css/*.css'
-                ],
-                dest: 'app/vendors/css/',
-                expand: true,
-                flatten: true,
-                filter: 'isFile'
-            },
-            bowerFontsFiles: {
-                src: [
-                    'tmp/components/bootstrap/dist/fonts/*'
-                ],
-                dest: 'app/vendors/fonts/',
-                expand: true,
-                flatten: true,
-                filter: 'isFile'
-            },
-            fontFiles: {
-                src: [
-                    'app/vendors/fonts/*'
-                ],
-                dest: 'dist/fonts/',
-                expand: true,
-                flatten: true,
-                filter: 'isFile'
-            },
-            imgFiles: {
-                src: [
-                    'app/img/*'
-                ],
-                dest: 'dist/img/',
-                expand: true,
-                flatten: true,
-                filter: 'isFile'
+            genLivrable: {
+                files: [
+                    {
+                        src: ['img/*'],
+                        dest: 'tmp/livrable/',
+                        expand: true,
+                        flatten: true,
+                        filter: 'isFile'
+                    },
+                    {
+                        src: ['dist/*'],
+                        dest: 'tmp/livrable/',
+                        expand: true,
+                        flatten: true,
+                        filter: 'isFile'
+                    },
+                    {
+                        src: ['fonts/*'],
+                        dest: 'tmp/livrable/',
+                        expand: true,
+                        flatten: true,
+                        filter: 'isFile'
+                    },
+                    {
+                        src: ['app/index.html'],
+                        dest: 'tmp/livrable/index.html',
+                        expand: true,
+                        flatten: true,
+                        filter: 'isFile'
+                    }
+                ]
+
             }
         },
         bower: {
@@ -184,10 +208,10 @@ module.exports = function (grunt) {
             }
         },
         clean: {
+            nomin: ["app/vendors/**/*.min.*"],
             tmp: ["tmp/"],
             dist: ["dist/"],
-            "end-build": ["dist/amc-script.js", "dist/script.js", 'dist/style.css'],
-            nomin: ["app/vendors/**/*.min.*"],
+            "end-build": ["dist/script.js", 'dist/style.css'],
             vendors: ["app/vendors"]
         },
         express: {
@@ -201,8 +225,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', [
         'clean:dist',
-        'copy:fontFiles',
-        "copy:imgFiles",
         'concat',
         'autoprefixer',
         'cssmin',
@@ -214,7 +236,7 @@ module.exports = function (grunt) {
         'csslint'
     ]);
 
-    grunt.registerTask('dwatch', [
+    grunt.registerTask('default + watch', [
         'default',
         'watch'
     ]);
@@ -228,17 +250,19 @@ module.exports = function (grunt) {
     grunt.registerTask('bower-task', [
         "bower",
         "clean:vendors",
-        "copy:bowerJSFiles",
-        "copy:bowerCSSFiles",
-        "copy:bowerFontsFiles",
+        "copy:bowerCSS",
+        "copy:bowerJS:jsMin",
         "clean:tmp"]);
 
     grunt.registerTask('bower-task-dev', [
         "bower",
         "clean:vendors",
-        "copy:bowerJSFilesNoMin",
-        "copy:bowerCSSFiles",
-        "copy:bowerFontsFiles",
+        "copy:bowerCSS",
+        "copy:bowerJS:js",
         "clean:nomin"
+    ]);
+
+    grunt.registerTask('MEP', [
+        "bower-task", "default", "copy:genLivrable"
     ]);
 };
