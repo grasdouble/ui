@@ -54,6 +54,7 @@ module.exports = function (grunt) {
         concat: {
             css: {
                 src: [
+                    "app/app.css",
                     'app/**/*.css'
                 ],
                 dest: 'dist/style.css'
@@ -121,8 +122,6 @@ module.exports = function (grunt) {
             bowerJSFiles: {
                 src: [
                     'tmp/components/**/angular*.min.js',
-                    'tmp/components/**/bootstrap*.min.js',
-                    'tmp/components/jquery/dist/jquery.min.js',
                     'tmp/components/angular-i18n/angular-locale_fr-fr.js'
                 ],
                 dest: 'app/vendors/js/',
@@ -133,8 +132,6 @@ module.exports = function (grunt) {
             bowerJSFilesNoMin: {
                 src: [
                     'tmp/components/**/angular*.js',
-                    'tmp/components/**/bootstrap*.js',
-                    'tmp/components/jquery/dist/jquery.js',
                     'tmp/components/angular-i18n/angular-locale_fr-fr.js'
                 ],
                 dest: 'app/vendors/js/',
@@ -144,7 +141,7 @@ module.exports = function (grunt) {
             },
             bowerCSSFiles: {
                 src: [
-                    'tmp/components/bootstrap/dist/css/*.css'
+                    'tmp/components/**/css/*.css'
                 ],
                 dest: 'app/vendors/css/',
                 expand: true,

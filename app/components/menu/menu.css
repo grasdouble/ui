@@ -1,0 +1,93 @@
+/*Header*/
+
+header {
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.97);
+    position: absolute;
+    font-family: "PlayBold";
+
+}
+
+header.fixed {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header.base {
+    background-color: rgba(255, 255, 255, 0.15);
+    margin-top: -75px;
+
+}
+
+.switchedHeader {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.97);
+    left: 0;
+    top: 0;
+}
+
+.mainHeader {
+    width: 100%;
+    text-align: center;
+}
+
+.nav {
+    width: 360px !important;
+}
+
+.headerSocials {
+    width: 180px !important;
+    padding: 30px 15px;
+}
+
+.headerSocials li {
+    display: inline;
+    font-size: 15px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.headerSocials li a {
+    color: #ffffff;
+}
+
+.switchedHeader .headerSocials li a {
+    color: #343434;
+}
+
+.mainNav li {
+    display: inline-block;
+    font-size: 11px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.mainNav li a {
+    color: #ffffff;
+    display: block;
+    padding: 29px 15px;
+    position: relative;
+}
+
+.switchedHeader .mainNav li a {
+    color: #999999 !important;
+}
+
+.mobileBtn {
+    background: rgba(0, 0, 0, 0);
+    padding: 5px;
+    text-align: center;
+    z-index: 1000;
+    display: none;
+}
+
+.mobileBtn i {
+    font-size: 20px;
+    color: #343434;
+}
+
+/*End header*/

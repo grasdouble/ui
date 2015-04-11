@@ -1,88 +1,64 @@
-@font-face {
-    font-family: Play;
-    src: url(../fonts/Play-Regular.ttf);
-    font-weight:400;
-}
+
 
 #header {
+    position: relative;
+    width: 100%;
+}
+
+/*Profile teaser*/
+
+.profileTeaser {
     overflow: hidden;
     position: relative;
 }
 
-#header .slide{
-    height: 709px;
-    background-image: url(img/header.jpg);
-    background-position: 100% 0px;
+.profileTeaser .slide li {
+
     background-size: cover !important;
     height: 520px !important;
 
 }
 
-#header .titre {
-    top: 35%;
+.profileTeaser .slide li:before, .imgrecognition:before, .imgTS:before {
+    background: rgba(36, 36, 36, 0.4);
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.caption {
+    top: 48.4%;
     left: 0;
     position: absolute;
-    text-align: left;
-    padding-left: 20%;
+    text-align: center;
     width: 100%;
     color: #ffffff;
+}
+
+.caption img {
+    width: 10% !important;
+}
+
+.caption h1 {
+    font-family: "Play";
+    color: #ffffff;
+    font-size: 60px;
+    letter-spacing: -1px;
+
+}
+
+.caption p {
     font-family: Play;
-
-}
-#header .caption p{
-    padding-left: 10%;
-}
-
-#header2 {
-    width: 100%;
-    z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.97);
-    position: absolute;
-}
-#header2 .base {
-    background-color: rgba(255, 255, 255, 0.15);
-    margin-top: -81px;
-}
-.mainHeader {
-    width: 100%;
-    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: 20px;
+    padding: 0 500px;
+    text-transform: uppercase;
 }
 
-.row, .clearfix {
-    zoom: 1;
-}
-
-.containerX {
-    position: relative;
-    width: 960px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.mobileBtn {
-    background: rgba(0,0,0,0);
-    padding: 5px;
-    text-align: center;
-    z-index: 1000;
-    display: none;
-}
-
-.containerX .six.columns {
-    width: 340px;
-}
-
-.containerX .column, .columns, .containerX .columns {
-    float: left;
-    display: inline;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.nav {
-    width: 360px !important;
-}
-
-.headerSocials {
-    width: 180px !important;
-    padding: 30px 15px;
-}
+/*End teaser profile*/

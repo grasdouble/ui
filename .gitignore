@@ -5,3 +5,4 @@ dist
 tmp
 .idea
 app/templates.js
+app/vendors
