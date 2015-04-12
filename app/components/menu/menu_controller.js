@@ -1,8 +1,12 @@
 /**
  * Created by sebastien on 09/04/15.
  */
-angular.module('SlmApp').controller('MenuController',
-    function () {
-        this.maValeur = "coucou";
+angular.module('SlmApp').
+    value('duScrollDuration', 2000).
+    value('duScrollOffset', 30).
+    controller('MenuController', function ($scope, $document) {
+        $scope.toTheTop = function () {
+            $document.scrollTop(0, 5000);
+        };
     }
 );

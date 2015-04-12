@@ -1,4 +1,4 @@
-<header id="header" class="base">
+<header id="header" ng-controller="MenuController" class="base">
 
     <!--Main header-->
     <div class="mainHeader default">
@@ -13,14 +13,12 @@
             <div class="six columns nav first">
                 <!--Navigation-->
                 <nav class="mainNav">
-
                     <ul>
-                        <li><a class="scroll" href="#home">Home</a></li>
-                        <li><a class="scroll" href="#experience">Experience</a></li>
-                        <li><a class="scroll" href="#competence">Competence</a></li>
-                        <li><a class="scroll" href="#contact">Contact</a></li>
+                        <li><a du-smooth-scroll du-scrollspy href="#header">Home</a></li>
+                        <li><a du-smooth-scroll du-scrollspy href="#experience">Experience</a></li>
+                        <li><a du-smooth-scroll du-scrollspy href="#competence">Competence</a></li>
+                        <li><a du-smooth-scroll du-scrollspy href="#contact">Contact</a></li>
                     </ul>
-
                 </nav>
                 <!--End navigation-->
 

@@ -47,7 +47,8 @@ module.exports = function (grunt) {
                 },
                 src: [
                     'app/**/*.css',
-                    '!app/vendors/**/*.css'
+                    '!app/vendors/**/*.css',
+                    '!app/views/home/skeleton.css'
                 ]
             }
         },
@@ -142,62 +143,66 @@ module.exports = function (grunt) {
                 ]
             },
             bowerJS: {
-                js: [
-                    {
-                        src: [
-                            'tmp/components/**/*.js',
-                            'tmp/components/angular-i18n/angular-locale_fr-fr.js'
-                        ],
-                        dest: 'app/vendors/js/',
-                        expand: true,
-                        flatten: true,
-                        filter: 'isFile'
-                    }
+
+                src: [
+                    'tmp/components/**/angular*.js',
+                    '!tmp/components/**/angular*.min.js',
+                    'tmp/components/angular-i18n/angular-locale_fr-fr.js'
                 ],
-                jsMin: [
-                    {
-                        expand: true,
-                        src: [
-                            'tmp/components/**/*.min.js',
-                            'tmp/components/angular-i18n/angular-locale_fr-fr.js'
-                        ],
-                        dest: 'app/vendors/js/',
-                        filter: 'isFile'
-                    }
-                ]
+                dest: 'app/vendors/js/',
+                expand: true,
+                flatten: true,
+                filter: 'isFile'
+            },
+            bowerJSMin: {
+                src: [
+                    'tmp/components/**/angular*.min.js',
+                    'tmp/components/angular-i18n/angular-locale_fr-fr.js'
+                ],
+                dest: 'app/vendors/js/',
+                expand: true,
+                flatten: true,
+                filter: 'isFile'
             },
             genLivrable: {
                 files: [
                     {
                         src: ['img/*'],
-                        dest: 'tmp/livrable/',
+                        dest: 'tmp/livrable/img/',
                         expand: true,
                         flatten: true,
                         filter: 'isFile'
                     },
                     {
                         src: ['dist/*'],
-                        dest: 'tmp/livrable/',
+                        dest: 'tmp/livrable/dist/',
                         expand: true,
                         flatten: true,
                         filter: 'isFile'
                     },
                     {
                         src: ['fonts/*'],
-                        dest: 'tmp/livrable/',
+                        dest: 'tmp/livrable/fonts/',
                         expand: true,
                         flatten: true,
                         filter: 'isFile'
                     },
                     {
                         src: ['app/index.html'],
-                        dest: 'tmp/livrable/index.html',
+                        dest: 'tmp/livrable/',
                         expand: true,
                         flatten: true,
                         filter: 'isFile'
                     }
                 ]
 
+            },
+            jsNoMin: {
+                src: ['dist/script.js'],
+                dest: 'dist/script.min.js',
+                expand: false,
+                flatten: true,
+                filter: 'isFile'
             }
         },
         bower: {
@@ -208,7 +213,6 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            nomin: ["app/vendors/**/*.min.*"],
             tmp: ["tmp/"],
             dist: ["dist/"],
             "end-build": ["dist/script.js", 'dist/style.css'],
@@ -236,13 +240,22 @@ module.exports = function (grunt) {
         'csslint'
     ]);
 
-    grunt.registerTask('default + watch', [
-        'default',
-        'watch'
-    ]);
+    grunt.registerTask('defaultDEV', [
+        'clean:dist',
+        'concat',
+        'autoprefixer',
+        'cssmin',
+        'ngtemplates',
+        'ngAnnotate',
+        'uglify',
+        /*'clean:end-build',*/
+        'jshint',
+        'csslint'
+    ])
+    ;
 
-    grunt.registerTask('default + express + watch', [
-        'default',
+    grunt.registerTask('defaultDEV + express + watch', [
+        'defaultDEV',
         'express',
         'watch'
     ]);
@@ -251,15 +264,14 @@ module.exports = function (grunt) {
         "bower",
         "clean:vendors",
         "copy:bowerCSS",
-        "copy:bowerJS:jsMin",
+        "copy:bowerJSMin",
         "clean:tmp"]);
 
     grunt.registerTask('bower-task-dev', [
         "bower",
         "clean:vendors",
         "copy:bowerCSS",
-        "copy:bowerJS:js",
-        "clean:nomin"
+        "copy:bowerJS"
     ]);
 
     grunt.registerTask('MEP', [
