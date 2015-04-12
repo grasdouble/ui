@@ -147,6 +147,7 @@ module.exports = function (grunt) {
                 src: [
                     'tmp/components/**/angular*.js',
                     '!tmp/components/**/angular*.min.js',
+                    'tmp/components/**/sticky.js',
                     'tmp/components/angular-i18n/angular-locale_fr-fr.js'
                 ],
                 dest: 'app/vendors/js/',
@@ -156,7 +157,7 @@ module.exports = function (grunt) {
             },
             bowerJSMin: {
                 src: [
-                    'tmp/components/**/angular*.min.js',
+                    'tmp/components/**/*.min.js',
                     'tmp/components/angular-i18n/angular-locale_fr-fr.js'
                 ],
                 dest: 'app/vendors/js/',

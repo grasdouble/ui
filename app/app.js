@@ -15,5 +15,6 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
-        'duScroll'
+        'duScroll',
+        'ngSticky'
     ]);
