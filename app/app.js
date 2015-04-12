@@ -16,5 +16,5 @@ angular
         'ngSanitize',
         'ngTouch',
         'duScroll',
-        'ngSticky'
+        'sticky'
     ]);
