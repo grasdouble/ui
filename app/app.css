@@ -27,3 +27,10 @@ ol, ul {
     src: url(../fonts/Play-Bold.ttf);
     font-weight: 400;
 }
+
+.titre-section {
+    color: white;
+    font-family: Play;
+    font-size: xx-large;
+    margin-left: 10%;
+}
