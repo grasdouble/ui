@@ -1,4 +1,86 @@
 #experience {
     height: 800px;
-    background-color: #1EAEDB;
+    overflow: hidden;
+
+}
+
+#experience .explist {
+    background-image: linear-gradient(#151615, #383939);
+}
+
+#experience .vignettes {
+    margin-left: auto;
+    margin-right: auto;
+    width: 850px;
+    border-image-width: 0;
+    padding: 0;
+    background-image: linear-gradient(#151615, #383939);
+}
+
+#experience .vignette {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    filter: saturate(10%);
+    -webkit-filter: saturate(10%);
+    -moz-filter: saturate(10%);
+    -o-filter: saturate(10%);
+    -ms-filter: saturate(10%);
+}
+
+#experience .vignettes a {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+#experience .vignettes a:hover {
+    filter: saturate(100%);
+    -webkit-filter: saturate(100%);
+    -moz-filter: saturate(100%);
+    -o-filter: saturate(100%);
+    -ms-filter: saturate(100%);
+}
+
+#experience .vignettes a:hover {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+#experience .detail {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#383939, #219161);
+    position: relative;
+}
+
+.slide-animation.ng-enter,
+.slide-animation.ng-leave {
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+
+    position: absolute;
+}
+
+.slide-animation.ng-enter {
+    left: 100%;
+}
+
+.slide-animation.ng-leave,
+.slide-animation.ng-enter.ng-enter-active {
+    left: 0;
+}
+
+.slide-animation.ng-leave.ng-leave-active {
+    left: -100%;
 }

@@ -1,33 +1,36 @@
-<header id="header" sticky ng-controller="MenuController" class="base">
+<div id="menu" ng-controller="MenuController">
+    <header sticky class="base">
 
-    <!--Main header-->
-    <div class="mainHeader default">
-
-
-        <!--Container-->
-        <div class="container clearfix">
+        <!--Main header-->
+        <div class="mainHeader default">
 
 
-            <a href="#" class="mobileBtn"><i class="fa fa-bars"></i></a>
+            <!--Container-->
+            <div class="container clearfix">
 
-            <div class="six columns nav first">
-                <!--Navigation-->
-                <nav class="mainNav">
-                    <ul>
-                        <li><a du-smooth-scroll du-scrollspy href="#header">Home</a></li>
-                        <li><a du-smooth-scroll du-scrollspy href="#experience">Experience</a></li>
-                        <li><a du-smooth-scroll du-scrollspy href="#competence">Competence</a></li>
-                        <li><a du-smooth-scroll du-scrollspy href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-                <!--End navigation-->
+
+                <a href="#" class="mobileBtn"><i class="fa fa-bars"></i></a>
+
+                <div class="items">
+                    <!--Navigation-->
+                    <nav class="mainNav">
+                        <ul>
+                            <li><a du-smooth-scroll du-scrollspy href="#header">Home</a></li>
+                            <li><a du-smooth-scroll du-scrollspy href="#about">About</a></li>
+                            <li><a du-smooth-scroll du-scrollspy href="#experience">Experience</a></li>
+                            <li><a du-smooth-scroll du-scrollspy href="#competence">Competence</a></li>
+                            <li><a du-smooth-scroll du-scrollspy href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <!--End navigation-->
+
+                </div>
 
             </div>
+            <!--End container-->
 
         </div>
-        <!--End container-->
+        <!--End main header-->
 
-    </div>
-    <!--End main header-->
-
-</header>
+    </header>
+</div>

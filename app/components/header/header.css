@@ -1,5 +1,4 @@
 
-
 #header {
     position: relative;
     width: 100%;
@@ -7,19 +6,21 @@
 
 /*Profile teaser*/
 
-.profileTeaser {
+#header .profileTeaser {
     overflow: hidden;
     position: relative;
 }
 
-.profileTeaser .slide li {
+#header .profileTeaser .slide li {
 
     background-size: cover !important;
     height: 520px !important;
 
 }
 
-.profileTeaser .slide li:before, .imgrecognition:before, .imgTS:before {
+#header .profileTeaser .slide li:before,
+#header .imgrecognition:before,
+#header .imgTS:before {
     background: rgba(36, 36, 36, 0.4);
     content: "";
     height: 100%;
@@ -30,7 +31,7 @@
     z-index: 0;
 }
 
-.caption {
+#header .caption {
     top: 48.4%;
     left: 0;
     position: absolute;
@@ -39,11 +40,11 @@
     color: #ffffff;
 }
 
-.caption img {
+#header .caption img {
     width: 10% !important;
 }
 
-.caption h1 {
+#header .caption h1 {
     font-family: "Play";
     color: #ffffff;
     font-size: 60px;
@@ -51,7 +52,7 @@
 
 }
 
-.caption p {
+#header .caption p {
     font-family: Play;
     color: #ffffff;
     font-size: 12px;

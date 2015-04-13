@@ -1,1 +1,22 @@
-<div id="experience"></div>
+<div id="experience" ng-controller="ExperienceController" ng-init="experience='iminfo'">
+    <div class="explist">
+        <div class="vignettes blur">
+            <a class="vignette" ng-click="experience='iminfo'"
+               style='background-image: url(img/vignette_exp_iminfo.jpg)'> </a>
+            <a class="vignette" ng-click="experience='miomct'"
+               style='background-image: url(img/vignette_exp_steria_miomct.jpg)'> </a>
+            <a class="vignette" ng-click="experience='poleemploi'"
+               style='background-image: url(img/vignette_exp_steria_poleemploi.jpg)'> </a>
+            <a class="vignette" ng-click="experience='erdf'"
+               style='background-image: url(img/vignette_exp_steria_erdf.jpg)'> </a>
+        </div>
+    </div>
+    <div class="detail" ng-switch="experience">
+        <div ng-switch-when="iminfo" class="slide-animation">IMINFO</div>
+        <div ng-switch-when="miomct" class="slide-animation">MIOMCT</div>
+        <div ng-switch-when="poleemploi" class="slide-animation">POLE-EMPLOI</div>
+        <div ng-switch-when="erdf" class="slide-animation">ERDF</div>
+
+    </div>
+
+</div>

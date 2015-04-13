@@ -9,11 +9,7 @@
 angular
     .module('SlmApp', [
         'ngAnimate',
-        'ngCookies',
-        'ngMessages',
-        'ngResource',
         'ngRoute',
-        'ngSanitize',
         'ngTouch',
         'duScroll',
         'sticky'
