@@ -5,7 +5,7 @@
 }
 
 #experience .explist {
-    background-image: linear-gradient(#151615, #383939);
+    background-color: #151615;
 }
 
 #experience .vignettes {
@@ -14,7 +14,7 @@
     width: 850px;
     border-image-width: 0;
     padding: 0;
-    background-image: linear-gradient(#151615, #383939);
+    background-color: #151615;
 }
 
 #experience .vignette {
@@ -58,7 +58,7 @@
     margin-right: auto;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(#383939, #219161);
+    background-color: #383939;
     position: relative;
 }
 
