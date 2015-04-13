@@ -6,20 +6,20 @@
 
 #experience .explist {
     background-color: #151615;
+    padding-bottom: 10px;
 }
 
 #experience .vignettes {
-    margin-left: auto;
-    margin-right: auto;
-    width: 850px;
+
     border-image-width: 0;
     padding: 0;
     background-color: #151615;
+    text-align: center;
 }
 
 #experience .vignette {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 10px;
+    margin-right: 10px;
     width: 200px;
     height: 200px;
     display: inline-block;
@@ -28,6 +28,7 @@
     -moz-filter: saturate(10%);
     -o-filter: saturate(10%);
     -ms-filter: saturate(10%);
+    border-radius: 150px;
 }
 
 #experience .vignettes a {
@@ -44,6 +45,7 @@
     -moz-filter: saturate(100%);
     -o-filter: saturate(100%);
     -ms-filter: saturate(100%);
+    border-radius: 10px;
 }
 
 #experience .vignettes a:hover {

@@ -32,5 +32,10 @@ ol, ul {
     color: white;
     font-family: Play;
     font-size: xx-large;
-    margin-left: 10%;
+
+    height: 40px;
+    background-color: rgba(180, 180, 180, 0.20);
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 10px;
 }
