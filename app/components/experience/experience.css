@@ -39,16 +39,15 @@
     transition: all 0.3s ease-in-out;
 }
 
-#experience .vignettes a:hover {
+#experience .vignettes a:hover, #experience .vignettes .active {
     filter: saturate(100%);
     -webkit-filter: saturate(100%);
     -moz-filter: saturate(100%);
     -o-filter: saturate(100%);
     -ms-filter: saturate(100%);
     border-radius: 10px;
-}
+    cursor: pointer;
 
-#experience .vignettes a:hover {
     -webkit-transform: scale(1.05);
     -moz-transform: scale(1.05);
     -o-transform: scale(1.05);
@@ -62,6 +61,7 @@
     height: 100%;
     background-color: #383939;
     position: relative;
+    color: #ffffff;
 }
 
 .slide-animation.ng-enter,

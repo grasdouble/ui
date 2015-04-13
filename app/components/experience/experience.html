@@ -1,16 +1,26 @@
-<div id="experience" ng-controller="ExperienceController" ng-init="experience='iminfo'">
+<div id="experience" ng-controller="ExperienceController" ng-init="experience='erdf';boolERDF=true">
     <div class="explist">
         <div class="titre-section">Expérience</div>
 
         <div class="vignettes blur">
-            <a class="vignette" ng-click="experience='iminfo'"
-               style='background-image: url(img/vignette_exp_iminfo.jpg)'> </a>
-            <a class="vignette" ng-click="experience='miomct'"
-               style='background-image: url(img/vignette_exp_steria_miomct.jpg)'> </a>
-            <a class="vignette" ng-click="experience='poleemploi'"
-               style='background-image: url(img/vignette_exp_steria_poleemploi.jpg)'> </a>
-            <a class="vignette" ng-click="experience='erdf'"
+            <a class="vignette"
+               ng-click="experience='erdf';boolERDF=true;boolImInfo=false;boolMiomct=false;boolPoleEmploi=false;"
+               ng-class="{active:boolERDF}"
                style='background-image: url(img/vignette_exp_steria_erdf.jpg)'> </a>
+            <a class="vignette"
+               ng-click="experience='poleemploi';boolPoleEmploi=true;boolImInfo=false;boolMiomct=false;boolERDF=false;"
+               ng-class="{active:boolPoleEmploi}"
+               style='background-image: url(img/vignette_exp_steria_poleemploi.jpg)'> </a>
+            <a class="vignette"
+               ng-click="experience='miomct';boolMiomct=true;boolImInfo=false;boolPoleEmploi=false;boolERDF=false;"
+               ng-class="{active:boolMiomct}"
+               style='background-image: url(img/vignette_exp_steria_miomct.jpg)'> </a>
+            <a class="vignette"
+               ng-click="experience='iminfo';boolImInfo=true;boolMiomct=false;boolPoleEmploi=false;boolERDF=false;"
+               ng-class="{active:boolImInfo}"
+               style='background-image: url(img/vignette_exp_iminfo.jpg)'> </a>
+
+
         </div>
     </div>
     <div class="detail" ng-switch="experience">
