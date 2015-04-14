@@ -40,6 +40,20 @@
     color: #ffffff;
 }
 
+#header .caption .profilPhoto {
+    background-image: url(/img/profil.jpg);
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin-right: 30px;
+
+}
+
+#header .caption .profilText {
+    display: inline-block;
+}
+
 #header .caption img {
     width: 10% !important;
 }

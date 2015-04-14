@@ -1,11 +1,6 @@
-#experience {
-    height: 800px;
-    overflow: hidden;
-
-}
 
 #experience .explist {
-    background-color: #151615;
+
     padding-bottom: 10px;
 }
 
@@ -13,7 +8,6 @@
 
     border-image-width: 0;
     padding: 0;
-    background-color: #151615;
     text-align: center;
 }
 
@@ -54,16 +48,6 @@
     transform: scale(1.05);
 }
 
-#experience .detail {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    height: 100%;
-    background-color: #383939;
-    position: relative;
-    color: #ffffff;
-}
-
 .slide-animation.ng-enter,
 .slide-animation.ng-leave {
     -webkit-transition: 0.5s linear all;
@@ -85,4 +69,46 @@
 
 .slide-animation.ng-leave.ng-leave-active {
     left: -100%;
+}
+
+/*----------------------------------*/
+/*DETAIL*/
+/*----------------------------------*/
+#experience .detail {
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    height: 100%;
+    background-color: #383939;
+    position: relative;
+    color: #ffffff;
+}
+
+#experience .exp-bloc1 {
+    display: inline-block;
+    width: 450px;
+    height: 100%;
+
+}
+
+#experience .exp-bloc2 {
+    display: inline-block;
+    width: 440px;
+    height: 100%;
+    vertical-align: top;
+    text-align: right;
+
+}
+
+#experience .description-Titre {
+    font-family: "PlayBold";
+    font-size: 20px;
+
+    text-decoration: underline;
+}
+
+#experience .description-Detail {
+    font-family: "Play";
+    margin-bottom: 15px;
+
 }

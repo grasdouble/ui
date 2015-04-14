@@ -119,28 +119,13 @@ module.exports = function (grunt) {
         },
         copy: {
             bowerCSS: {
-                css: [
-                    {
-                        src: [
-                            'tmp/components/**/css/*.css'
-                        ],
-                        dest: 'app/vendors/css/',
-                        expand: true,
-                        flatten: true,
-                        filter: 'isFile'
-                    }
+                src: [
+                    'tmp/components/**/*.min.css'
                 ],
-                fonts: [
-                    {
-                        src: [
-                            'tmp/components/**/dist/fonts/*'
-                        ],
-                        dest: 'app/vendors/fonts/',
-                        expand: true,
-                        flatten: true,
-                        filter: 'isFile'
-                    }
-                ]
+                dest: 'app/vendors/css/',
+                expand: true,
+                flatten: true,
+                filter: 'isFile'
             },
             bowerJS: {
 
