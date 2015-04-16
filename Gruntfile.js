@@ -62,6 +62,7 @@ module.exports = function (grunt) {
             },
             'js': {
                 src: [
+                    "app/vendors/js/jquery.min.js",
                     "app/vendors/js/angular.min.js",
                     "app/vendors/js/angular.js",
                     "app/app.js",
@@ -132,8 +133,13 @@ module.exports = function (grunt) {
                 src: [
                     'tmp/components/**/angular*.js',
                     '!tmp/components/**/angular*.min.js',
-                    'tmp/components/**/sticky.js',
+                    'tmp/components/**/sticky.min.js',
+                    'tmp/components/**/matchMedia*.js',
+                    'tmp/components/**/ui-bootstrap*.js',
+                    '!tmp/components/**/ui-bootstrap*.min.js',
                     'tmp/components/angular-i18n/angular-locale_fr-fr.js'
+
+
                 ],
                 dest: 'app/vendors/js/',
                 expand: true,

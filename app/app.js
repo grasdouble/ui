@@ -12,5 +12,6 @@ angular
         'ngRoute',
         'ngTouch',
         'duScroll',
-        'sticky'
+        'sticky',
+        'ui.bootstrap'
     ]);

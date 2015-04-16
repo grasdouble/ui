@@ -37,10 +37,11 @@ ol, ul {
     text-align: center;
     padding: 30px;
     margin-bottom: 10px;
+    box-sizing: content-box;
 }
 
 #about {
-    height: 380px;
+    height: 420px;
     background-color: #141615;
     color: #ffffff;
 
