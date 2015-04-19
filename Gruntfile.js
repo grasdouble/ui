@@ -20,7 +20,7 @@ module.exports = function (grunt) {
         },
         ngtemplates: {
             SlmApp: {
-                src: ['index.html', 'app/**/*.html'],
+                src: ['app/**/*.html'],
                 dest: 'app/templates.js',
                 standalone: true,
                 options: {
@@ -106,7 +106,7 @@ module.exports = function (grunt) {
         },
         watch: {
             html: {
-                files: ['app/**/*.html', 'index.html'],
+                files: ['app/**/*.html'],
                 tasks: ['ngtemplates']
             },
             css: {
