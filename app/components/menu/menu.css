@@ -8,11 +8,6 @@
 
 }
 
-#menu .items {
-    margin-left: -25%;
-    /*margin-right: auto;*/
-}
-
 #menu header.fixed {
     left: 0;
     position: fixed;

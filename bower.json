@@ -10,7 +10,8 @@
     "ngSticky": "~1.7.9",
     "animate.css": "~3.2.6",
     "angular-bootstrap": "~0.12.1",
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.4",
+    "font-awesome": "~4.3.0"
   },
   "devDependencies": {},
   "resolutions": {
