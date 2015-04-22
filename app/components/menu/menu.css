@@ -18,8 +18,7 @@
 
 #menu header.base {
     background-color: rgba(15, 17, 16, 0.64);
-    margin-top: -70px;
-
+    margin-top: -63px;
 }
 
 #menu .switchedHeader {
@@ -38,26 +37,6 @@
     width: 360px !important;
 }
 
-#menu .headerSocials {
-    width: 180px !important;
-    padding: 30px 15px;
-}
-
-#menu .headerSocials li {
-    display: inline;
-    font-size: 15px;
-    margin-left: 6px;
-    margin-right: 6px;
-}
-
-#menu .headerSocials li a {
-    color: #ffffff;
-}
-
-#menu .switchedHeader .headerSocials li a {
-    color: #343434;
-}
-
 #menu .mainNav li {
     display: inline-block;
     font-size: 11px;
@@ -68,8 +47,9 @@
 #menu .mainNav li a {
     color: #ffffff;
     display: block;
-    padding: 29px 15px;
+    padding: 20px 15px;
     position: relative;
+    text-decoration: none;
 }
 
 #menu .switchedHeader .mainNav li a {

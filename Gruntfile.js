@@ -6,7 +6,15 @@ module.exports = function (grunt) {
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
-
+        //Installation des Vendors
+        bower: {
+            install: {
+                options: {
+                    copy: false
+                }
+            }
+        },
+        //Controle de qualité
         jshint: {
             allFiles: [
                 'app/**/*.js',
@@ -18,6 +26,21 @@ module.exports = function (grunt) {
                 reporter: require('jshint-stylish')
             }
         },
+        csslint: {
+            options: {
+                csslintrc: '.csslintrc'
+            },
+            strict: {
+                options: {
+                    import: 2
+                },
+                src: [
+                    'app/**/*.css',
+                    '!app/vendors/**/*.css',
+                ]
+            }
+        },
+        //Optimisation
         ngtemplates: {
             SlmApp: {
                 src: ['app/**/*.html'],
@@ -37,25 +60,11 @@ module.exports = function (grunt) {
                 }
             }
         },
-        csslint: {
-            options: {
-                csslintrc: '.csslintrc'
-            },
-            strict: {
-                options: {
-                    import: 2
-                },
-                src: [
-                    'app/**/*.css',
-                    '!app/vendors/**/*.css',
-                    '!app/views/home/skeleton.css'
-                ]
-            }
-        },
+        //Concaténation de fichier
         concat: {
             css: {
                 src: [
-                    "app/app.css",
+                    'app/app.css',
                     'app/**/*.css'
                 ],
                 dest: 'dist/style.css'
@@ -64,19 +73,33 @@ module.exports = function (grunt) {
                 src: [
                     "app/vendors/js/jquery.min.js",
                     "app/vendors/js/angular.min.js",
-                    "app/vendors/js/angular.js",
                     "app/app.js",
                     "app/**/*.js"
                 ],
                 dest: 'dist/script.js'
             }
         },
+        //Optimisation Angular -
+        //Add, remove and rebuild angularjs dependency injection annotations
+        ngAnnotate: {
+            options: {
+                singleQuotes: true
+            },
+            app1: {
+                files: {
+                    'dist/script.js': ['dist/script.js']
+                }
+            }
+        },
+        //Optimisation CSS
+        //Parse CSS and add vendor-prefixed CSS properties
         autoprefixer: {
             single_file: {
                 src: 'dist/style.css',
                 dest: 'dist/style.css'
             }
         },
+        //Minification CSS et JS
         cssmin: {
             css: {
                 src: 'dist/style.css',
@@ -94,34 +117,13 @@ module.exports = function (grunt) {
                 }
             }
         },
-        ngAnnotate: {
-            options: {
-                singleQuotes: true
-            },
-            app1: {
-                files: {
-                    'dist/script.js': ['dist/script.js']
-                }
-            }
-        },
-        watch: {
-            html: {
-                files: ['app/**/*.html'],
-                tasks: ['ngtemplates']
-            },
-            css: {
-                files: ['app/**/*.css'],
-                tasks: ['concat:css', 'autoprefixer', 'cssmin', "csslint", 'clean:end-build']
-            },
-            js: {
-                files: ['app/**/*.js'],
-                tasks: ['concat:js', 'ngAnnotate', 'uglify', 'jshint', 'clean:end-build']
-            }
-        },
+        //Copies de fichiers
         copy: {
             bowerCSS: {
                 src: [
-                    'tmp/components/**/*.min.css'
+                    'tmp/components/**/font-awesome.min.css',
+                    'tmp/components/**/bootstrap.min.css',
+                    'tmp/components/**/animate.min.css'
                 ],
                 dest: 'app/vendors/css/',
                 expand: true,
@@ -129,16 +131,12 @@ module.exports = function (grunt) {
                 filter: 'isFile'
             },
             bowerJS: {
-
                 src: [
-                    'tmp/components/**/angular*.js',
-                    '!tmp/components/**/angular*.min.js',
-                    'tmp/components/**/sticky.min.js',
-                    'tmp/components/**/matchMedia*.js',
-                    'tmp/components/**/ui-bootstrap*.js',
-                    '!tmp/components/**/ui-bootstrap*.min.js',
-                    'tmp/components/angular-i18n/angular-locale_fr-fr.js'
 
+                    'tmp/components/**/angular*.min.js',
+                    'tmp/components/**/ui-bootstrap.js',
+                    'tmp/components/**/sticky.min.js',
+                    'tmp/components/angular-i18n/angular-locale_fr-fr.js'
 
                 ],
                 dest: 'app/vendors/js/',
@@ -146,12 +144,16 @@ module.exports = function (grunt) {
                 flatten: true,
                 filter: 'isFile'
             },
-            bowerJSMin: {
+            bowerFONT: {
                 src: [
-                    'tmp/components/**/*.min.js',
-                    'tmp/components/angular-i18n/angular-locale_fr-fr.js'
+                    'tmp/components/**/FontAwesome.otf',
+                    'tmp/components/**/fontawesome-webfont.eot',
+                    'tmp/components/**/fontawesome-webfont.svg',
+                    'tmp/components/**/fontawesome-webfont.ttf',
+                    'tmp/components/**/fontawesome-webfont.woff',
+                    'tmp/components/**/fontawesome-webfont.woff2'
                 ],
-                dest: 'app/vendors/js/',
+                dest: 'fonts/',
                 expand: true,
                 flatten: true,
                 filter: 'isFile'
@@ -188,28 +190,31 @@ module.exports = function (grunt) {
                     }
                 ]
 
+            }
+        },
+        //Tâches à réaliser en cas de modification
+        watch: {
+            html: {
+                files: ['app/**/*.html'],
+                tasks: ['ngtemplates']
             },
-            jsNoMin: {
-                src: ['dist/script.js'],
-                dest: 'dist/script.min.js',
-                expand: false,
-                flatten: true,
-                filter: 'isFile'
+            css: {
+                files: ['app/**/*.css'],
+                tasks: ['concat:css', 'autoprefixer', 'cssmin', "csslint", 'clean:end-build']
+            },
+            js: {
+                files: ['app/**/*.js'],
+                tasks: ['concat:js', 'ngAnnotate', 'uglify', 'jshint', 'clean:end-build']
             }
         },
-        bower: {
-            install: {
-                options: {
-                    copy: false
-                }
-            }
-        },
+        //Nettoyage
         clean: {
             tmp: ["tmp/"],
             dist: ["dist/"],
             "end-build": ["dist/script.js", 'dist/style.css'],
             vendors: ["app/vendors"]
         },
+        //Démarrage de serveur
         express: {
             dev: {
                 options: {
@@ -223,31 +228,17 @@ module.exports = function (grunt) {
         'clean:dist',
         'concat',
         'autoprefixer',
-        'cssmin',
         'ngtemplates',
         'ngAnnotate',
+        'cssmin',
         'uglify',
         'clean:end-build',
         'jshint',
         'csslint'
     ]);
 
-    grunt.registerTask('defaultDEV', [
-        'clean:dist',
-        'concat',
-        'autoprefixer',
-        'cssmin',
-        'ngtemplates',
-        'ngAnnotate',
-        'uglify',
-        /*'clean:end-build',*/
-        'jshint',
-        'csslint'
-    ])
-    ;
-
-    grunt.registerTask('defaultDEV + express + watch', [
-        'defaultDEV',
+    grunt.registerTask('default + express + watch', [
+        'default',
         'express',
         'watch'
     ]);
@@ -256,15 +247,11 @@ module.exports = function (grunt) {
         "bower",
         "clean:vendors",
         "copy:bowerCSS",
-        "copy:bowerJSMin",
-        "clean:tmp"]);
-
-    grunt.registerTask('bower-task-dev', [
-        "bower",
-        "clean:vendors",
-        "copy:bowerCSS",
-        "copy:bowerJS"
+        "copy:bowerJS",
+        "copy:bowerFONT",
+        //"clean:tmp"
     ]);
+
 
     grunt.registerTask('MEP', [
         "bower-task", "default", "copy:genLivrable"

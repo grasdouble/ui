@@ -18,6 +18,11 @@
 
 }
 
+#header .profileTeaser .slide {
+    margin: 0;
+    padding: 0;
+}
+
 #header .profileTeaser .slide li:before,
 #header .imgrecognition:before,
 #header .imgTS:before {
@@ -29,6 +34,7 @@
     left: 0;
     top: 0;
     z-index: 0;
+
 }
 
 #header .caption {
