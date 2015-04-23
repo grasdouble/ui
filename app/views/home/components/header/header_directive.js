@@ -6,7 +6,7 @@ angular.module('SlmApp').directive('slmHeader', function () {
     return {
         restrict: 'E',
         //priority: 0,
-        templateUrl: 'app/components/header/header.html',
+        templateUrl: 'app/views/home/components/header/header.html',
         //replace: bool,
         //transclude: bool,
         scope: true,

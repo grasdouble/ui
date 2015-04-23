@@ -3,6 +3,6 @@
  */
 angular.module('SlmApp').controller('CompetenceController',
     function () {
-        this.maValeur = "coucou";
+        this.competences = [{}];
     }
 );

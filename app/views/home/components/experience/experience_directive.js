@@ -6,7 +6,7 @@ angular.module('SlmApp').directive('slmExperience', function () {
     return {
         restrict: 'E',
         //priority: 0,
-        templateUrl: 'app/components/experience/experience.html',
+        templateUrl: 'app/views/home/components/experience/experience.html',
         //replace: bool,
         //transclude: bool,
         scope: true,
