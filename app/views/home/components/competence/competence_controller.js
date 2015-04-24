@@ -16,7 +16,7 @@ angular.module('SlmApp').controller('CompetenceController',
                         technos: [
                             {
                                 item: "Java",
-                                value: "90",
+                                value: "80",
                                 style: "progress-bar-info"
                             },
                             {
