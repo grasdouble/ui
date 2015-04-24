@@ -9,14 +9,14 @@
     /*overflow: hidden;*/
 }
 
-#competence .bloc1 {
+#competence .bloc0 {
     display: inline-block;
     width: 450px;
     height: 100%;
 
 }
 
-#competence .bloc2 {
+#competence .bloc1 {
     display: inline-block;
     width: 440px;
     height: 100%;

@@ -14,8 +14,9 @@
 #experience .vignette {
     margin-left: 10px;
     margin-right: 10px;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
+    background-size: 100px;
     display: inline-block;
     filter: saturate(10%);
     -webkit-filter: saturate(10%);
