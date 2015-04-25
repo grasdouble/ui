@@ -1,31 +1,23 @@
 /*Header*/
 #menu header {
+    margin-top: -60px;
+    padding: 0;
+    background-color: rgba(255, 255, 255, .2);
     width: 100%;
-    z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.97);
+    height: 60px;
     position: absolute;
     font-family: "PlayBold";
 
 }
 
-#menu header.fixed {
-    left: 0;
+#menu header.menu-fixed {
+    margin-top: 0;
+    z-index: 100;
     position: fixed;
     top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-#menu header.base {
-    background-color: rgba(15, 17, 16, 0.64);
-    margin-top: -63px;
-}
-
-#menu .switchedHeader {
-    position: fixed;
-    background: rgba(255, 255, 255, 0.97);
-    left: 0;
-    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease-in-out;
+    color: #555555;
 }
 
 #menu .mainHeader {
@@ -33,40 +25,18 @@
     text-align: center;
 }
 
-#menu .nav {
-    width: 360px !important;
-}
-
-#menu .mainNav li {
-    display: inline-block;
+#menu .mainHeader ul li {
+    padding-top: 20px;
     font-size: 11px;
-    position: relative;
+    list-style: none;
+    display: inline-block;
     text-transform: uppercase;
 }
 
-#menu .mainNav li a {
-    color: #ffffff;
-    display: block;
+#menu .mainHeader ul li a {
+    color: white;
     padding: 20px 15px;
-    position: relative;
     text-decoration: none;
-}
-
-#menu .switchedHeader .mainNav li a {
-    color: #999999 !important;
-}
-
-#menu .mobileBtn {
-    background: rgba(0, 0, 0, 0);
-    padding: 5px;
-    text-align: center;
-    z-index: 1000;
-    display: none;
-}
-
-#menu .mobileBtn i {
-    font-size: 20px;
-    color: #343434;
 }
 
 /*End header*/
