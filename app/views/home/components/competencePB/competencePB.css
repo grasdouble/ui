@@ -1,0 +1,25 @@
+.sroSkillBlock .percent-container {
+    width: 90%;
+    height: 15px;
+    position: relative;
+}
+
+.sroSkillBlock .empty {
+    background-color: #EEE;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+}
+
+.sroSkillBlock .percent {
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    transition: all 1s ease-in;
+}
+
+.sroSkillBlock .technology {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

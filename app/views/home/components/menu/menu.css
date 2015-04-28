@@ -20,22 +20,25 @@
     color: #555555;
 }
 
-#menu .mainHeader {
+#menu .mainNav {
     width: 100%;
     text-align: center;
 }
 
-#menu .mainHeader ul li {
-    padding-top: 20px;
-    font-size: 11px;
+#menu .mainNav ul li {
+    padding-top: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    font-size: 15px;
     list-style: none;
     display: inline-block;
     text-transform: uppercase;
 }
 
-#menu .mainHeader ul li a {
+#menu .mainNav ul li a {
     color: white;
-    padding: 20px 15px;
+
     text-decoration: none;
 }
 

@@ -1,0 +1,14 @@
+<div class="blocs">
+    <div class="bloc{{$index}}" ng-repeat="bloc in competencePb.block.listBloc">
+        <div class="bloc-titre" ng-bind-html="competence.validHTML(bloc.rubrique)"></div>
+            <span ng-repeat="techno in bloc.technos">
+                <div class="label-comp">{{techno.item}}</div>
+                <div class="progress">
+                    <div class="progress-bar {{techno.style}} progress-bar-striped" role="progressbar"
+                         aria-valuenow="{{techno.value}}"
+                         aria-valuemin="0" aria-valuemax="100" du-scrollspy
+                         ng-style="competencePb.getBarColor(techno)"></div>
+                </div>
+            </span>
+    </div>
+</div>

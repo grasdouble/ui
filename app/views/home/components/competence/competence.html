@@ -1,16 +1,8 @@
 <div id="competence" ng-init="percent='60';">
     <div class=" titre-section">Compétences</div>
-    <div class="blocs" ng-repeat="groupCompetence in competence.listCompetences">
-        <div class="bloc{{$index}}" ng-repeat="bloc in groupCompetence.listBloc">
-            <div class="bloc-titre" ng-bind-html="competence.validHTML(bloc.rubrique)"></div>
-            <span ng-repeat="techno in bloc.technos">
-                <div class="label-comp">{{techno.item}}</div>
-                <div class="progress">
-                    <div class="progress-bar {{techno.style}} progress-bar-striped" role="progressbar"
-                         aria-valuenow="{{techno.value}}"
-                         aria-valuemin="0" aria-valuemax="100" style="width: {{techno.value}}%;"></div>
-                </div>
-            </span>
-        </div>
-    </div>
+
+    <slm-competence-pb ng-repeat="groupCompetence in competence.listCompetences"
+                       block="groupCompetence">
+
+    </slm-competence-pb>
 </div>

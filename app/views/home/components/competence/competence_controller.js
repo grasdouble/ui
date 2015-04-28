@@ -158,5 +158,7 @@ angular.module('SlmApp').controller('CompetenceController',
                 ]
             }
         ];
+
+
     }
 );
