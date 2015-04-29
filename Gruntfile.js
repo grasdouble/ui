@@ -204,12 +204,18 @@ module.exports = function (grunt) {
             },
             js: {
                 files: ['app/**/*.js'],
-                tasks: ['concat:js', 'ngAnnotate', 'uglify', 'jshint', 'clean:end-build']
+                tasks: ['concat:js', 'ngAnnotate', 'uglify', 'jshint', 'clean:end-build'],
+                options: {
+                    interrupt: true
+                }
+            },
+            livereload: {
+                files: ['dist/*.min.*'],
+                options: {livereload: true}
             }
         },
         //Nettoyage
         clean: {
-            tmp: ["tmp/"],
             dist: ["dist/"],
             "end-build": ["dist/script.js", 'dist/style.css'],
             vendors: ["app/vendors"]
@@ -218,8 +224,24 @@ module.exports = function (grunt) {
         express: {
             dev: {
                 options: {
-                    script: 'server.js'
+                    script: 'server.js',
+                    spawn: false
                 }
+            }
+        },
+        sro_create_angular_components: {
+            SlmApp: {
+                views: [
+                    "app/views/home"
+                ],
+                directives: [
+                    "app/views/home/components/about",
+                    "app/views/home/components/competence",
+                    "app/views/home/components/competencePb",
+                    "app/views/home/components/experience",
+                    "app/views/home/components/header",
+                    "app/views/home/components/menu"
+                ]
             }
         }
     });
@@ -248,12 +270,17 @@ module.exports = function (grunt) {
         "clean:vendors",
         "copy:bowerCSS",
         "copy:bowerJS",
-        "copy:bowerFONT",
-        //"clean:tmp"
+        "copy:bowerFONT"
     ]);
 
 
     grunt.registerTask('MEP', [
         "bower-task", "default", "copy:genLivrable"
     ]);
+
+    grunt.registerTask('generate files', [
+        'sro_create_angular_components'
+    ]);
+
+
 };
