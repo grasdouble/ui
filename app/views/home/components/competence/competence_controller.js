@@ -8,6 +8,6 @@ angular.module('SlmApp').controller('CompetenceController',
             return $sce.trustAsHtml(value);
         };
 
-        this.listCompetencesData = CompetenceService.getDonnees();
+        this.listCompetences = CompetenceService.getDonnees();
     }
 );
