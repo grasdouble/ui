@@ -19,7 +19,6 @@ ol, ul {
     font-family: Play;
     font-size: xx-large;
     height: 40px;
-    background-color: rgba(180, 180, 180, 0.20);
     text-align: center;
     padding: 15px;
     margin-bottom: 10px;
@@ -33,13 +32,11 @@ ol, ul {
 }
 
 #experience {
-
     background-color: #222322;
 
 }
 
 #competence {
-
     background-color: #363736;
 }
 

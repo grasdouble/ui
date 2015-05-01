@@ -8,7 +8,7 @@ angular.module('SlmApp').directive('slmCompetencePb',
             },
             controller: "CompetencePbController",
             controllerAs: "competencePb",
-            templateUrl: "app/views/home/components/competencePB/competencePB.html",
+            templateUrl: "app/views/home/components/competencePb/competencePb.html",
             scope: true,
             link: function (scope, elem) {
                 var onScroll = function onScroll() {

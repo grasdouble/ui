@@ -1,40 +1,77 @@
 <div id="experience" ng-controller="ExperienceController">
-    <div class="titre-section">Expérience</div>
-    <div class="explist">
-
-
-        <div class="vignettes blur">
-            <a class="vignette" ng-repeat="mission in experience.listExperiences"
-               ng-click="experience.projet=mission.projet;experience.vignetteActive=$index;"
-               ng-class="{active:experience.vignetteActive===$index}"
-               style="background-image: url({{mission.vignette}})"> </a>
+    <div class="titre-section">Expériences</div>
+    <div class="typeXp">
+        <a ng-click="experience.type='Pro'">Professionnelles</a> / <a ng-click="experience.type='Perso'">Autres</a>
+    </div>
+    <div ng-if="experience.type=='Pro'">
+        <div class="explist">
+            <div class="vignettes blur">
+                <a class="vignette" ng-repeat="mission in experience.experiences[0].listExperiences"
+                   ng-click="experience.projetPro=mission.projet;experience.vignetteActive=$index;"
+                   ng-class="{active:experience.vignetteActive===$index}"
+                   style="background-image: url({{mission.vignette}})"> </a>
+            </div>
+        </div>
+        <div class="detail">
+            <div ng-repeat="mission in experience.experiences[0].listExperiences"
+                 ng-if="experience.projetPro===mission.projet"
+                 class="slide-animation">
+                <div class="exp-bloc1">
+                    <div class="description-Titre">Description du projet :</div>
+                    <div class="description-Detail"
+                         ng-bind-html="experience.validHTML(mission.descriptionProjet)"></div>
+                    <div class="description-Titre">Description de la mission :</div>
+                    <div class="description-Detail"
+                         ng-bind-html="experience.validHTML(mission.descriptionMission)"></div>
+                </div>
+                <div class="exp-bloc2">
+                    <div class="description-Titre">Détail du poste :</div>
+                    <div class="poste">{{mission.poste}}</div>
+                    <div class="description-Titre">Dates :</div>
+                    <div class="duree">{{mission.duree}}</div>
+                    <div class="description-Titre">Taille de l'équipe :</div>
+                    <div class="duree">{{mission.effectif}}</div>
+                    <div class="description-Titre">Environnement technique :</div>
+                    <div class="techno">
+                        <ul>
+                            <li ng-repeat="techno in mission.technos">{{techno}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="detail">
-        <div ng-repeat="mission in experience.listExperiences" ng-if="experience.projet===mission.projet"
-             class="slide-animation">
-            <div class="exp-bloc1">
-                <div class="description-Titre">Description du projet :</div>
-                <div class="description-Detail" ng-bind-html="experience.validHTML(mission.descriptionProjet)"></div>
-                <div class="description-Titre">Description de la mission :</div>
-                <div class="description-Detail" ng-bind-html="experience.validHTML(mission.descriptionMission)"></div>
+    <div ng-if="experience.type=='Perso'">
+        <div class="explist">
+            <div class="vignettes blur">
+                <a class="vignette" ng-repeat="mission in experience.experiences[1].listExperiences"
+                   ng-click="experience.projetPerso=mission.projet;experience.vignetteActive=$index;"
+                   ng-class="{active:experience.vignetteActive===$index}"
+                   style="background-image: url({{mission.vignette}})"> </a>
             </div>
-            <div class="exp-bloc2">
-                <div class="description-Titre">Détail du poste :</div>
-                <div class="poste">{{mission.poste}}</div>
-                <div class="description-Titre">Dates :</div>
-                <div class="duree">{{mission.date}}</div>
-                <div class="description-Titre">Taille de l'équipe :</div>
-                <div class="duree">{{mission.effectif}}</div>
-                <div class="description-Titre">Environnement technique :</div>
-                <div class="techno">
-                    <ul>
-                        <li>Java, Hibernate, SpringMVC, SpringBatch</li>
-                        <li>Flex, AngularJS</li>
-                        <li>Oracle,MySQL</li>
-                        <li>AutoIt</li>
-                        <li>HP Quality Center, Mantis</li>
-                    </ul>
+        </div>
+        <div class="detail">
+            <div ng-repeat="mission in experience.experiences[1].listExperiences"
+                 ng-if="experience.projetPerso===mission.projet"
+                 class="slide-animation">
+                <div class="exp-bloc1">
+                    <div class="description-Titre">Description du projet :</div>
+                    <div class="description-Detail"
+                         ng-bind-html="experience.validHTML(mission.descriptionProjet)"></div>
+                </div>
+                <div class="exp-bloc2">
+                    <div class="description-Titre">Dates :</div>
+                    <div class="duree">{{mission.duree}}</div>
+                    <div class="description-Titre" ng-if="mission.git!=''">Git :</div>
+                    <div class="duree" ng-bind-html="experience.validHTML(mission.git)"></div>
+                    <div class="description-Titre" ng-if="mission.url!=''">Url :</div>
+                    <div class="duree" ng-bind-html="experience.validHTML(mission.url)"></div>
+                    <div class="description-Titre">Environnement technique :</div>
+                    <div class="techno">
+                        <ul>
+                            <li ng-repeat="techno in mission.technos">{{techno}}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
