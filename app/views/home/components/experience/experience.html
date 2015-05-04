@@ -3,7 +3,7 @@
     <div class="typeXp">
         <a ng-click="experience.type='Pro'">Professionnelles</a> / <a ng-click="experience.type='Perso'">Autres</a>
     </div>
-    <div ng-if="experience.type=='Pro'">
+    <div ng-if="experience.type=='Pro'" class="fade-animation">
         <div class="explist">
             <div class="vignettes blur">
                 <a class="vignette" ng-repeat="mission in experience.experiences[0].listExperiences"
@@ -15,7 +15,7 @@
         <div class="detail">
             <div ng-repeat="mission in experience.experiences[0].listExperiences"
                  ng-if="experience.projetPro===mission.projet"
-                 class="slide-animation">
+                 class="fade-animation">
                 <div class="exp-bloc1">
                     <div class="description-Titre">Description du projet :</div>
                     <div class="description-Detail"
@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-    <div ng-if="experience.type=='Perso'">
+    <div ng-if="experience.type=='Perso'" class="fade-animation">
         <div class="explist">
             <div class="vignettes blur">
                 <a class="vignette" ng-repeat="mission in experience.experiences[1].listExperiences"
@@ -53,7 +53,7 @@
         <div class="detail">
             <div ng-repeat="mission in experience.experiences[1].listExperiences"
                  ng-if="experience.projetPerso===mission.projet"
-                 class="slide-animation">
+                 class="fade-animation">
                 <div class="exp-bloc1">
                     <div class="description-Titre">Description du projet :</div>
                     <div class="description-Detail"

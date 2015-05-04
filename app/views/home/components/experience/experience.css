@@ -6,6 +6,7 @@
     text-align: center;
     margin-bottom: 10px;
     box-sizing: content-box;
+    cursor: pointer;
 }
 
 #experience .explist {
@@ -56,12 +57,12 @@
     transform: scale(1.05);
 }
 
-.slide-animation.ng-enter {
+.fade-animation.ng-enter {
     animation: fadeIn 1s;
 }
 
-.slide-animation.ng-leave {
-    animation: hinge 0s;
+.fade-animation.ng-leave {
+    animation: fadeOut 0s;
 }
 
 /*----------------------------------*/

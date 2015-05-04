@@ -3,8 +3,6 @@
  */
 angular.module('SlmApp').service('CompetenceService',
     function () {
-
-
         this.listCompetencesData = [
             {
                 listBloc: [
@@ -157,7 +155,6 @@ angular.module('SlmApp').service('CompetenceService',
         ];
 
         this.getDonnees = function getDonnees() {
-
             return this.listCompetencesData;
         };
     }
