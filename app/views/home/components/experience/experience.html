@@ -1,20 +1,22 @@
-<div id="experience" ng-controller="ExperienceController">
+<div id="experience">
     <div class="titre-section">Expériences</div>
     <div class="typeXp">
-        <a ng-click="experience.type='Pro'">Professionnelles</a> - <a ng-click="experience.type='Perso'">Autres</a>
+        <a ng-click="experience.type='Pro';experience.vignetteActive=0;sexperience.projetPro">Professionnelles</a>
+        -
+        <a ng-click="experience.type='Perso';experience.vignetteActive=0;experience.stopSlide=true;">Autres</a>
     </div>
     <div ng-if="experience.type=='Pro'" class="fade-animation">
         <div class="explist">
             <div class="vignettes blur">
                 <a class="vignette" ng-repeat="mission in experience.experiences[0].listExperiences"
-                   ng-click="experience.projetPro=mission.projet;experience.vignetteActive=$index;"
+                   ng-click="experience.vignetteActive=$index;experience.stopSlide=true;"
                    ng-class="{active:experience.vignetteActive===$index}"
                    style="background-image: url({{mission.vignette}})"> </a>
             </div>
         </div>
         <div class="detail">
             <div ng-repeat="mission in experience.experiences[0].listExperiences"
-                 ng-if="experience.projetPro===mission.projet"
+                 ng-if="mission.projet===experience.experiences[0].listExperiences[experience.vignetteActive].projet"
                  class="fade-animation">
                 <div class="exp-bloc1">
                     <div class="description-Titre">Description du projet :</div>
@@ -45,14 +47,14 @@
         <div class="explist">
             <div class="vignettes blur">
                 <a class="vignette" ng-repeat="mission in experience.experiences[1].listExperiences"
-                   ng-click="experience.projetPerso=mission.projet;experience.vignetteActive=$index;"
+                   ng-click="experience.vignetteActive=$index;"
                    ng-class="{active:experience.vignetteActive===$index}"
                    style="background-image: url({{mission.vignette}})"> </a>
             </div>
         </div>
         <div class="detail">
             <div ng-repeat="mission in experience.experiences[1].listExperiences"
-                 ng-if="experience.projetPerso===mission.projet"
+                 ng-if="mission.projet===experience.experiences[1].listExperiences[experience.vignetteActive].projet"
                  class="fade-animation">
                 <div class="exp-bloc1">
                     <div class="description-Titre">Description du projet :</div>
