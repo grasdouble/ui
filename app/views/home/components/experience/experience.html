@@ -29,7 +29,7 @@
                 <div class="exp-bloc2">
                     <div class="description-Titre">Détail du poste :</div>
                     <div class="poste">{{mission.poste}}</div>
-                    <div class="description-Titre">Dates :</div>
+                    <div class="description-Titre">Durée :</div>
                     <div class="duree">{{mission.duree}}</div>
                     <div class="description-Titre">Taille de l'équipe :</div>
                     <div class="duree">{{mission.effectif}}</div>
@@ -62,7 +62,7 @@
                          ng-bind-html="experience.validHTML(mission.descriptionProjet)"></div>
                 </div>
                 <div class="exp-bloc2">
-                    <div class="description-Titre">Dates :</div>
+                    <div class="description-Titre">Durée :</div>
                     <div class="duree">{{mission.duree}}</div>
                     <div class="description-Titre" ng-if="mission.git!=''">Git :</div>
                     <div class="duree" ng-bind-html="experience.validHTML(mission.git)"></div>

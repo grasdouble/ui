@@ -114,6 +114,25 @@ angular.module('SlmApp').service('ExperienceService',
                         technos: ["Git, Gitolite, Gitweb",
                             "Unix"
                         ]
+                    },
+                    {
+                        projet: "Annuaire de musée",
+                        vignette: "img/vignette_exp_AnnuaireMusee.png",
+                        descriptionProjet: "<p>Projet initié suite au souhait d'une entreprise de tester mes compétences php pour valider ou non une embauche.</p>" +
+                        "<p>Il s'agissait de développer un mini annuaire des musées permettant la gestion de catégories et de fiches</p>" +
+                        "<p>L'application est découpé en deux projets indépendant (le front-end et le back-end) de sorte qu'il sera possible de faire évoluer le front-end sans impacter le back-end</p>" +
+                        "<p>1-/Le Back-End (PHP/MySQL)</p>" +
+                        "<p>Le back-end met à disposition deux urls permettant de réaliser des actions sur les musées (<a href=\"http://back.annuaire.webizone.fr/musee/\">http://back.annuaire.webizone.fr/musee/</a>)" +
+                        "et sur les catégories (<a href=\"http://back.annuaire.webizone.fr/categorie/\">http://back.annuaire.webizone.fr/categorie/</a>) en utilisant les requête GET, POST, PUT et DELETE. Il s'occupe donc de faire les interactions avec la base de données.</p>" +
+                        "<p>2-/Le Front--End (AngularJS)</p>" +
+                        "<p>Le front-end consomme les services fournis par le back-end pour permettre de gérer les musées et les catégories, il est accessible à l'adresse suivante : <a href=\"http://annuaire.webizone.fr/\">http://annuaire.webizone.fr/</a>. " +
+                        "Afin de simplifier le plus possible l'expérience utilisateur, vous ne trouverez que deux écrans (un pour les musées et un pour les catégories) qui permettent l'ensemble des actions CRUD à travers un tableau modifiable par simple clique.</p>",
+                        duree: "1 semaine (Mai 2015)",
+                        git: "<a href='https://github.com/slemouillour/AnnuaireMusees_Front'>github.com/AnnuaireMusees_Front</a><br><a href='https://github.com/slemouillour/AnnuaireMusees_Back'>github.com/AnnuaireMusees_Back</a>",
+                        url: "<a href='http://annuaire.webizone.fr/'>http://annuaire.webizone.fr/</a>",
+                        technos: ["Git, Php5, Html",
+                            "AngularJS"
+                        ]
                     }
                 ]
             }
