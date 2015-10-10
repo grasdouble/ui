@@ -1,8 +1,9 @@
-node_modules
-dist
-.tmp
-.sass-cache
-tmp
-.idea
+### JetBrains ## Directory-based project format:
+.idea/
+## Project ignore
 app/templates.js
-app/vendors
+node_modules/
+app/vendors/*
+run/*
+/npm-debug.log
+/.sass-cache

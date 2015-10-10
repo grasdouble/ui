@@ -6,14 +6,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
-        //Installation des Vendors
-        bower: {
-            install: {
-                options: {
-                    copy: false
-                }
-            }
-        },
+
         //Controle de qualité
         jshint: {
             allFiles: [
@@ -36,7 +29,7 @@ module.exports = function (grunt) {
                 },
                 src: [
                     'app/**/*.css',
-                    '!app/vendors/**/*.css',
+                    '!app/vendors/**/*.css'
                 ]
             }
         },
@@ -51,7 +44,7 @@ module.exports = function (grunt) {
                         collapseBooleanAttributes: true,
                         collapseWhitespace: true,
                         removeAttributeQuotes: true,
-                        removeComments: true, // Only if you don't use comment directives!
+                        removeComments: true,// Only if you don't use comment directives!
                         removeEmptyAttributes: true,
                         removeRedundantAttributes: true,
                         removeScriptTypeAttributes: true,
@@ -64,19 +57,38 @@ module.exports = function (grunt) {
         concat: {
             css: {
                 src: [
-                    'app/app.css',
                     'app/**/*.css'
                 ],
-                dest: 'dist/style.css'
+                dest: 'run/dist/style-css.css'
             },
-            'js': {
+            sass: {
                 src: [
-                    "app/vendors/js/jquery.min.js",
-                    "app/vendors/js/angular.min.js",
-                    "app/app.js",
-                    "app/**/*.js"
+                    'app/**/*.scss'
                 ],
-                dest: 'dist/script.js'
+                dest: 'run/dist/style-scss.scss'
+            },
+            'sass-css': {
+                src: [
+                    'run/dist/style-scss.css',
+                    'run/dist/style-css.css'
+                ],
+                dest: 'run/dist/style.css'
+            },
+            'js-not-min': {
+                src: [
+                    "app/app.js",
+                    "app/**/*.js",
+                    "!app/vendors/**/*.min.js"
+                ],
+                dest: 'run/dist/script.js'
+            },
+            'js-min': {
+                src: [
+                    "app/vendors/js/angular.min.js",
+                    "app/vendors/**/*.min.js",
+                    "run/dist/script.min.js"
+                ],
+                dest: 'run/dist/script.min.js'
             }
         },
         //Optimisation Angular -
@@ -85,9 +97,9 @@ module.exports = function (grunt) {
             options: {
                 singleQuotes: true
             },
-            app1: {
+            application: {
                 files: {
-                    'dist/script.js': ['dist/script.js']
+                    'run/dist/script.js': ['run/dist/script.js']
                 }
             }
         },
@@ -95,25 +107,39 @@ module.exports = function (grunt) {
         //Parse CSS and add vendor-prefixed CSS properties
         autoprefixer: {
             single_file: {
-                src: 'dist/style.css',
-                dest: 'dist/style.css'
+                src: 'run/dist/style.css',
+                dest: 'run/dist/style.css'
+            }
+        },
+        //
+        sass: {
+            dist: {
+                options: {
+                    sourcemap: "auto",
+                    style: "expanded"
+                },
+                files: [
+                    {
+                        'run/dist/style-scss.css': 'run/dist/style-scss.scss'
+                    }
+                ]
             }
         },
         //Minification CSS et JS
         cssmin: {
             css: {
-                src: 'dist/style.css',
-                dest: 'dist/style.min.css'
+                src: 'run/dist/style.css',
+                dest: 'run/dist/style.min.css'
             }
         },
         uglify: {
             js: {
                 options: {
-                    sourceMap: false,
-                    sourceMapName: 'dist/script.min.js.map'
+                    sourceMap: true,
+                    sourceMapName: 'run/dist/script.min.js.map'
                 },
                 files: {
-                    'dist/script.min.js': ['dist/script.js']
+                    'run/dist/script.min.js': ['run/dist/script.js']
                 }
             }
         },
@@ -121,9 +147,9 @@ module.exports = function (grunt) {
         copy: {
             bowerCSS: {
                 src: [
-                    'tmp/components/**/font-awesome.min.css',
-                    'tmp/components/**/bootstrap.min.css',
-                    'tmp/components/**/animate.min.css'
+                    'node_modules/_bower/**/font-awesome.min.css',
+                    'node_modules/_bower/**/bootstrap.min.css',
+                    'node_modules/_bower/**/animate.min.css'
                 ],
                 dest: 'app/vendors/css/',
                 expand: true,
@@ -132,12 +158,8 @@ module.exports = function (grunt) {
             },
             bowerJS: {
                 src: [
-
-                    'tmp/components/**/angular*.min.js',
-                    'tmp/components/**/ui-bootstrap.js',
-                    'tmp/components/**/sticky.min.js',
-                    'tmp/components/angular-i18n/angular-locale_fr-fr.js'
-
+                    'node_modules/_bower/angular*/*.min.js',
+                    'node_modules/_bower/angular-i18n/angular-locale_fr-fr.js'
                 ],
                 dest: 'app/vendors/js/',
                 expand: true,
@@ -146,12 +168,12 @@ module.exports = function (grunt) {
             },
             bowerFONT: {
                 src: [
-                    'tmp/components/**/FontAwesome.otf',
-                    'tmp/components/**/fontawesome-webfont.eot',
-                    'tmp/components/**/fontawesome-webfont.svg',
-                    'tmp/components/**/fontawesome-webfont.ttf',
-                    'tmp/components/**/fontawesome-webfont.woff',
-                    'tmp/components/**/fontawesome-webfont.woff2'
+                    'node_modules/_bower/**/FontAwesome.otf',
+                    'node_modules/_bower/**/fontawesome-webfont.eot',
+                    'node_modules/_bower/**/fontawesome-webfont.svg',
+                    'node_modules/_bower/**/fontawesome-webfont.ttf',
+                    'node_modules/_bower/**/fontawesome-webfont.woff',
+                    'node_modules/_bower/**/fontawesome-webfont.woff2'
                 ],
                 dest: 'fonts/',
                 expand: true,
@@ -162,28 +184,28 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: ['img/*'],
-                        dest: 'tmp/livrable/img/',
+                        dest: 'run/livrable/img/',
                         expand: true,
                         flatten: true,
                         filter: 'isFile'
                     },
                     {
-                        src: ['dist/*'],
-                        dest: 'tmp/livrable/dist/',
+                        src: ['run/dist/*'],
+                        dest: 'run/livrable/dist/',
                         expand: true,
                         flatten: true,
                         filter: 'isFile'
                     },
                     {
                         src: ['fonts/*'],
-                        dest: 'tmp/livrable/fonts/',
+                        dest: 'run/livrable/fonts/',
                         expand: true,
                         flatten: true,
                         filter: 'isFile'
                     },
                     {
                         src: ['app/index.html'],
-                        dest: 'tmp/livrable/',
+                        dest: 'run/livrable/',
                         expand: true,
                         flatten: true,
                         filter: 'isFile'
@@ -199,26 +221,32 @@ module.exports = function (grunt) {
                 tasks: ['ngtemplates']
             },
             css: {
-                files: ['app/**/*.css'],
-                tasks: ['concat:css', 'autoprefixer', 'cssmin', "csslint", 'clean:end-build']
+                files: ['app/**/*.css', 'app/**/*.scss'],
+                tasks: ['generateCSS']
             },
             js: {
                 files: ['app/**/*.js'],
-                tasks: ['concat:js', 'ngAnnotate', 'uglify', 'jshint', 'clean:end-build'],
+                tasks: ['concat:js-not-min', 'ngAnnotate', 'uglify:js', 'concat:js-min', 'jshint', 'clean:end-build'],
                 options: {
                     interrupt: true
                 }
             },
             livereload: {
-                files: ['dist/*.min.*'],
+                files: ['run/dist/*.min.*', 'index.html'],
                 options: {livereload: true}
             }
         },
-        //Nettoyage
+        //Netoyage
         clean: {
-            dist: ["dist/"],
-            "end-build": ["dist/script.js", 'dist/style.css'],
-            vendors: ["app/vendors"]
+            livrable: ["run/livrable"],
+            dist: ["run/dist/"],
+            "end-build": [
+                'run/dist/style.css',
+                'run/dist/script.js',
+                'run/dist/style-css.css',
+                'run/dist/style-scss.css',
+                'run/dist/style-scss.scss'
+            ]
         },
         //Démarrage de serveur
         express: {
@@ -229,6 +257,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+        //Génération de vues et composants angularJS
         sro_create_angular_components: {
             SlmApp: {
                 views: [
@@ -242,21 +271,56 @@ module.exports = function (grunt) {
                     "app/views/home/components/header",
                     "app/views/home/components/menu"
                 ]
+            },
+            options: {
+                initServiceController: false,
+                cssSuffix: "scss"
             }
         }
+
+
     });
+
+//Sub TASK
+    grunt.registerTask("generateJS", [
+        'ngtemplates',
+        'concat:js-not-min',
+        'ngAnnotate',
+        'uglify:js',
+        'concat:js-min',
+        'clean:end-build'
+    ]);
+
+    grunt.registerTask("generateCSS", [
+        'concat:sass',
+        'concat:css',
+        'sass',
+        'concat:sass-css',
+        'autoprefixer',
+        'cssmin',
+        'clean:end-build'
+    ]);
+
+//TASK
+    grunt.registerTask('bower', [
+        'copy:bowerCSS',
+        'copy:bowerJS',
+        'copy:bowerFONT'
+    ]);
+
+    grunt.registerTask('generate files', [
+        'sro_create_angular_components'
+    ]);
 
     grunt.registerTask('default', [
         'clean:dist',
-        'concat',
-        'autoprefixer',
-        'ngtemplates',
-        'ngAnnotate',
-        'cssmin',
-        'uglify',
-        'clean:end-build',
-        'jshint',
-        'csslint'
+        'generateCSS',
+        'generateJS'
+    ]);
+
+    grunt.registerTask('default + watch', [
+        'default',
+        'watch'
     ]);
 
     grunt.registerTask('default + express + watch', [
@@ -264,23 +328,5 @@ module.exports = function (grunt) {
         'express',
         'watch'
     ]);
-
-    grunt.registerTask('bower-task', [
-        "bower",
-        "clean:vendors",
-        "copy:bowerCSS",
-        "copy:bowerJS",
-        "copy:bowerFONT"
-    ]);
-
-
-    grunt.registerTask('MEP', [
-        "bower-task", "default", "copy:genLivrable"
-    ]);
-
-    grunt.registerTask('generate files', [
-        'sro_create_angular_components'
-    ]);
-
 
 };

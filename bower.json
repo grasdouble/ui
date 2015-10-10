@@ -1,21 +1,16 @@
 {
   "name": "sebastien-lemouillour.fr",
-  "version": "0.0.1",
   "dependencies": {
-    "angular": "1.4.0-rc.1",
-    "angular-animate": "1.4.0-rc.1",
-    "angular-route": "1.4.0-rc.1",
-    "angular-touch": "1.4.0-rc.1",
-    "angular-scroll": "0.6.5",
-    "animate.css": "~3.2.6",
-    "angular-bootstrap": "~0.12.1",
-    "bootstrap": "~3.3.4",
-    "font-awesome": "~4.3.0"
+    "angular": "*",
+    "angular-animate": "*",
+    "angular-route": "*",
+    "angular-i18n": "*",
+    "angular-touch": "*",
+    "angular-scroll": "*",
+    "angular-bootstrap": "*",
+    "bootstrap-css": "*",
+    "font-awesome": "*",
+    "animate.css": "*"
   },
-  "devDependencies": {},
-  "resolutions": {
-    "angular": "1.4.0-rc.1"
-  },
-  "appPath": "app",
-  "moduleName": "SlmApp"
+  "devDependencies": {}
 }
