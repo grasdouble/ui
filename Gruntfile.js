@@ -82,13 +82,13 @@ module.exports = function (grunt) {
                 ],
                 dest: 'run/dist/script.js'
             },
-            'js-min': {
+            'js-vendors': {
                 src: [
                     "app/vendors/js/angular.min.js",
                     "app/vendors/**/*.min.js",
-                    "run/dist/script.min.js"
+                    "!run/dist/script.min.js"
                 ],
-                dest: 'run/dist/script.min.js'
+                dest: 'run/dist/vendors.min.js'
             }
         },
         //Optimisation Angular -
@@ -115,7 +115,7 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 options: {
-                    sourcemap: "auto",
+                    sourcemap: "none",
                     style: "expanded"
                 },
                 files: [
@@ -127,6 +127,9 @@ module.exports = function (grunt) {
         },
         //Minification CSS et JS
         cssmin: {
+            options: {
+                sourceMap: false
+            },
             css: {
                 src: 'run/dist/style.css',
                 dest: 'run/dist/style.min.css'
@@ -134,10 +137,6 @@ module.exports = function (grunt) {
         },
         uglify: {
             js: {
-                options: {
-                    sourceMap: true,
-                    sourceMapName: 'run/dist/script.min.js.map'
-                },
                 files: {
                     'run/dist/script.min.js': ['run/dist/script.js']
                 }
@@ -226,7 +225,7 @@ module.exports = function (grunt) {
             },
             js: {
                 files: ['app/**/*.js'],
-                tasks: ['concat:js-not-min', 'ngAnnotate', 'uglify:js', 'concat:js-min', 'jshint', 'clean:end-build'],
+                tasks: ['concat:js-not-min', 'ngAnnotate', 'uglify:js', 'concat:js-vendors', 'jshint', 'clean:end-build'],
                 options: {
                     interrupt: true
                 }
@@ -287,7 +286,7 @@ module.exports = function (grunt) {
         'concat:js-not-min',
         'ngAnnotate',
         'uglify:js',
-        'concat:js-min',
+        'concat:js-vendors',
         'clean:end-build'
     ]);
 
@@ -327,6 +326,10 @@ module.exports = function (grunt) {
         'default',
         'express',
         'watch'
+    ]);
+
+    grunt.registerTask('MEP', [
+        "bower", "default", "copy:genLivrable"
     ]);
 
 };
