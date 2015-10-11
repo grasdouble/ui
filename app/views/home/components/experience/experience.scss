@@ -1,114 +1,110 @@
-.experience .typeXp {
-  color: white;
-  font-family: Play;
-  font-size: x-large;
-  height: 40px;
-  text-align: center;
-  margin-bottom: 10px;
-  box-sizing: content-box;
-  cursor: pointer;
+.experience {
+  .typeXp {
+    color: white;
+    font-family: Play;
+    font-size: x-large;
+    height: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+    box-sizing: content-box;
+    cursor: pointer;
 
-}
+    a:hover {
+      text-decoration: none;
+    }
+  }
 
-.experience .typeXp a:hover {
-  text-decoration: none;
-}
+  .explist {
+    padding-bottom: 10px;
+  }
 
-.experience .explist {
-  padding-bottom: 10px;
-}
+  .vignette {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100px;
+    height: 100px;
+    background-size: 100px;
+    display: inline-block;
+    filter: saturate(10%);
+    -webkit-filter: saturate(10%);
+    -moz-filter: saturate(10%);
+    -o-filter: saturate(10%);
+    -ms-filter: saturate(10%);
+    border-radius: 150px;
+  }
 
-.experience .vignettes {
-  border-image-width: 0;
-  padding: 0;
-  text-align: center;
-}
+  .vignettes {
+    border-image-width: 0;
+    padding: 0;
+    text-align: center;
 
-.experience .vignette {
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 100px;
-  height: 100px;
-  background-size: 100px;
-  display: inline-block;
-  filter: saturate(10%);
-  -webkit-filter: saturate(10%);
-  -moz-filter: saturate(10%);
-  -o-filter: saturate(10%);
-  -ms-filter: saturate(10%);
-  border-radius: 150px;
-}
+    a {
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+    a:hover, .active {
+      filter: saturate(100%);
+      -webkit-filter: saturate(100%);
+      -moz-filter: saturate(100%);
+      -o-filter: saturate(100%);
+      -ms-filter: saturate(100%);
+      border-radius: 10px;
+      cursor: pointer;
 
-.experience .vignettes a {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
+      -webkit-transform: scale(1.05);
+      -moz-transform: scale(1.05);
+      -o-transform: scale(1.05);
+      transform: scale(1.05);
+    }
+  }
 
-.experience .vignettes a:hover, .experience .vignettes .active {
-  filter: saturate(100%);
-  -webkit-filter: saturate(100%);
-  -moz-filter: saturate(100%);
-  -o-filter: saturate(100%);
-  -ms-filter: saturate(100%);
-  border-radius: 10px;
-  cursor: pointer;
+  .fade-animation.ng-enter {
+    animation: fadeIn 1s;
+  }
 
-  -webkit-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -o-transform: scale(1.05);
-  transform: scale(1.05);
-}
+  .fade-animation.ng-leave {
+    animation: fadeOut 0s;
+  }
 
-.fade-animation.ng-enter {
-  animation: fadeIn 1s;
-}
+  /*----------------------------------*/
+  /*DETAIL*/
+  /*----------------------------------*/
+  .detail {
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    height: 500px;
+    /*position: relative;*/
+    color: #ffffff;
+    /*overflow: hidden;*/
+  }
 
-.fade-animation.ng-leave {
-  animation: fadeOut 0s;
-}
+  .exp-bloc1 {
+    display: inline-block;
+    width: 450px;
+    height: 100%;
+  }
 
-/*----------------------------------*/
-/*DETAIL*/
-/*----------------------------------*/
-.experience .detail {
-  margin-left: auto;
-  margin-right: auto;
-  width: 900px;
-  height: 500px;
+  .exp-bloc2 {
+    display: inline-block;
+    width: 440px;
+    height: 100%;
+    vertical-align: top;
+    text-align: right;
+  }
 
-  /*position: relative;*/
-  color: #ffffff;
-  /*overflow: hidden;*/
-}
+  .description-Titre {
+    font-family: "PlayBold";
+    font-size: 20px;
 
-.experience .exp-bloc1 {
-  display: inline-block;
-  width: 450px;
-  height: 100%;
+    text-decoration: underline;
+  }
 
-}
-
-.experience .exp-bloc2 {
-  display: inline-block;
-  width: 440px;
-  height: 100%;
-  vertical-align: top;
-  text-align: right;
-
-}
-
-.experience .description-Titre {
-  font-family: "PlayBold";
-  font-size: 20px;
-
-  text-decoration: underline;
-}
-
-.experience .description-Detail {
-  font-family: "Play";
-  margin-bottom: 15px;
-
+  .description-Detail {
+    font-family: "Play";
+    margin-bottom: 15px;
+  }
 }

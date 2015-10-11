@@ -1,49 +1,48 @@
 
-.competencePb .blocs {
+.competencePb {
+  .blocs {
     margin-left: auto;
     margin-right: auto;
     width: 900px;
-
     /*position: relative;*/
     color: #ffffff;
     /*overflow: hidden;*/
-}
+  }
 
-.competencePb .bloc0 {
+  .bloc0 {
     display: inline-block;
     width: 450px;
     height: 100%;
+  }
 
-}
-
-.competencePb .bloc1 {
+  .bloc1 {
     display: inline-block;
     width: 440px;
     height: 100%;
     vertical-align: top;
     text-align: right;
+  }
 
-}
-
-.competencePb .bloc-titre {
+  .bloc-titre {
     text-align: center;
     margin-bottom: 10px;
-}
+  }
 
-.competencePb .label-comp {
+  .label-comp {
     display: inline-block;
     text-align: center;
     float: left;
     margin-bottom: 20px;
     width: 25%;
-}
+  }
 
-.competencePb .progress {
+  .progress {
     display: inline-block;
     float: right;
     width: 75%;
-}
 
-.competencePb .progress .progress-bar {
-    transition: all 1s ease-in;
+    .progress-bar {
+      transition: all 1s ease-in;
+    }
+  }
 }
