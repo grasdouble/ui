@@ -1,0 +1,62 @@
+
+.header {
+  position: relative;
+  width: 100%;
+
+  /*Profile teaser*/
+  .profileTeaser {
+    overflow: hidden;
+    position: relative;
+
+    .slide {
+      margin: 0;
+      padding: 0;
+
+      li {
+        background-size: cover !important;
+        height: 520px !important;
+      }
+
+      li:before,
+      {
+        background: rgba(36, 36, 36, 0.4);
+        content: "";
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 0;
+      }
+    }
+  }
+
+  .caption {
+    top: 48.4%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+
+    h1 {
+      font-family: "Play";
+      color: #ffffff;
+      font-size: 60px;
+      letter-spacing: -1px;
+
+    }
+
+    p {
+      font-family: Play;
+      color: #ffffff;
+      font-size: 12px;
+      line-height: 20px;
+      margin-top: 20px;
+      padding: 0 500px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+/*End teaser profile*/

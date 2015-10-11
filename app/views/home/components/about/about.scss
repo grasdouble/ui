@@ -1,5 +1,5 @@
 
-#about .caption {
+.about .caption {
     margin-left: auto;
     margin-right: auto;
     padding-top: 20px;
@@ -7,7 +7,7 @@
     width: 650px;
 }
 
-#about .caption .profilPhoto {
+.about .caption .profilPhoto {
     width: 180px;
     height: 180px;
     display: inline-block;
@@ -17,21 +17,21 @@
     vertical-align: top;
 }
 
-#about .caption .profilPhoto .photo {
+.about .caption .profilPhoto .photo {
     border-radius: 100px;
     border: white 2px solid;
     height: auto;
     width: 100%;
 }
 
-#about .caption .profilText {
+.about .caption .profilText {
     display: inline-block;
     width: 450px;
     font-family: "Play";
     color: #ffffff;
 }
 
-#about .caption .profilText hr {
+.about .caption .profilText hr {
     display: block;
     -webkit-margin-before: 0.5em;
     -webkit-margin-after: 0.5em;

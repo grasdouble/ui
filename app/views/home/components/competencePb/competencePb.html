@@ -1,6 +1,7 @@
-<div class="blocs">
-    <div class="bloc{{$index}}" ng-repeat="bloc in competencePb.block.listBloc">
-        <div class="bloc-titre" ng-bind-html="competence.validHTML(bloc.rubrique)"></div>
+<div class="competencePb">
+    <div class="blocs">
+        <div class="bloc{{$index}}" ng-repeat="bloc in competencePb.block.listBloc">
+            <div class="bloc-titre" ng-bind-html="competence.validHTML(bloc.rubrique)"></div>
             <span ng-repeat="techno in bloc.technos">
                 <div class="label-comp">{{techno.item}}</div>
                 <div class="progress">
@@ -10,5 +11,6 @@
                          ng-style="competencePb.getBarColor(techno)"></div>
                 </div>
             </span>
+        </div>
     </div>
 </div>
