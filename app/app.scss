@@ -25,13 +25,13 @@ ol, ul {
   box-sizing: content-box;
 }
 
-.about {
+#about {
   background-color: #141615;
   color: #ffffff;
 
 }
 
-.experience {
+#experience {
   background-color: #222322;
 
   .titre-section {
@@ -39,7 +39,7 @@ ol, ul {
   }
 }
 
-.competence {
+#competence {
   background-color: #363736;
 
   .titre-section {

@@ -1,5 +1,5 @@
 /*Header*/
-.menu {
+#menu {
   header {
     margin-top: -60px;
     padding: 0;
@@ -9,7 +9,7 @@
     position: absolute;
     font-family: "PlayBold";
 
-    .menu-fixed {
+    &.menu-fixed {
       margin-top: 0;
       z-index: 100;
       position: fixed;
@@ -18,23 +18,24 @@
       transition: all 0.3s ease-in-out;
       color: #555555;
     }
-  }
-  .mainNav {
-    width: 100%;
-    text-align: center;
 
-    ul li {
-      padding-top: 15px;
-      padding-left: 25px;
-      padding-right: 25px;
-      font-size: 15px;
-      list-style: none;
-      display: inline-block;
-      text-transform: uppercase;
-    }
-    ul li a {
-      color: white;
-      text-decoration: none;
+    .mainNav {
+      width: 100%;
+      text-align: center;
+
+      ul li {
+        padding-top: 15px;
+        padding-left: 25px;
+        padding-right: 25px;
+        font-size: 15px;
+        list-style: none;
+        display: inline-block;
+        text-transform: uppercase;
+      }
+      ul li a {
+        color: white;
+        text-decoration: none;
+      }
     }
   }
 }

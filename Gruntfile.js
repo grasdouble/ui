@@ -329,4 +329,8 @@ module.exports = function (grunt) {
         'watch'
     ]);
 
+    grunt.registerTask('MEP', [
+        "bower", "default", "copy:genLivrable"
+    ]);
+
 };
