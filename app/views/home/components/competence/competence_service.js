@@ -81,7 +81,7 @@ angular.module('SlmApp').service('CompetenceService',
                             },
                             {
                                 item: "AngularJS",
-                                value: "65",
+                                value: "40",
                                 style: ""
                             },
                         ]
