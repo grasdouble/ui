@@ -1,13 +1,13 @@
 /**
  * @ngdoc overview
- * @name SlmApp
+ * @name website
  * @description
- * # SlmApp
+ * # website
  *
  * Main module of the application.
  */
 angular
-    .module('SlmApp', [
+    .module('website', [
         'ngAnimate',
         'ngRoute',
         'ngTouch',

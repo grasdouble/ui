@@ -1,7 +1,7 @@
 /**
  * Created by sebastien on 09/04/15.
  */
-angular.module('SlmApp').directive('slmCompetence', function () {
+angular.module('website').directive('slmCompetence', function () {
     'use strict';
     return {
         restrict: 'E',

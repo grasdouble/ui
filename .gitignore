@@ -3,7 +3,8 @@
 ## Project ignore
 app/templates.js
 node_modules/
+/dist
 app/vendors/*
-run/*
 /npm-debug.log
+/build
 /.sass-cache

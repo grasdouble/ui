@@ -1,4 +1,4 @@
-angular.module('SlmApp').directive('slmCompetencePb',
+angular.module('website').directive('slmCompetencePb',
     function () {
         return {
             restrict: "E",

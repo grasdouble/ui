@@ -1,4 +1,4 @@
-angular.module('SlmApp').controller('CompetencePbController',
+angular.module('website').controller('CompetencePbController',
     function () {
         this.showRange = false;
 
