@@ -1,7 +1,7 @@
 /**
  * Created by sebastien on 09/04/15.
  */
-angular.module('SlmApp').config(function ($routeProvider, $locationProvider) {
+angular.module('website').config(function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'app/views/home/home.html',

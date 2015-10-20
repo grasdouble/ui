@@ -12,9 +12,10 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 app.use("/js", express.static(__dirname + "/app/js"));
-app.use("/dist", express.static(__dirname + "/run/dist"));
-app.use("/img", express.static(__dirname + "/app/img"));
-app.use("/css", express.static(__dirname + "/app/css"));
+app.use("/dist", express.static(__dirname + "/run/dists"));
+app.use("/imgs", express.static(__dirname + "/app/imgs"));
+app.use("/css", express.static(__dirname + "/app/css"))
+app.use("/fonts", express.static(__dirname + "/app/fonts"));
 app.use("/data", express.static(__dirname + "/app/data"));
 app.use("/partials", express.static(__dirname + "/app/partials"));
 

@@ -1,4 +1,4 @@
-angular.module('SlmApp').controller('HomeController',
+angular.module('website').controller('HomeController',
     function () {
         this.maValeur = "coucou";
     }

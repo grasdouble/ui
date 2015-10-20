@@ -36,7 +36,8 @@
                     <div class="description-Titre">Environnement technique :</div>
                     <div class="techno">
                         <ul>
-                            <li ng-repeat="techno in mission.technos">{{techno}}</li>
+                            <li ng-repeat="techno in mission.technos"><span
+                                    ng-bind-html="experience.validHTML(techno)"></span></span></li>
                         </ul>
                     </div>
                 </div>
@@ -71,7 +72,8 @@
                     <div class="description-Titre">Environnement technique :</div>
                     <div class="techno">
                         <ul>
-                            <li ng-repeat="techno in mission.technos">{{techno}}</li>
+                            <li ng-repeat="techno in mission.technos"><span
+                                    ng-bind-html="experience.validHTML(techno)"></span></span></li>
                         </ul>
                     </div>
                 </div>

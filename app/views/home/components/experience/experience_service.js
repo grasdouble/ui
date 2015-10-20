@@ -1,7 +1,7 @@
 /**
  * Created by sebastien on 09/04/15.
  */
-angular.module('SlmApp').service('ExperienceService',
+angular.module('website').service('ExperienceService',
     function () {
 
         this.experiencesData = [
@@ -10,7 +10,7 @@ angular.module('SlmApp').service('ExperienceService',
                 listExperiences: [
                     {
                         projet: "ERDF",
-                        vignette: "img/vignette_exp_steria_erdf.jpg",
+                        vignette: "imgs/vignette_exp_steria_erdf.jpg",
                         descriptionProjet: "<p>Le projet TAMARIS est une application destinée aux agents d'ERDF afin de planifier et d'organiser leurs activités sur le terrain.</p>" +
                         "<p>L'application dispose d'un client lourd en Flex pour la saisie et le suivi des plannings et des interventions, et d'un client PDA pour la consultation et la mise à jour des données sur les lieux d'intervention</p>",
                         descriptionMission: "<p>Dans une optique de migration de l'activité de développement de Paris vers Nantes, une équipe de quatre personnes a été créée (A ce jour, l'équipe compte environ quarante personnes).</p>" +
@@ -29,7 +29,7 @@ angular.module('SlmApp').service('ExperienceService',
                     },
                     {
                         projet: "POLEEMPLOI",
-                        vignette: "img/vignette_exp_steria_poleemploi.jpg",
+                        vignette: "imgs/vignette_exp_steria_poleemploi.jpg",
                         descriptionProjet: "<p>Le Pojet Pole-Emploi (GUPPI) est une application destinée au personnel de Pole-Emploi afin de les assister dans la gestion de le référentiel d'offre d'emploi.</p>" +
                         "<p>L'application à la particularité d'être développée à l'aide d'un framework MDA conçu par Pole-Emploi.</p>" +
                         "<p>Elle est accessible depuis un navigateur web</p>",
@@ -46,7 +46,7 @@ angular.module('SlmApp').service('ExperienceService',
                     },
                     {
                         projet: "MIOMCT",
-                        vignette: "img/vignette_exp_steria_miomct.jpg",
+                        vignette: "imgs/vignette_exp_steria_miomct.jpg",
                         descriptionProjet: "<p>Le projet MIOMCT est une TMA avec 4 projets (ACTES, ELOI, FNAEG, AGRIPPA) pour le Ministère de l'intérieur :</p>" +
                         "<p><b>-ACTES</b> est l'application permettant aux préfectures de contrôler les actes soumis au contrôle de légalité et budgétaire (ex : Arrêté municipale)</p>" +
                         "<p><b>-ELOI</b> est l'application de gestion des personnes en situation irrégulière.</p>" +
@@ -67,12 +67,12 @@ angular.module('SlmApp').service('ExperienceService',
                     },
                     {
                         projet: "IMINFO",
-                        vignette: "img/vignette_exp_iminfo.jpg",
+                        vignette: "imgs/vignette_exp_iminfo.jpg",
                         descriptionProjet: "<p>Im'Info était une PME de 5 salariés qui propose aux entreprises de réaliser leurs projets avec les technologies JAVA ou de les former sur les technologies émergeantes.</p>",
                         descriptionMission: "<p>Faisant suite à mon stage de BTS réalisé dans cette même société, j'ai intégré la structure comme développeur / formateur.</p>" +
                         "<p>J'ai été amené à rédiger ou compléter des supports de formation, réaliser des formations (Java init., JQuery) et à participer à la réalisation d'un projet pour la société Faiveley Transport qui avait pour mission de lire et d'analyser le contenu des boites noir présentent dans les trains.</p>",
                         poste: "Analyste Programmeur",
-                        duree: "2009 - 2013 (3,5 ans)",
+                        duree: "2007 - 2009 (2 ans)",
                         effectif: "5 personnes",
                         technos: ["Java, EclipseRCP",
                             "HTML, Javascript"
@@ -85,7 +85,7 @@ angular.module('SlmApp').service('ExperienceService',
                 listExperiences: [
                     {
                         projet: "CV-Web",
-                        vignette: "img/vignette_exp_cv-web.png",
+                        vignette: "imgs/vignette_exp_cv-web.png",
                         descriptionProjet: "<p>Il s'agit du projet correspondant au site que vous êtes en train de visité.</p>" +
                         "<p>L'objectif était dans un premier temps de rendre visible sur le web mon projet et ensuite de compléter mes connaissances sur AngularJS.</p>" +
                         "<p>Pour réaliser ce projet, j'ai tout d'abord fait le tour des templates et site web existant pour trouver l'inspiration et dessiner les grandes lignes de ce que je voulais mettre en avant que ce soit sur mes expériences passés ou sur mes connaissances.</p>" +
@@ -94,12 +94,12 @@ angular.module('SlmApp').service('ExperienceService',
                         git: "<a href='https://github.com/slemouillour/sebastien-lemouillour.fr'>github.com/sebastien-lemouillour.fr</a>",
                         url: "",
                         technos: ["AngularJS, HTML, CSS",
-                            "Grunt, Bower"
+                            "<s>Grunt</s>, Gulp, Bower, Sass"
                         ]
                     },
                     {
                         projet: "ServeurGit",
-                        vignette: "img/vignette_exp_ServeurGit.png",
+                        vignette: "imgs/vignette_exp_ServeurGit.png",
                         descriptionProjet: "<p>Ce projet avait pour objectif de mieux appréhender l'outil de gestion de conf. GIT</p>" +
                         "<p>Utilisant depuis quelques années SVN pour gérer mes projets professionnels et personnels, lors du démarrage de mon projet de CV en ligne, " +
                         "j'ai souhaiter basculer sur Git pour tanter de comprendre tout l'intérêt qu'on lui porte.</p>" +
@@ -117,7 +117,7 @@ angular.module('SlmApp').service('ExperienceService',
                     },
                     {
                         projet: "Annuaire de musée",
-                        vignette: "img/vignette_exp_AnnuaireMusee.png",
+                        vignette: "imgs/vignette_exp_AnnuaireMusee.png",
                         descriptionProjet: "<p>Projet initié suite au souhait d'une entreprise de tester mes compétences php pour valider ou non une embauche.</p>" +
                         "<p>Il s'agissait de développer un mini annuaire des musées permettant la gestion de catégories et de fiches</p>" +
                         "<p>L'application est découpé en deux projets indépendant (le front-end et le back-end) de sorte qu'il sera possible de faire évoluer le front-end sans impacter le back-end</p>" +

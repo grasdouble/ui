@@ -1,7 +1,7 @@
 /**
  * Created by sebastien on 09/04/15.
  */
-angular.module('SlmApp').controller('HeaderController',
+angular.module('website').controller('HeaderController',
     function () {
         this.maValeur = "coucou";
     }

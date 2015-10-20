@@ -1,7 +1,7 @@
 /**
  * Created by sebastien on 09/04/15.
  */
-angular.module('SlmApp').service('AboutService',
+angular.module('website').service('AboutService',
     function () {
     }
 );

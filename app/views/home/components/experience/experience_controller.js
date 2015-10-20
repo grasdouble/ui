@@ -1,7 +1,7 @@
 /**
  * Created by sebastien on 09/04/15.
  */
-angular.module('SlmApp')
+angular.module('website')
     .controller('ExperienceController',
     function ($sce, $interval, $scope, ExperienceService) {
 
