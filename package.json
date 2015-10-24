@@ -32,5 +32,30 @@
     "postinstall": "bower install",
     "prestart": "",
     "start": ""
+  },
+  "createAngularComponents": {
+    "options": {
+      "initServiceController": true,
+      "cssSuffix": "SCSS",
+      "language": "ES5",
+      "angularVersion": 1,
+      "prefix": "app/"
+    },
+    "modules": [
+      {
+        "module-name": "website",
+        "views": [
+          "views/home"
+        ],
+        "directives": [
+          "views/home/components/about",
+          "views/home/components/competence",
+          "views/home/components/competencePb",
+          "views/home/components/experience",
+          "views/home/components/header",
+          "views/home/components/menu"
+        ]
+      }
+    ]
   }
 }
