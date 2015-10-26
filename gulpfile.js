@@ -12,6 +12,7 @@ var babel = require('gulp-babel');
 var gls = require('gulp-live-server');
 var mergeStream = require('merge-stream');
 var plumber = require("gulp-plumber");
+var flatten = require('gulp-flatten');
 var del = require("del");
 
 var paths = {
@@ -36,6 +37,22 @@ var paths = {
         "app/fonts/**/*",
         "app/imgs/*",
         "app/index.html"
+    ],
+    copyVendorsJSMin: [
+        "node_modules/angular/angular.min.js",
+        "node_modules/angular-bootstrap/ui-bootstrap.min.js",
+        "node_modules/angular-i18n/angular-locale_fr-fr.js",
+        "node_modules/angular-*/angular-*.min.js"
+    ],
+    copyVendorsCSSMin: [
+        "node_modules/animate.css/animate.min.css",
+        "node_modules/font-awesome/css/font-awesome.min.css",
+        "node_modules/bootstrap-css-only/css/bootstrap.min.css",
+        "node_modules/bootstrap-css-only/css/bootstrap-theme.min.css"
+    ],
+    copyVendorsFonts: [
+        "node_modules/font-awesome/fonts/*",
+        "node_modules/bootstrap-css-only/fonts/*"
     ],
     htmlFiles: 'app/**/*.html'
 };
@@ -119,16 +136,26 @@ gulp.task('serve', ["generateVendorsJS", "generateJS", "generateCSS"], function 
     });
 });
 
-gulp.task('copy', function () {
+gulp.task('build', function () {
     stream = mergeStream();
 
-    stream.add(gulp.src(paths.buildFile, {base: 'app'}));
-    stream.add(gulp.src("./dist/*", {base: './'}));
-    return stream.pipe(gulp.dest('build'))
+    stream.add(gulp.src(paths.buildFile, {base: 'app'}).pipe(gulp.dest('build')));
+    stream.add(gulp.src("./dist/*", {base: './'}).pipe(gulp.dest('build')));
+    stream.add(gulp.src("./app/vendors/fonts/*").pipe(flatten()).pipe(gulp.dest('build/fonts')));
+
+    return stream;
+});
+
+gulp.task('copyVendors', function () {
+    stream = mergeStream();
+    stream.add(gulp.src(paths.copyVendorsJSMin).pipe(flatten()).pipe(gulp.dest('app/vendors/js')));
+    stream.add(gulp.src(paths.copyVendorsCSSMin).pipe(flatten()).pipe(gulp.dest('app/vendors/css')));
+    stream.add(gulp.src(paths.copyVendorsFonts).pipe(flatten()).pipe(gulp.dest('app/vendors/fonts')));
+
+    return stream;
 });
 
 gulp.task('clean', function (cb) {
-    // You can use multiple globbing patterns as you would with `gulp.src`
     del(['dist'], cb);
     del(['build'], cb);
 });
