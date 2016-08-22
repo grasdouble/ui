@@ -37,7 +37,7 @@
     "animate.css": "*"
   },
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "",
     "prestart": "",
     "start": ""
   },
