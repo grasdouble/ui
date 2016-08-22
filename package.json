@@ -3,9 +3,6 @@
   "title": "sebastienlemouillourfr",
   "version": "0.0.1",
   "private": true,
-  "config": {
-    "bower_directory": "node_modules/_bower"
-  },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-angular-templatecache": "^1.7.0",
