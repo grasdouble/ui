@@ -21,7 +21,7 @@ angular.module('website').service('CompetenceService',
                             },
                             {
                                 item: "Javascript",
-                                value: "50",
+                                value: "65",
                                 style: "progress-bar-info"
                             },
                             {
@@ -54,6 +54,11 @@ angular.module('website').service('CompetenceService',
                                 item: "MongoDB",
                                 value: "35",
                                 style: "progress-bar-warning"
+                            },
+                            {
+                                item: "SqlServer",
+                                value: "50",
+                                style: "progress-bar-warning"
                             }
                         ]
                     }
@@ -81,7 +86,7 @@ angular.module('website').service('CompetenceService',
                             },
                             {
                                 item: "AngularJS",
-                                value: "40",
+                                value: "70",
                                 style: ""
                             },
                         ]
