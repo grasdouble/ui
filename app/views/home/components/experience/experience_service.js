@@ -9,6 +9,21 @@ angular.module('website').service('ExperienceService',
                 typeXp: "pro",
                 listExperiences: [
                     {
+                        projet: "Bureau Veritas",
+                        vignette: "imgs/vignette_exp_infotel_bureauveritas.png",
+                        descriptionProjet: "<p>Bureau Veritas est une société de services proposant des prestations couvrant l’inspection, l’audit, les tests jusqu'à l'analyse, touchant à de nombreux domaines. Ses activités principales sont la certification, l'évaluation de conformité, la formation, et le conseil.</p>" +
+                        "<p> Elle est présente dans 140 pays, s'appuie sur un réseau comprenant 1 400 agences et laboratoires et emploie 66 000 personnes (fin 2015) dont plus de 7 500 en France.</p>",
+                        descriptionMission: "<p>Développement Java / AngularJS sur diverses applications orientées sur le domaine d'activité de Bureau Veritas dont, notamment, l'application hybrid Android/Ios MyVeristar</p>",
+                        poste: "Développeur FullStack",
+                        duree: "novembre 2015 - Aujourd'hui (1 ans)",
+                        effectif: "env. 20 personnes sur Nantes + 1 équipe de taille variable en Inde",
+                        technos: ["Java, MyBatis, SpringMVC",
+                            "ExtJS, AngularJS, Ionic",
+                            "SqlServer",
+                            "Mantis, Jenkins"
+                        ]
+                    },
+                    {
                         projet: "ERDF",
                         vignette: "imgs/vignette_exp_steria_erdf.jpg",
                         descriptionProjet: "<p>Le projet TAMARIS est une application destinée aux agents d'ERDF afin de planifier et d'organiser leurs activités sur le terrain.</p>" +
@@ -18,7 +33,7 @@ angular.module('website').service('ExperienceService',
                         "<p>Mon poste à évolué avec la croissance de l'effectif Nantais, passant respectivement de Team Leader à Chef de Projet adjoint puis Chef de Projet MCO.</p>" +
                         "<p>Dans un souhait de me re-centrer sur l'activité de développement, j'ai cédé ma place de CP MCO pour reprendre une place de Référent Technique.</p>",
                         poste: "TEAM-LEADER",
-                        duree: "mai 2013 - Aujourd'hui (2 ans)",
+                        duree: "mai 2013 - novembre 2015 (2,5 ans)",
                         effectif: "env. 70 personnes (dont 40 à Nantes)",
                         technos: ["Java, Hibernate, SpringMVC, SpringBatch",
                             "Flex, AngularJS",
