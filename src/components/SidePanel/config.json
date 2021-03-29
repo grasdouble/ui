@@ -1,0 +1,18 @@
+[
+    {
+        "key":"aboutme",
+        "text": "About Me"
+    },
+    {
+        "key":"background",
+        "text": "Background"
+    },
+    {
+        "key":"skills",
+        "text": "Skills"
+    },
+    {
+        "key":"contactme",
+        "text": "Contact Me"
+    }
+]

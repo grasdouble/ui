@@ -16,58 +16,73 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
+
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import BookmarksIcon from "@material-ui/icons/Bookmarks";
+import InsertChartIcon from "@material-ui/icons/InsertChart";
+import DraftsIcon from "@material-ui/icons/Drafts";
+
+import config from "./config.json";
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      display: 'flex',
+      display: "flex",
     },
     drawer: {
       width: drawerWidth,
       flexShrink: 0,
-      whiteSpace: 'nowrap',
+      whiteSpace: "nowrap",
     },
     drawerOpen: {
       width: drawerWidth,
-      transition: theme.transitions.create('width', {
+      transition: theme.transitions.create("width", {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
       }),
     },
     drawerClose: {
-      transition: theme.transitions.create('width', {
+      transition: theme.transitions.create("width", {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-      overflowX: 'hidden',
+      overflowX: "hidden",
       width: theme.spacing(7) + 1,
-      [theme.breakpoints.up('sm')]: {
+      [theme.breakpoints.up("sm")]: {
         width: theme.spacing(9) + 1,
       },
     },
     toolbar: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'flex-end',
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-end",
       padding: theme.spacing(0, 1),
       ...theme.mixins.toolbar,
     },
-  }),
+  })
 );
 
+const mapIcons = new Map([
+  ["aboutme", <AccountCircleIcon />],
+  ["background", <BookmarksIcon />],
+  ["skills", <InsertChartIcon />],
+  ["contactme", <DraftsIcon />],
+]);
+
 interface MyProps {
-  children?: React.ReactNode;
   sidepanelState: Boolean;
   sidepanelFct: Function;
+  pageState: String;
+  pageFct: Function;
 }
 
 const SidePanel: React.FunctionComponent<MyProps> = ({
   sidepanelState,
   sidepanelFct,
-  children,
+  pageState,
+  pageFct,
 }) => {
   const classes = useStyles();
   const theme = useTheme();
@@ -98,18 +113,15 @@ const SidePanel: React.FunctionComponent<MyProps> = ({
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
-              <ListItemText primary={text} />
+          {config.map((item) => (
+            <ListItem button key={item.key} selected={item.key === pageState} onClick={() => pageFct(item.key)} >
+              <ListItemIcon>{mapIcons.get(item.key)}</ListItemIcon>
+              <ListItemText primary={item.text} />
             </ListItem>
           ))}
         </List>
         <Divider />
       </Drawer>
-      {children}
     </div>
   );
 };
