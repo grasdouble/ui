@@ -1,39 +1,93 @@
 import React from "react";
 
+import Stepper from "@material-ui/core/Stepper";
+import Step from "@material-ui/core/Step";
+import StepLabel from "@material-ui/core/StepLabel";
+import StepButton from "@material-ui/core/StepButton";
+
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
+import { StyleConnector, StyleStepIcon, useStyles } from "./BackgroundStyles";
+
+const getSteps = () => {
+  return ["IM'Info", "Sopra/Steria", "Infotel", "Talend"];
+};
+
+const getStepContent = (step: number) => {
+  switch (step) {
+    case 0:
+      return "IM'Info content";
+    case 1:
+      return "Sopra/Steria content";
+    case 2:
+      return "Infotel content";
+    case 3:
+      return "Talend content";
+    default:
+      return "Unknown step";
+  }
+};
+
 const Background: React.FunctionComponent = () => {
+  const classes = useStyles();
+  const [activeStep, setActiveStep] = React.useState(1);
+  const steps = getSteps();
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleStep = (step: number) => () => {
+    setActiveStep(step);
+  };
+
   return (
-    <React.Fragment>
-      <Typography paragraph>
-        Background - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
-        non enim praesent elementum facilisis leo vel. Risus at ultrices mi
-        tempus imperdiet. Semper risus in hendrerit gravida rutrum quisque non
-        tellus. Convallis convallis tellus id interdum velit laoreet id donec
-        ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl
-        suscipit adipiscing bibendum est ultricies integer quis. Cursus euismod
-        quis viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet
-        proin fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras
-        tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum
-        varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
-        Lorem donec massa sapien faucibus et molestie ac.
-      </Typography>
-      <Typography paragraph>
-        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-        ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar elementum
-        integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi
-        lacus sed viverra tellus. Purus sit amet volutpat consequat mauris.
-        Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-        vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra
-        accumsan in. In hendrerit gravida rutrum quisque non tellus orci ac.
-        Pellentesque nec nam aliquam sem et tortor. Habitant morbi tristique
-        senectus et. Adipiscing elit duis tristique sollicitudin nibh sit.
-        Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra
-        maecenas accumsan lacus vel facilisis. Nulla posuere sollicitudin
-        aliquam ultrices sagittis orci a.
-      </Typography>
-    </React.Fragment>
+    <div className={classes.root}>
+      <Stepper
+        alternativeLabel
+        nonLinear
+        activeStep={activeStep}
+        connector={<StyleConnector />}
+      >
+        {steps.map((label, index) => (
+          <Step key={label}>
+            <StepButton onClick={handleStep(index)}>
+              <StepLabel StepIconComponent={StyleStepIcon}>{label}</StepLabel>
+            </StepButton>
+          </Step>
+        ))}
+      </Stepper>
+      <div>
+        <div>
+          <Typography className={classes.instructions}>
+            {getStepContent(activeStep)}
+          </Typography>
+          <div>
+            <Button
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              className={classes.button}
+            >
+              Back
+            </Button>
+            <Button
+              disabled={activeStep === steps.length - 1}
+              variant="contained"
+              color="primary"
+              onClick={handleNext}
+              className={classes.button}
+            >
+              Next
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
