@@ -7,8 +7,6 @@ import Background from "./Background";
 import Skills from "./Skills";
 import ContactMe from "./ContactMe";
 
-const drawerWidth = 240;
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -20,21 +18,15 @@ const useStyles = makeStyles((theme: Theme) =>
     content: {
       flexGrow: 1,
       padding: theme.spacing(3),
-      marginLeft: theme.spacing(7) + 1,
-      [theme.breakpoints.up("sm")]: {
-        marginLeft: theme.spacing(9) + 1,
+      marginLeft: theme.spacing(0),
+      marginRight: theme.spacing(0),
+      [theme.breakpoints.up("md")]: {
+        marginLeft: theme.spacing(9),
+        marginRight: theme.spacing(9),
       },
       transition: theme.transitions.create(["width", "margin"], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
-      }),
-    },
-    contentShift: {
-      marginLeft: drawerWidth,
-      width: `calc(100% - ${drawerWidth}px)`,
-      transition: theme.transitions.create(["width", "margin"], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
       }),
     },
   })
@@ -42,7 +34,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface MyProps {
   children?: React.ReactNode;
-  sidepanelState: Boolean;
   pageState: String;
   pageFct: Function;
 }
@@ -61,18 +52,11 @@ const getPage = (page: String) => {
   }
 };
 
-const Main: React.FunctionComponent<MyProps> = ({
-  sidepanelState,
-  pageState,
-}) => {
+const Main: React.FunctionComponent<MyProps> = ({ pageState }) => {
   const classes = useStyles();
 
   return (
-    <main
-      className={clsx(classes.content, {
-        [classes.contentShift]: sidepanelState,
-      })}
-    >
+    <main className={clsx(classes.content)}>
       <div className={classes.toolbar} />
       {getPage(pageState)}
     </main>
