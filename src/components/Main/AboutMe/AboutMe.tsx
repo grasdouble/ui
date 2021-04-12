@@ -11,6 +11,7 @@ import Button from "@material-ui/core/Button";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
+import CodeIcon from "@material-ui/icons/Code";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -85,6 +86,17 @@ const AboutMe: React.FunctionComponent<MyProps> = ({ openSidePanel }) => {
                     href="https://www.linkedin.com/in/sebastienlemouillour/"
                   >
                     LinkedIn
+                  </Button>
+                </Box>
+                <Box textAlign="left" mt={1}>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    startIcon={<CodeIcon fontSize="large" />}
+                    target="_blank"
+                    href="https://leetcode.com/smouillour/"
+                  >
+                    LeetCode
                   </Button>
                 </Box>
                 <Box textAlign="left" mt={1}>
