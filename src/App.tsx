@@ -21,7 +21,7 @@ function App() {
           pageState={page}
           pageFct={setPage}
         />
-        <Main pageState={page} pageFct={setPage} />
+        <Main pageState={page} pageFct={setPage} sidepanelFct={setOpen}/>
       </main>
     </div>
   );

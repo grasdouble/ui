@@ -36,9 +36,10 @@ interface MyProps {
   children?: React.ReactNode;
   pageState: String;
   pageFct: Function;
+  sidepanelFct: Function;
 }
 
-const getPage = (page: String) => {
+const getPage = (page: String, sidepanelFct: Function) => {
   switch (page) {
     case "background":
       return <Background />;
@@ -48,17 +49,17 @@ const getPage = (page: String) => {
       return <ContactMe />;
     case "aboutme":
     default:
-      return <AboutMe />;
+      return <AboutMe openSidePanel={sidepanelFct}/>;
   }
 };
 
-const Main: React.FunctionComponent<MyProps> = ({ pageState }) => {
+const Main: React.FunctionComponent<MyProps> = ({ pageState, sidepanelFct }) => {
   const classes = useStyles();
 
   return (
     <main className={clsx(classes.content)}>
       <div className={classes.toolbar} />
-      {getPage(pageState)}
+      {getPage(pageState, sidepanelFct)}
     </main>
   );
 };
