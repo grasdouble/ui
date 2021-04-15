@@ -1,7 +1,7 @@
 import React from "react";
 import Typography, { TypographyProps } from "@material-ui/core/Typography";
 
-const Steria: React.FunctionComponent = () => {
+const Infotel: React.FunctionComponent = () => {
   const typoProps: TypographyProps = {
     paragraph: true,
     variant: "h5",
@@ -30,4 +30,4 @@ const Steria: React.FunctionComponent = () => {
   );
 };
 
-export default Steria;
+export default Infotel;

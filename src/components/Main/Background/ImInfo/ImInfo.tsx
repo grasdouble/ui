@@ -1,7 +1,7 @@
 import React from "react";
 import Typography, { TypographyProps } from "@material-ui/core/Typography";
 
-const Infotel: React.FunctionComponent = () => {
+const ImInfo: React.FunctionComponent = () => {
   const typoProps: TypographyProps = {
     paragraph: true,
     variant: "h5",
@@ -29,4 +29,4 @@ const Infotel: React.FunctionComponent = () => {
   );
 };
 
-export default Infotel;
+export default ImInfo;

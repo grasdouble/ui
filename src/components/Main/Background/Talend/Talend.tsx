@@ -1,7 +1,7 @@
 import React from "react";
 
-const ImInfo: React.FunctionComponent = () => {
-  return <div>ImInfo Content</div>;
+const Talend: React.FunctionComponent = () => {
+  return <div>Talend Content</div>;
 };
 
-export default ImInfo;
+export default Talend;

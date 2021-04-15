@@ -1,7 +1,7 @@
 import React from "react";
 import Typography, { TypographyProps } from "@material-ui/core/Typography";
 
-const Talend: React.FunctionComponent = () => {
+const Steria: React.FunctionComponent = () => {
   const typoProps: TypographyProps = {
     paragraph: true,
     variant: "h5",
@@ -30,4 +30,4 @@ const Talend: React.FunctionComponent = () => {
   );
 };
 
-export default Talend;
+export default Steria;
