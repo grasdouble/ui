@@ -9,6 +9,10 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 import { StyleConnector, StyleStepIcon, useStyles } from "./BackgroundStyles";
+import ImInfo from "./ImInfo";
+import Steria from "./Steria";
+import Infotel from "./Infotel";
+import Talend from "./Talend";
 
 const getSteps = () => {
   return ["IM'Info", "Sopra/Steria", "Infotel", "Talend"];
@@ -17,13 +21,13 @@ const getSteps = () => {
 const getStepContent = (step: number) => {
   switch (step) {
     case 0:
-      return "IM'Info content";
+      return <ImInfo />;
     case 1:
-      return "Sopra/Steria content";
+      return <Steria />;
     case 2:
-      return "Infotel content";
+      return <Infotel />;
     case 3:
-      return "Talend content";
+      return <Talend />;
     default:
       return "Unknown step";
   }
