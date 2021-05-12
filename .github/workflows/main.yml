@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+    - develop
+
+jobs:
+  build-deploy:
+    name: Build and deploy sebastien-lemouillour.fr website
+    runs-on: ubuntu-latest
+
+steps:
+  - name: Checkout
+    uses: actions/checkout@v2
+  - name: Setup Yarn
+    uses: borales/actions-yarn@v2.0.0
+    with:
+      cmd: install # will run `yarn install` command
+  - name: Build Webapp
+  - uses: borales/actions-yarn@v2.0.0
+    with:
+      cmd: build # will run `yarn build` command
