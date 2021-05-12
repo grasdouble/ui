@@ -51,6 +51,10 @@ const AboutMe: React.FunctionComponent<MyProps> = ({ openSidePanel }) => {
       <Typography {...typoProps} className={classes.aboutMe}>
         Do not hesitate to browse it and contact me if my profile interests you.
       </Typography>
+      <Typography {...typoProps} className={classes.aboutMe}>
+        <b>Please, pay attention that this website is still under development and
+        some pages are not finished</b>
+      </Typography>
       <Box textAlign="center" m={1}>
         <Button
           variant="contained"
