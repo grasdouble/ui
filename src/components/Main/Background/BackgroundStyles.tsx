@@ -1,5 +1,10 @@
 import clsx from "clsx";
-import { makeStyles, Theme, createStyles, withStyles } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  Theme,
+  createStyles,
+  withStyles,
+} from "@material-ui/core/styles";
 import StepConnector from "@material-ui/core/StepConnector";
 import { StepIconProps } from "@material-ui/core/StepIcon";
 

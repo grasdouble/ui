@@ -16,8 +16,8 @@ const Steria: React.FunctionComponent = () => {
       </Typography>
       <Typography {...typoProps}>
         Steria (now named Sopra/Steria) is an IT Services company where i worked
-        for projects of the French Ministry of the Interior and Enedis (management
-        company of the public electricity distribution network).
+        for projects of the French Ministry of the Interior and Enedis
+        (management company of the public electricity distribution network).
         <br />
       </Typography>
       <Typography {...typoProps}>

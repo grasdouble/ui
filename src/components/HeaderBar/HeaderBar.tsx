@@ -8,7 +8,6 @@ import IconButton from "@material-ui/core/IconButton";
 
 import MenuIcon from "@material-ui/icons/Menu";
 
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -31,9 +30,7 @@ interface MyProps {
   sidepanelFct: Function;
 }
 
-const HeaderBar: React.FunctionComponent<MyProps> = ({
-  sidepanelFct,
-}) => {
+const HeaderBar: React.FunctionComponent<MyProps> = ({ sidepanelFct }) => {
   const classes = useStyles();
 
   return (
