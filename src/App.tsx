@@ -1,19 +1,24 @@
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { MuiThemeProvider } from "@material-ui/core/styles";
 import "@fontsource/roboto";
 
+import { themeLight } from "./utils/themeLight";
+import { themeDark } from "./utils/themeDark";
 import HeaderBar from "./components/HeaderBar";
 import SidePanel from "./components/SidePanel";
 import Main from "./components/Main";
 import UnderConstruction from "./components/UnderConstruction";
 
 function App() {
+  const isLight = true;
   const [open, setOpen] = React.useState(false);
   const [page, setPage] = React.useState("aboutme");
   const GetContent = () => {
     if (localStorage.getItem("dev")) {
       return (
-        <React.Fragment>
+        <MuiThemeProvider theme={isLight ? themeLight : themeDark}>
+          <CssBaseline />
           <HeaderBar sidepanelFct={setOpen} />
           <SidePanel
             sidepanelState={open}
@@ -23,7 +28,7 @@ function App() {
           />
 
           <Main pageState={page} pageFct={setPage} sidepanelFct={setOpen} />
-        </React.Fragment>
+        </MuiThemeProvider>
       );
     } else {
       return <UnderConstruction />;
@@ -32,7 +37,6 @@ function App() {
 
   return (
     <div className="App">
-      <CssBaseline />
       <header className="App-header"></header>
       <main>
         <GetContent />

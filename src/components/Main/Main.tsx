@@ -71,7 +71,7 @@ interface MyProps {
   sidepanelFct: Function;
 }
 
-const getPage = (page: String, sidepanelFct: Function) => {
+const getPage = (page: String, pageFct: Function, sidepanelFct: Function) => {
   switch (page) {
     case "background":
       return <Background />;
@@ -81,12 +81,13 @@ const getPage = (page: String, sidepanelFct: Function) => {
       return <ContactMe />;
     case "aboutme":
     default:
-      return <AboutMe openSidePanel={sidepanelFct} />;
+      return <AboutMe openPage={pageFct} openSidePanel={sidepanelFct} />;
   }
 };
 
 const Main: React.FunctionComponent<MyProps> = ({
   pageState,
+  pageFct,
   sidepanelFct,
 }) => {
   const classes = useStyles();
@@ -154,7 +155,7 @@ const Main: React.FunctionComponent<MyProps> = ({
             </Grid>
           </Grid>
           <Grid key="aboutMe" item sm={12} md={9} lg={10}>
-            {getPage(pageState, sidepanelFct)}
+            {getPage(pageState, pageFct, sidepanelFct)}
           </Grid>
         </Grid>
       </Container>
