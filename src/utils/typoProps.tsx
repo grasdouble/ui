@@ -1,15 +1,23 @@
 import { TypographyProps } from "@material-ui/core/Typography";
 
-export const typoTitleProps: TypographyProps = {
+export const typoH1Props: TypographyProps = {
   paragraph: false,
   variant: "h1",
-  align: "justify",
 };
 
-export const typoSubTitleProps: TypographyProps = {
+export const typoH2Props: TypographyProps = {
   paragraph: false,
   variant: "h2",
-  align: "justify",
+};
+
+export const typoH3Props: TypographyProps = {
+  paragraph: false,
+  variant: "h3",
+};
+
+export const typoCaptionProps: TypographyProps = {
+  paragraph: true,
+  variant: "caption",
 };
 
 export const typoTextProps: TypographyProps = {

@@ -2,15 +2,15 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 
 import {
-  typoTitleProps,
+  typoH1Props,
+  typoH2Props,
   typoTextProps,
-  typoSubTitleProps,
 } from "../../../../utils/typoProps";
 
 const Steria: React.FunctionComponent = () => {
   return (
     <div>
-      <Typography {...typoTitleProps}>Steria (2009 -&gt; 2015)</Typography>
+      <Typography {...typoH1Props}>Steria: 2009 - 2015</Typography>
       <Typography {...typoTextProps}>
         After my first experience, I entered at Steria as software ingeneer in
         2009 and where i worked during 6 years (2015).
@@ -29,7 +29,7 @@ const Steria: React.FunctionComponent = () => {
         needs and transform that in specification.
         <br />
       </Typography>
-      <Typography {...typoSubTitleProps}>
+      <Typography {...typoH2Props}>
         Most Important Project / Customer
       </Typography>
     </div>

@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 
-import { typoTitleProps, typoTextProps } from "../../../utils/typoProps";
+import { typoH1Props, typoTextProps } from "../../../utils/typoProps";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,7 +31,7 @@ const AboutMe: React.FunctionComponent<MyProps> = ({
 
   return (
     <Container maxWidth="lg">
-      <Typography {...typoTitleProps}>About Me</Typography>
+      <Typography {...typoH1Props}>About Me</Typography>
       <Typography {...typoTextProps} className={classes.aboutMe}>
         Developer since approximatively <b>{nbXp} years</b>, I started to
         develop on backend side and after <b>8 years to work with Java</b>, I

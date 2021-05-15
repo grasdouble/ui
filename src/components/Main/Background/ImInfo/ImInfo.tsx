@@ -2,15 +2,15 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 
 import {
-  typoTitleProps,
+  typoH1Props,
+  typoH2Props,
   typoTextProps,
-  typoSubTitleProps,
 } from "../../../../utils/typoProps";
 
 const ImInfo: React.FunctionComponent = () => {
   return (
     <div>
-      <Typography {...typoTitleProps}>Im'Info (2007 -&gt; 2009)</Typography>
+      <Typography {...typoH1Props}>Im'Info: 2007 - 2009</Typography>
       <Typography {...typoTextProps}>
         My career begins in 2007 with ImInfo where I did my end-of-studies
         internship and I had the opportunity to start my real working experience
@@ -27,7 +27,7 @@ const ImInfo: React.FunctionComponent = () => {
         on different projects in Java and I contributed to the creation of
         multiple training support until 2009.
       </Typography>
-      <Typography {...typoSubTitleProps}>
+      <Typography {...typoH2Props}>
         Most Important Project / Customer
       </Typography>
     </div>
