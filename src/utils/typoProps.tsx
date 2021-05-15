@@ -14,6 +14,6 @@ export const typoSubTitleProps: TypographyProps = {
 
 export const typoTextProps: TypographyProps = {
   paragraph: true,
-  variant: "h5",
+  variant: "body1",
   align: "justify",
 };

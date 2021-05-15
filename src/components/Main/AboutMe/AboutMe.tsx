@@ -51,29 +51,17 @@ const AboutMe: React.FunctionComponent<MyProps> = ({
           variant="contained"
           color="primary"
           startIcon={<PlayCircleOutlineIcon fontSize="large" />}
-          onClick={() => openSidePanel(true)}
-        >
-          Display Menu
-        </Button>
-      </Box>
-      <Box textAlign="center" m={1}>
-        <Button
-          variant="contained"
-          color="primary"
-          startIcon={<PlayCircleOutlineIcon fontSize="large" />}
           onClick={() => openPage("background")}
         >
           My background
-        </Button>
-      </Box>
-      <Box textAlign="center" m={1}>
+        </Button>{" "}
         <Button
           variant="contained"
           color="primary"
           startIcon={<PlayCircleOutlineIcon fontSize="large" />}
           onClick={() => openSidePanel(true)}
         >
-          My skills
+          Display Menu
         </Button>
       </Box>
     </Container>

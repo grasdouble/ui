@@ -16,6 +16,7 @@ import AboutMe from "./AboutMe";
 import Background from "./Background";
 import Skills from "./Skills";
 import ContactMe from "./ContactMe";
+import ThemePage from "./Theme";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -79,6 +80,8 @@ const getPage = (page: String, pageFct: Function, sidepanelFct: Function) => {
       return <Skills />;
     case "contactme":
       return <ContactMe />;
+    case "theme":
+      return <ThemePage />;
     case "aboutme":
     default:
       return <AboutMe openPage={pageFct} openSidePanel={sidepanelFct} />;

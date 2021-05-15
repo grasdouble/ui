@@ -3,8 +3,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import "@fontsource/roboto";
 
-import { themeLight } from "./utils/themeLight";
-import { themeDark } from "./utils/themeDark";
+import { themeLight } from "./utils/theme/themeLight";
+import { themeDark } from "./utils/theme/themeDark";
 import HeaderBar from "./components/HeaderBar";
 import SidePanel from "./components/SidePanel";
 import Main from "./components/Main";
