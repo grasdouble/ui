@@ -13,7 +13,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import BookmarksIcon from "@material-ui/icons/Bookmarks";
 import InsertChartIcon from "@material-ui/icons/InsertChart";
 import DraftsIcon from "@material-ui/icons/Drafts";
-import MenuBookIcon from '@material-ui/icons/MenuBook';
+import MenuBookIcon from "@material-ui/icons/MenuBook";
 
 import config from "./config.json";
 
@@ -28,7 +28,7 @@ const mapIcons = new Map([
   ["background", <BookmarksIcon />],
   ["skills", <InsertChartIcon />],
   ["contactme", <DraftsIcon />],
-  ["diary", <MenuBookIcon />],
+  ["logbook", <MenuBookIcon />],
 ]);
 
 interface MyProps {

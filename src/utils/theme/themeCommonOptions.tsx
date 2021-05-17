@@ -40,32 +40,32 @@ let themeCommonOptions = {
   typography: {
     h1: {
       fontSize: "3.5rem",
-      textDecoration: "underline",
+      //textDecoration: "underline",
       paddingBottom: "1rem",
     },
     h2: {
       fontSize: "2.5rem",
-      textDecoration: "underline",
+      //textDecoration: "underline",
       paddingBottom: "1rem",
     },
     h3: {
       fontSize: "2rem",
-      textDecoration: "underline",
+      //textDecoration: "underline",
       paddingBottom: "1rem",
     },
     h4: {
       fontSize: "1.5rem",
-      textDecoration: "underline",
+      //textDecoration: "underline",
       paddingBottom: "1rem",
     },
     h5: {
       fontSize: "1.25rem",
-      textDecoration: "underline",
+      //textDecoration: "underline",
       paddingBottom: "1rem",
     },
     h6: {
       fontSize: "1.125rem",
-      textDecoration: "underline",
+      //textDecoration: "underline",
       paddingBottom: "1rem",
     },
     subtitle1: {

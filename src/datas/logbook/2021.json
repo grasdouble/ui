@@ -1,0 +1,85 @@
+[
+  {
+    "date": "0000-00-00",
+    "entries": [
+      {
+        "value": "",
+        "type": ""
+      },
+      {
+        "value": "",
+        "type": ""
+      },
+      {
+        "value": "",
+        "type": ""
+      }
+    ]
+  },
+  {
+    "date": "2021-05-17",
+    "entries": [
+      {
+        "value": "About the logbook",
+        "type": "title"
+      },
+      {
+        "value": "I moved the content in a JSON file. That will reduce the number of lines in the TSX and i don't want to have to manage a database for that with CRUD,...",
+        "type": "text"
+      },
+      {
+        "value": "I worked a little bit on the ui. no big changes but a little bit less ugly.",
+        "type": "text"
+      },
+      {
+        "value": "New idea",
+        "type": "title"
+      },
+      {
+        "value": "Create a section to publish some short articles. it comes after reading an article about linked list.",
+        "type": "text"
+      },
+      {
+        "value": "I think that write article can help me to more understood concept or new things.",
+        "type": "text"
+      },
+      {
+        "value": "Let's try that later.",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "date": "2021-05-15",
+    "entries": [
+      {
+        "value": "Add a logbook?? Why??",
+        "type": "title"
+      },
+      {
+        "value": "It might not be something original but, today, after working on this site playing with Material-ui, I decided to create this page.",
+        "type": "text"
+      },
+      {
+        "value": "The idea is simple.",
+        "type": "text"
+      },
+      {
+        "value": "Write a few words regularly about what I did, learned or discovered during the day or, if I am not doing it daily, the last few days.",
+        "type": "text"
+      },
+      {
+        "value": "Note 1: The current version of the logbook is ugly. Need to rethink it later",
+        "type": "caption"
+      },
+      {
+        "value": "Note 2: Same for the background page.",
+        "type": "caption"
+      },
+      {
+        "value": "Note 3: More globally, need to work on the theme.",
+        "type": "caption"
+      }
+    ]
+  }
+]

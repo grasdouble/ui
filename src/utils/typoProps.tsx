@@ -15,6 +15,21 @@ export const typoH3Props: TypographyProps = {
   variant: "h3",
 };
 
+export const typoH4Props: TypographyProps = {
+  paragraph: false,
+  variant: "h4",
+};
+
+export const typoH5Props: TypographyProps = {
+  paragraph: false,
+  variant: "h5",
+};
+
+export const typoH6Props: TypographyProps = {
+  paragraph: false,
+  variant: "h6",
+};
+
 export const typoCaptionProps: TypographyProps = {
   paragraph: true,
   variant: "caption",
