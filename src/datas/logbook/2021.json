@@ -32,11 +32,15 @@
         "type": "text"
       },
       {
-        "value": "New idea",
+        "value": "New ideas",
         "type": "title"
       },
       {
-        "value": "Create a section to publish some short articles. it comes after reading an article about linked list.",
+        "value": "1- Create a section to publish some short articles",
+        "type": "subtitle"
+      },
+      {
+        "value": "It comes after reading an article about linked list.",
         "type": "text"
       },
       {
@@ -45,6 +49,14 @@
       },
       {
         "value": "Let's try that later.",
+        "type": "text"
+      },
+      {
+        "value": "2- Create a component to display github activities",
+        "type": "subtitle"
+      },
+      {
+        "value": "Create a component to display github activities on the home page (hint: https://api.github.com/users/Noofreuuuh/events).",
         "type": "text"
       }
     ]
