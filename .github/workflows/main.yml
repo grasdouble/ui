@@ -27,4 +27,4 @@ jobs:
           password: ${{ secrets.ftp_password }}
           local-dir: ./build/
           server-dir: ./
-          state-name: ./.ftp-deploy-sync-state.json
+          # state-name: ./.ftp-deploy-sync-state.json
