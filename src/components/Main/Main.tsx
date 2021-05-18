@@ -101,7 +101,7 @@ const Main: React.FunctionComponent<MyProps> = ({
   return (
     <main className={clsx(classes.content)}>
       <div className={classes.toolbar} />
-      <Container maxWidth="lg">
+      <Container maxWidth={false}>
         <Grid
           container
           className={classes.gridMain}

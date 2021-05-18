@@ -4,15 +4,40 @@
     "entries": [
       {
         "value": "",
-        "type": ""
+        "type": "title"
       },
       {
         "value": "",
-        "type": ""
+        "type": "subtitle"
       },
       {
         "value": "",
-        "type": ""
+        "type": "text"
+      },
+      {
+        "value": "",
+        "type": "caption"
+      }
+    ]
+  },
+  {
+    "date": "2021-05-18",
+    "entries": [
+      {
+        "value": "Changes on the home page",
+        "type": "title"
+      },
+      {
+        "value": "As mentionned last time, I added two new things on the main page (a quick overview of the logbook and my github activities with the account 'Noofreuuuh')",
+        "type": "text"
+      },
+      {
+        "value": "Like each time this is a first version, improvement will come later. I just need to know if i will keep those two things there or not",
+        "type": "text"
+      },
+      {
+        "value": "",
+        "type": "caption"
       }
     ]
   },
