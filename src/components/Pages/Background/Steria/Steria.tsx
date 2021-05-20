@@ -3,7 +3,6 @@ import Typography from "@material-ui/core/Typography";
 
 import {
   typoH1Props,
-  typoH2Props,
   typoTextProps,
 } from "../../../../utils/typoProps";
 
@@ -28,9 +27,6 @@ const Steria: React.FunctionComponent = () => {
         activities. I also worked closely with the customers to collect their
         needs and transform that in specification.
         <br />
-      </Typography>
-      <Typography {...typoH2Props}>
-        Most Important Project / Customer
       </Typography>
     </div>
   );

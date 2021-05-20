@@ -3,7 +3,6 @@ import Typography from "@material-ui/core/Typography";
 
 import {
   typoH1Props,
-  typoH2Props,
   typoTextProps,
 } from "../../../../utils/typoProps";
 
@@ -26,9 +25,6 @@ const Infotel: React.FunctionComponent = () => {
         frontend activities. Fortunately for me, the customer has multiple
         projects where frontend skills was needed. During this 2 years, i worked
         on projects using Angular and Ionic.
-      </Typography>
-      <Typography {...typoH2Props}>
-        Most Important Project / Customer
       </Typography>
     </div>
   );

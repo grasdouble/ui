@@ -7,10 +7,13 @@ import Container from "@material-ui/core/Container";
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Divider from "@material-ui/core/Divider";
+import Typography from "@material-ui/core/Typography";
 
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 import CodeIcon from "@material-ui/icons/Code";
+import { typoH4Props } from "../../../utils/typoProps";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -56,6 +59,9 @@ const useStyles = makeStyles((theme: Theme) =>
         height: theme.spacing(20),
       },
     },
+    divider: {
+      marginBottom: "20px",
+    },
   })
 );
 
@@ -66,6 +72,12 @@ const Main: React.FunctionComponent = (props) => {
     <main className={clsx(classes.content)}>
       <div className={classes.toolbar} />
       <Container maxWidth={false}>
+        <Divider className={classes.divider} />
+        <Typography {...typoH4Props} color="error" align="center">
+          !! The website is still under construction and some pages may not work
+          properly or the content may be empty !!
+        </Typography>
+        <Divider className={classes.divider} />
         <Grid
           container
           className={classes.gridMain}

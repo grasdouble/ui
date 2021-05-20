@@ -3,7 +3,6 @@ import Typography from "@material-ui/core/Typography";
 
 import {
   typoH1Props,
-  typoH2Props,
   typoTextProps,
 } from "../../../../utils/typoProps";
 
@@ -26,9 +25,6 @@ const Talend: React.FunctionComponent = () => {
         This is there where i had the opportunity to put in place all what i
         learned in my previous experiences to manage big features, to reduce the
         risk of production issues and improve team work.
-      </Typography>
-      <Typography {...typoH2Props}>
-        Most Important Project / Customer
       </Typography>
     </div>
   );

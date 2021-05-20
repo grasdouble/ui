@@ -18,7 +18,7 @@ function App() {
   const [page, setPage] = React.useState("aboutme");
 
   const GetContent = () => {
-    if (localStorage.getItem("dev")) {
+    if (true) {
       return (
         <MuiThemeProvider theme={isLight ? themeLight : themeDark}>
           <CssBaseline />

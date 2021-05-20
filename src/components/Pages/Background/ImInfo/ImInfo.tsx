@@ -3,7 +3,6 @@ import Typography from "@material-ui/core/Typography";
 
 import {
   typoH1Props,
-  typoH2Props,
   typoTextProps,
 } from "../../../../utils/typoProps";
 
@@ -26,9 +25,6 @@ const ImInfo: React.FunctionComponent = () => {
         In this company I applied what I learned during my studies while working
         on different projects in Java and I contributed to the creation of
         multiple training support until 2009.
-      </Typography>
-      <Typography {...typoH2Props}>
-        Most Important Project / Customer
       </Typography>
     </div>
   );

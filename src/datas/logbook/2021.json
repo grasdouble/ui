@@ -24,6 +24,18 @@
     "date": "2021-05-21",
     "entries": [
       {
+        "value": "The website is online",
+        "type": "title"
+      },
+      {
+        "value": "I switch on the access to the website even if all is not finished. let's see later if it's a good idea or not. ",
+        "type": "text"
+      },
+      {
+        "value": "I can always move back to the \"under construction page\" later if needed (maybe i will create a github action to switch on/off that).",
+        "type": "text"
+      },
+      {
         "value": "React-router integration",
         "type": "title"
       },

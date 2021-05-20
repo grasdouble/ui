@@ -46,9 +46,7 @@ const HeaderBar: React.FunctionComponent<MyProps> = ({ sidepanelFct }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography noWrap>
-            Sebastien Le Mouillour
-          </Typography>
+          <Typography noWrap>Sebastien Le Mouillour</Typography>
         </Toolbar>
       </AppBar>
     </div>
