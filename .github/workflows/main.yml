@@ -15,6 +15,12 @@ jobs:
         uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install # will run `yarn install` command
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+          find: "SECRET_GOOGLE_ANALYTICS"
+          replace: ${{ secrets.google_analytics }}
+          include: "config.json"
       - name: Build Webapp
         uses: borales/actions-yarn@v2.0.0
         with:

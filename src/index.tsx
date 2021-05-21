@@ -1,10 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import ReactGA from "react-ga";
+
 import "index.css";
 import App from "App";
 import reportWebVitals from "reportWebVitals";
 
 import { BrowserRouter as Router } from "react-router-dom";
+import config from "config.json";
+
+ReactGA.initialize(config.googleAnalytics);
 
 ReactDOM.render(
   <React.StrictMode>
