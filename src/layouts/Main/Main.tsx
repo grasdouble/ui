@@ -2,6 +2,8 @@ import React from "react";
 import clsx from "clsx";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { MuiThemeProvider } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Avatar from "@material-ui/core/Avatar";
@@ -14,7 +16,13 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 import CodeIcon from "@material-ui/icons/Code";
 
+import { themeLight } from "utils/theme/themeLight";
+import { themeDark } from "utils/theme/themeDark";
 import { typoH4Props } from "utils/typoProps";
+
+import HeaderBar from "./HeaderBar";
+import SidePanel from "./SidePanel";
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -69,7 +77,20 @@ const useStyles = makeStyles((theme: Theme) =>
 const Main: React.FunctionComponent = (props) => {
   const classes = useStyles();
 
+  const isLight = true;
+  const [open, setOpen] = React.useState(false);
+  const [page, setPage] = React.useState("aboutme");
+
   return (
+    <MuiThemeProvider theme={isLight ? themeLight : themeDark}>
+    <CssBaseline />
+    <HeaderBar sidepanelFct={setOpen} />
+    <SidePanel
+      sidepanelState={open}
+      sidepanelFct={setOpen}
+      pageState={page}
+      pageFct={setPage}
+    />
     <main className={clsx(classes.content)}>
       <div className={classes.toolbar} />
       <Container maxWidth={false}>
@@ -143,6 +164,7 @@ const Main: React.FunctionComponent = (props) => {
         </Grid>
       </Container>
     </main>
+    </MuiThemeProvider>
   );
 };
 
