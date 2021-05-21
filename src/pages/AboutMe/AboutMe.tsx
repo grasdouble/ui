@@ -6,7 +6,7 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 
-import MainTemplate from "../../Templates/Main";
+import MainTemplate from "layouts/Main";
 
 import GithubActivity from "./GithubActivity";
 import LogbookEntry from "./LogbookEntry";
@@ -14,7 +14,7 @@ import LogbookEntry from "./LogbookEntry";
 import {
   typoH1Props,
   typoTextProps,
-} from "../../../utils/typoProps";
+} from "utils/typoProps";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

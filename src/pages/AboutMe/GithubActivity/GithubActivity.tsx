@@ -10,7 +10,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 
-import { typoH1Props } from "../../../../utils/typoProps";
+import { typoH1Props } from "utils/typoProps";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

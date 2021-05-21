@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import {
   typoH1Props,
   typoTextProps,
-} from "../../../../utils/typoProps";
+} from "utils/typoProps";
 
 const ImInfo: React.FunctionComponent = () => {
   return (

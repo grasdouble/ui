@@ -9,9 +9,9 @@ import {
   typoH4Props,
   typoCaptionProps,
   typoTextProps,
-} from "./typoProps";
+} from "utils/typoProps";
 
-import data2021 from "../datas/logbook/2021.json";
+import data2021 from "datas/logbook/2021.json";
 
 const generateLogbookContent = (entries: any[], date: string) => {
   const result: JSX.Element[] = [];

@@ -1,10 +1,10 @@
 import { Route } from "react-router-dom";
 
-import AboutMe from "./components/Pages/AboutMe";
-import Background from "./components/Pages/Background";
-import Skills from "./components/Pages/Skills";
-import Logbook from "./components/Pages/Logbook";
-import ContactMe from "./components/Pages/ContactMe";
+import AboutMe from "./pages/AboutMe";
+import Background from "./pages/Background";
+import Skills from "./pages/Skills";
+import Logbook from "./pages/Logbook";
+import ContactMe from "./pages/ContactMe";
 
 export const routes = [
   {

@@ -3,7 +3,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 
-import MainTemplate from "../../Templates/Main";
+import MainTemplate from "layouts/Main";
 
 const ThemePage: React.FunctionComponent = () => {
   return (

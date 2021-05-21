@@ -24,6 +24,23 @@
     "date": "2021-05-21",
     "entries": [
       {
+        "value": "Cosmetic changes in code",
+        "type": "title"
+      },
+      {
+        "value": "I reorganize the code a little bit to not mix common components, pages and layout. That will be more easier to find a piece of code.",
+        "type": "text"
+      },
+      {
+        "value": "I change also the imports to use absolute path instead of relative path. That will help to understand from where come the imported code.",
+        "type": "text"
+      }
+    ]
+  },
+  {
+    "date": "2021-05-21",
+    "entries": [
+      {
         "value": "The website is online",
         "type": "title"
       },

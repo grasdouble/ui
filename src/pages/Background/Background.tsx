@@ -14,7 +14,7 @@ import Steria from "./Steria";
 import Infotel from "./Infotel";
 import Talend from "./Talend";
 
-import MainTemplate from "../../Templates/Main";
+import MainTemplate from "layouts/Main";
 
 const getSteps = () => {
   return ["IM'Info", "Sopra/Steria", "Infotel", "Talend"];

@@ -2,7 +2,7 @@ import React from "react";
 
 import Typography from "@material-ui/core/Typography";
 
-import MainTemplate from "../../Templates/Main";
+import MainTemplate from "layouts/Main";
 
 const ContactMe: React.FunctionComponent = () => {
   return (

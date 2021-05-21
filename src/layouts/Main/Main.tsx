@@ -13,7 +13,8 @@ import Typography from "@material-ui/core/Typography";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 import CodeIcon from "@material-ui/icons/Code";
-import { typoH4Props } from "../../../utils/typoProps";
+
+import { typoH4Props } from "utils/typoProps";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

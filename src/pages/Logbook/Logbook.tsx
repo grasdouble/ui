@@ -3,10 +3,10 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 
-import { typoH1Props, typoH3Props } from "../../../utils/typoProps";
-import { LogbookFull } from "../../../utils/logbookUtils";
+import { typoH1Props, typoH3Props } from "utils/typoProps";
+import { LogbookFull } from "components/Logbook";
 
-import MainTemplate from "../../Templates/Main";
+import MainTemplate from "layouts/Main";
 
 const Logbook: React.FunctionComponent = () => {
   return (

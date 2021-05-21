@@ -4,8 +4,8 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
 
-import { typoH1Props } from "../../../../utils/typoProps";
-import { LogbookLastEntry } from "../../../../utils/logbookUtils";
+import { typoH1Props } from "utils/typoProps";
+import { LogbookLastEntry } from "components/Logbook";
 
 const LogbookEntry: React.FunctionComponent = () => {
   return (
