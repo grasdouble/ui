@@ -7,7 +7,10 @@ import { routes, RouteWithSubRoutes } from "routes";
 
 import UnderConstruction from "components/UnderConstruction";
 
+import usePageTracking from "utils/usePageTracking";
+
 function App() {
+  usePageTracking();
   const GetContent = () => {
     if (true) {
       return (
