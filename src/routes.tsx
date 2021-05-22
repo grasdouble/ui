@@ -2,9 +2,7 @@ import { Route } from "react-router-dom";
 
 import AboutMe from "./pages/AboutMe";
 import Background from "./pages/Background";
-import Skills from "./pages/Skills";
 import Logbook from "./pages/Logbook";
-import ContactMe from "./pages/ContactMe";
 
 export const routes = [
   {
@@ -17,16 +15,8 @@ export const routes = [
     component: Background,
   },
   {
-    path: "/skills",
-    component: Skills,
-  },
-  {
     path: "/logbook",
     component: Logbook,
-  },
-  {
-    path: "/contact",
-    component: ContactMe,
   },
 ];
 
