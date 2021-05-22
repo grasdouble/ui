@@ -6,15 +6,27 @@ import App from "App";
 import reportWebVitals from "reportWebVitals";
 
 import { BrowserRouter as Router } from "react-router-dom";
+import config from "config.json";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+import GA4React from "ga-4-react";
+const ga4react = new GA4React(config.googleAnalytics);
+
+(async (_) => {
+  try {
+    await ga4react.initialize();
+  } catch (e) {
+    console.error("Addblock is activated");
+  }
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <Router>
+        <App />
+      </Router>
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+})();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
