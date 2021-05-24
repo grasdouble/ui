@@ -1,8 +1,10 @@
 import { Route } from "react-router-dom";
 
-import AboutMe from "./pages/AboutMe";
-import Background from "./pages/Background";
-import Logbook from "./pages/Logbook";
+import AboutMe from "pages/AboutMe";
+import Background from "pages/Background";
+import Logbook from "pages/Logbook";
+import Grabot from "pages/Projects/Grabot";
+import Leetcode from "pages/Projects/Leetcode";
 
 export const routes = [
   {
@@ -17,6 +19,14 @@ export const routes = [
   {
     path: "/logbook",
     component: Logbook,
+  },
+  {
+    path: "/projects/grabot",
+    component: Grabot,
+  },
+  {
+    path: "/projects/leetcode",
+    component: Leetcode,
   },
 ];
 

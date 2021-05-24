@@ -13,5 +13,22 @@
     "key": "logbook",
     "text": "Logbook",
     "path": "/logbook"
+  },
+  {
+    "key": "projects",
+    "text": "Projects",
+    "path": "#",
+    "nested": [
+      {
+        "key": "grabot",
+        "text": "Grabot",
+        "path": "/projects/grabot"
+      },
+      {
+        "key": "leetcode",
+        "text": "Leetcode",
+        "path": "/projects/leetcode"
+      }
+    ]
   }
 ]

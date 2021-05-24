@@ -11,12 +11,16 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import Collapse from "@material-ui/core/Collapse";
 
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import BookmarksIcon from "@material-ui/icons/Bookmarks";
 import InsertChartIcon from "@material-ui/icons/InsertChart";
 import DraftsIcon from "@material-ui/icons/Drafts";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
+import AccountTreeOutlinedIcon from "@material-ui/icons/AccountTreeOutlined";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
 
 import config from "./config.json";
 
@@ -32,20 +36,17 @@ const mapIcons = new Map([
   ["skills", <InsertChartIcon />],
   ["contactme", <DraftsIcon />],
   ["logbook", <MenuBookIcon />],
+  ["projects", <AccountTreeOutlinedIcon />],
 ]);
 
 interface MyProps {
   sidepanelState: boolean;
   sidepanelFct: Function;
-  pageState: String;
-  pageFct: Function;
 }
 
 const SidePanel: React.FunctionComponent<MyProps> = ({
   sidepanelState,
   sidepanelFct,
-  pageState,
-  pageFct,
 }) => {
   const classes = useStyles();
   const location = useLocation();
@@ -67,6 +68,37 @@ const SidePanel: React.FunctionComponent<MyProps> = ({
     return <LinkRouter to={path} {...props} />;
   };
 
+  const nestedList = (items: any[]) => {
+    const result: JSX.Element[] = [];
+    if (items.length > 0) {
+      items.forEach((nestedItem: any) => {
+        result.push(
+          <ListItem
+            button
+            key={nestedItem.key}
+            selected={nestedItem.path === location.pathname}
+            component={(props) => CustomLink(nestedItem.path, props)}
+          >
+            <ListItemIcon>{mapIcons.get(nestedItem.key)}</ListItemIcon>
+            <ListItemText primary={nestedItem.text} />
+          </ListItem>
+        );
+      });
+    }
+    return result;
+  };
+
+  const [open, setOpen] = React.useState(new Map<string, boolean>());
+  const [refreshMe, refreshSidepanel] = React.useState(false);
+
+  const handleClick = (item: string, e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
+    open.set(item, !open.get(item));
+    setOpen(open);
+    refreshSidepanel(!refreshMe);
+  };
+
   return (
     <div>
       <Drawer anchor="left" open={sidepanelState} onClose={toggleDrawer(false)}>
@@ -77,17 +109,37 @@ const SidePanel: React.FunctionComponent<MyProps> = ({
           onKeyDown={toggleDrawer(false)}
         >
           <List>
-            {config.map((item) => (
-              <ListItem
-                button
-                key={item.key}
-                selected={item.path === location.pathname}
-                component={(props) => CustomLink(item.path, props)}
-              >
-                <ListItemIcon>{mapIcons.get(item.key)}</ListItemIcon>
-                <ListItemText primary={item.text} />
-              </ListItem>
-            ))}
+            {config.map((item) => {
+              if (item.path !== "#") {
+                return (
+                  <ListItem
+                    button
+                    key={item.key}
+                    selected={item.path === location.pathname}
+                    component={(props) => CustomLink(item.path, props)}
+                  >
+                    <ListItemIcon>{mapIcons.get(item.key)}</ListItemIcon>
+                    <ListItemText primary={item.text} />
+                  </ListItem>
+                );
+              } else {
+                const isOpen = open.get(item.key);
+                return (
+                  <React.Fragment>
+                    <ListItem button onClick={(e) => handleClick(item.key, e)}>
+                      <ListItemIcon>{mapIcons.get(item.key)}</ListItemIcon>
+                      <ListItemText primary={item.text} />
+                      {isOpen ? <ExpandLess /> : <ExpandMore />}
+                    </ListItem>
+                    <Collapse in={isOpen} timeout="auto" unmountOnExit>
+                      <List component="div" disablePadding>
+                        {nestedList(item.nested || [])}
+                      </List>
+                    </Collapse>
+                  </React.Fragment>
+                );
+              }
+            })}
           </List>
           <Divider />
         </div>

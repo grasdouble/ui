@@ -21,6 +21,39 @@
     ]
   },
   {
+    "date": "2021-05-24",
+    "entries": [
+      {
+        "value": "Projects and Fix for mobile",
+        "type": "title"
+      },
+      {
+        "value": "The projects",
+        "type": "subtitle"
+      },
+      {
+        "value": "I added the menu \"Projects\" to share info about my personal projects, but instead of rewrite things already visible on the README.md, i decided to fetch the info directly from Github.",
+        "type": "text"
+      },
+      {
+        "value": "The second advantage is that i will not have to update the info on this website if there are new things. \\o/",
+        "type": "text"
+      },
+      {
+        "value": "Note: Only two projects for the moment. One or two more will come later after an update on their README file.",
+        "type": "caption"
+      },
+      {
+        "value": "Fix issues on mobile",
+        "type": "subtitle"
+      },
+      {
+        "value": "I didn't do some tests on mobile since few days and of course it was not optimized. Now that will be better (until the next check).",
+        "type": "text"
+      }
+    ]
+  },
+  {
     "date": "2021-05-21",
     "entries": [
       {

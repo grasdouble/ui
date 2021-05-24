@@ -15,13 +15,14 @@ import Looks4 from "@material-ui/icons/Looks4";
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      width: "100%",
-    },
     button: {
       marginRight: theme.spacing(1),
     },
-    instructions: {
+    stepRoot: {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
+    stepContent: {
       marginTop: theme.spacing(1),
       marginBottom: theme.spacing(1),
     },

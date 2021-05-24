@@ -54,46 +54,41 @@ const Background: React.FunctionComponent = () => {
 
   return (
     <MainTemplate>
-      <div className={classes.root}>
-        <Stepper
-          alternativeLabel
-          nonLinear
-          activeStep={activeStep}
-          connector={<StyleConnector />}
+      <Stepper
+        alternativeLabel
+        nonLinear
+        activeStep={activeStep}
+        connector={<StyleConnector />}
+        className={classes.stepRoot}
+      >
+        {steps.map((label, index) => (
+          <Step key={label}>
+            <StepButton onClick={handleStep(index)}>
+              <StepLabel StepIconComponent={StyleStepIcon}>{label}</StepLabel>
+            </StepButton>
+          </Step>
+        ))}
+      </Stepper>
+      <Typography className={classes.stepContent}>
+        {getStepContent(activeStep)}
+      </Typography>
+      <div>
+        <Button
+          disabled={activeStep === 0}
+          onClick={handleBack}
+          className={classes.button}
         >
-          {steps.map((label, index) => (
-            <Step key={label}>
-              <StepButton onClick={handleStep(index)}>
-                <StepLabel StepIconComponent={StyleStepIcon}>{label}</StepLabel>
-              </StepButton>
-            </Step>
-          ))}
-        </Stepper>
-        <div>
-          <div>
-            <Typography className={classes.instructions}>
-              {getStepContent(activeStep)}
-            </Typography>
-            <div>
-              <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                className={classes.button}
-              >
-                Back
-              </Button>
-              <Button
-                disabled={activeStep === steps.length - 1}
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                className={classes.button}
-              >
-                Next
-              </Button>
-            </div>
-          </div>
-        </div>
+          Back
+        </Button>
+        <Button
+          disabled={activeStep === steps.length - 1}
+          variant="contained"
+          color="primary"
+          onClick={handleNext}
+          className={classes.button}
+        >
+          Next
+        </Button>
       </div>
     </MainTemplate>
   );
