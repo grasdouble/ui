@@ -12,28 +12,45 @@ import {
 } from "utils/typoProps";
 
 import data2021 from "datas/logbook/2021.json";
+import { ClassNameMap } from "@material-ui/styles";
 
-const generateLogbookContent = (entries: any[], date: string) => {
+const generateLogbookContent = (
+  entries: any[],
+  date: string,
+  classes: ClassNameMap<"wrapText">
+) => {
   const result: JSX.Element[] = [];
   entries.forEach((entry, idx) => {
     switch (entry.type) {
       case "title":
         result.push(
-          <Typography {...typoH3Props} key={`logbook_item_${date}_${idx}`}>
+          <Typography
+            {...typoH3Props}
+            className={classes.wrapText}
+            key={`logbook_item_${date}_${idx}`}
+          >
             {entry.value}
           </Typography>
         );
         break;
       case "subtitle":
         result.push(
-          <Typography {...typoH4Props} key={`logbook_item_${date}_${idx}`}>
+          <Typography
+            {...typoH4Props}
+            className={classes.wrapText}
+            key={`logbook_item_${date}_${idx}`}
+          >
             {entry.value}
           </Typography>
         );
         break;
       case "caption":
         result.push(
-          <Typography {...typoCaptionProps} key={`logbook_item_${date}_${idx}`}>
+          <Typography
+            {...typoCaptionProps}
+            className={classes.wrapText}
+            key={`logbook_item_${date}_${idx}`}
+          >
             {entry.value}
           </Typography>
         );
@@ -41,7 +58,11 @@ const generateLogbookContent = (entries: any[], date: string) => {
       case "text":
       default:
         result.push(
-          <Typography {...typoTextProps} key={`logbook_item_${date}_${idx}`}>
+          <Typography
+            {...typoTextProps}
+            className={classes.wrapText}
+            key={`logbook_item_${date}_${idx}`}
+          >
             {entry.value}
           </Typography>
         );
@@ -55,6 +76,10 @@ export const LogbookFull = () => {
     createStyles({
       divider: {
         marginBottom: "20px",
+      },
+      wrapText: {
+        overflowWrap: "break-word",
+        hyphens: "auto",
       },
     })
   );
@@ -74,7 +99,7 @@ export const LogbookFull = () => {
           {day.date}
         </Typography>
       );
-      result.push(...generateLogbookContent(day.entries, day.date));
+      result.push(...generateLogbookContent(day.entries, day.date, classes));
     }
   });
   return <React.Fragment>{result}</React.Fragment>;
@@ -85,6 +110,10 @@ export const LogbookLastEntry = () => {
     createStyles({
       divider: {
         marginBottom: "20px",
+      },
+      wrapText: {
+        overflowWrap: "break-word",
+        hyphens: "auto",
       },
     })
   );
@@ -101,7 +130,7 @@ export const LogbookLastEntry = () => {
         {day.date}
       </Typography>
     );
-    result.push(...generateLogbookContent(day.entries, day.date));
+    result.push(...generateLogbookContent(day.entries, day.date, classes));
   });
   return <React.Fragment>{result}</React.Fragment>;
 };

@@ -156,8 +156,12 @@
         "type": "subtitle"
       },
       {
-        "value": "Create a component to display github activities on the home page (hint: https://api.github.com/users/Noofreuuuh/events).",
+        "value": "Create a component to display github activities on the home page.",
         "type": "text"
+      },
+      {
+        "value": "hint: https://api.github.com/users/Noofreuuuh/events",
+        "type": "caption"
       }
     ]
   },
