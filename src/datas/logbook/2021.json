@@ -21,6 +21,31 @@
     ]
   },
   {
+    "date": "2021-05-26",
+    "contents": [
+      {
+        "value": "Code review => Code improvements",
+        "type": "title"
+      },
+      {
+        "value": "After asking for feedback on linkedin, i received some comments about what i need to do to improve my code (thanks Axel, :D).",
+        "type": "text"
+      },
+      {
+        "value": "That was not a surprise, there was different things to fix and to improve.",
+        "type": "text"
+      },
+      {
+        "value": "Now the idea is to keep these changes in mind and stop to say that i will manage that later...",
+        "type": "text"
+      },
+      {
+        "value": "Note: forgot \"forEach\" if \"map\", \"reduce\" or \"filter\" is usable to manage your case.",
+        "type": "caption"
+      }
+    ]
+  },
+  {
     "date": "2021-05-24",
     "contents": [
       {
