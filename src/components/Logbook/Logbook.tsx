@@ -14,16 +14,40 @@ import {
 import data2021 from "datas/logbook/2021.json";
 import { ClassNameMap } from "@material-ui/styles";
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    divider: {
+      marginBottom: "20px",
+    },
+    wrapText: {
+      overflowWrap: "break-word",
+      hyphens: "auto",
+    },
+  })
+);
+
+type LogbookDayContent = {
+  type: string;
+  value: string;
+};
+
+type LogbookDay = {
+  date: string;
+  contents: LogbookDayContent[];
+};
+
+type LogbookProps = {
+  onlyLast?: boolean;
+};
+
 const generateLogbookContent = (
-  entries: any[],
-  date: string,
+  { date, contents }: LogbookDay,
   classes: ClassNameMap<"wrapText">
 ) => {
-  const result: JSX.Element[] = [];
-  entries.forEach((entry, idx) => {
+  const getContent = (entry: LogbookDayContent, idx: Number) => {
     switch (entry.type) {
       case "title":
-        result.push(
+        return (
           <Typography
             {...typoH3Props}
             className={classes.wrapText}
@@ -32,9 +56,8 @@ const generateLogbookContent = (
             {entry.value}
           </Typography>
         );
-        break;
       case "subtitle":
-        result.push(
+        return (
           <Typography
             {...typoH4Props}
             className={classes.wrapText}
@@ -43,9 +66,8 @@ const generateLogbookContent = (
             {entry.value}
           </Typography>
         );
-        break;
       case "caption":
-        result.push(
+        return (
           <Typography
             {...typoCaptionProps}
             className={classes.wrapText}
@@ -54,10 +76,9 @@ const generateLogbookContent = (
             {entry.value}
           </Typography>
         );
-        break;
       case "text":
       default:
-        result.push(
+        return (
           <Typography
             {...typoTextProps}
             className={classes.wrapText}
@@ -67,70 +88,34 @@ const generateLogbookContent = (
           </Typography>
         );
     }
-  });
-  return result;
+  };
+  return contents.map(getContent);
 };
 
-export const LogbookFull = () => {
-  const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-      divider: {
-        marginBottom: "20px",
-      },
-      wrapText: {
-        overflowWrap: "break-word",
-        hyphens: "auto",
-      },
-    })
-  );
+export const Logbook: React.FunctionComponent<LogbookProps> = ({
+  onlyLast,
+}) => {
   const classes = useStyles();
+  const data = onlyLast ? [data2021[1]] : data2021;
 
-  const result: JSX.Element[] = [];
-  data2021.forEach((day) => {
-    if (day.date !== "0000-00-00") {
-      result.push(
-        <Divider
-          className={classes.divider}
-          key={`logbook_item_divider_${day.date}`}
-        />
-      );
-      result.push(
-        <Typography {...typoH2Props} key={`logbook_item_date_${day.date}`}>
-          {day.date}
-        </Typography>
-      );
-      result.push(...generateLogbookContent(day.entries, day.date, classes));
-    }
-  });
-  return <React.Fragment>{result}</React.Fragment>;
-};
-
-export const LogbookLastEntry = () => {
-  const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-      divider: {
-        marginBottom: "20px",
-      },
-      wrapText: {
-        overflowWrap: "break-word",
-        hyphens: "auto",
-      },
-    })
-  );
-  const classes = useStyles();
-
-  const result: JSX.Element[] = [];
-  const days = [data2021[1]];
-  days.forEach((day) => {
-    result.push(
-      <Divider className={classes.divider} key="logbook_top_divider" />
+  const getLogbook = (logbookItem: LogbookDay) => {
+    return (
+      logbookItem.date !== "0000-00-00" && (
+        <React.Fragment>
+          <Divider
+            className={classes.divider}
+            key={`logbook_item_divider_${logbookItem.date}`}
+          />
+          <Typography
+            {...typoH2Props}
+            key={`logbook_item_date_${logbookItem.date}`}
+          >
+            {logbookItem.date}
+          </Typography>
+          {generateLogbookContent(logbookItem, classes)}
+        </React.Fragment>
+      )
     );
-    result.push(
-      <Typography {...typoH2Props} key="logbook_date">
-        {day.date}
-      </Typography>
-    );
-    result.push(...generateLogbookContent(day.entries, day.date, classes));
-  });
-  return <React.Fragment>{result}</React.Fragment>;
+  };
+  return <React.Fragment>{data.map(getLogbook)}</React.Fragment>;
 };

@@ -29,89 +29,104 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+type GithubActivityItem = {
+  actor: { display_login: string; avatar_url: string };
+  repo: { name: string };
+  created_at: string;
+  payload: { commits: GithubCommitInfo[]; ref: string };
+};
+
+type GithubCommitInfo = { sha: string; message: string };
+
+type fetchState = {
+  isLoading: boolean;
+  content: GithubActivityItem[];
+};
+
 const formatActivityItem = (
-  activity: {
-    actor: { display_login: any; avatar_url: any };
-    repo: { name: any };
-    created_at: any;
-    payload: { commits: never[] };
-  },
+  activity: GithubActivityItem,
   classes: { inline: string; divider: string }
 ) => {
   const login = activity.actor.display_login;
   const avatarUrl = activity.actor.avatar_url;
   const repoName = activity.repo.name;
+  const branchName = activity.payload.ref;
   const activityPush = activity.created_at;
   const commits = activity.payload.commits || [];
 
-  const result: JSX.Element[] = [];
-
-  commits.forEach((commit: { sha: string; message: string }, idx) => {
-    result.push(
-      <ListItem alignItems="flex-start" key={commit.sha}>
-        <ListItemAvatar key={`avatar_${commit.sha}`}>
-          <Avatar alt={login} src={avatarUrl} />
-        </ListItemAvatar>
-        <ListItemText
-          key={`info_${commit.sha}`}
-          primary={commit.message}
-          secondary={
-            <React.Fragment>
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-                On:{" "}
-              </Typography>
-              {repoName}
-              <br />
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-                Date:{" "}
-              </Typography>
-              {activityPush}
-            </React.Fragment>
-          }
-        />
-      </ListItem>
+  const getGithubContent = (commit: GithubCommitInfo) => {
+    return (
+      <React.Fragment>
+        <ListItem alignItems="flex-start" key={commit.sha}>
+          <ListItemAvatar key={`avatar_${commit.sha}`}>
+            <Avatar alt={login} src={avatarUrl} />
+          </ListItemAvatar>
+          <ListItemText
+            key={`info_${commit.sha}`}
+            primary={commit.message}
+            secondary={
+              <React.Fragment>
+                <Typography
+                  component="span"
+                  variant="body2"
+                  className={classes.inline}
+                  color="textPrimary"
+                >
+                  On:{" "}
+                </Typography>
+                {repoName}
+                <br />
+                <Typography
+                  component="span"
+                  variant="body2"
+                  className={classes.inline}
+                  color="textPrimary"
+                >
+                  branch:{" "}
+                </Typography>
+                {branchName.replace("refs/heads/", "")}
+                <br />
+                <Typography
+                  component="span"
+                  variant="body2"
+                  className={classes.inline}
+                  color="textPrimary"
+                >
+                  Date:{" "}
+                </Typography>
+                {activityPush}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <Divider className={classes.divider} key={`divider_${commit.sha}`} />
+      </React.Fragment>
     );
-    result.push(
-      <Divider className={classes.divider} key={`divider_${commit.sha}`} />
-    );
-  });
+  };
 
-  return result;
+  return commits.map(getGithubContent);
 };
 
 const formatActivities = (activities: any[], classes: any) => {
-  const result: JSX.Element[] = [];
-  activities.forEach((activity) => {
-    result.push(...formatActivityItem(activity, classes));
+  return activities.map((activity) => {
+    return formatActivityItem(activity, classes);
   });
-  return result;
 };
 
 const GithubActivity: React.FunctionComponent = () => {
   const classes = useStyles();
 
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState<fetchState>({
+    isLoading: false,
+    content: [],
+  });
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
-
+      setData({ isLoading: true, content: [] });
       const res = await fetch("https://api.github.com/users/Noofreuuuh/events");
       const json = await res.json();
-
-      setData(json);
-      setIsLoading(false);
+      setData({ isLoading: false, content: json });
     };
     fetchData();
   }, [setData]);
@@ -120,10 +135,12 @@ const GithubActivity: React.FunctionComponent = () => {
     <Container maxWidth="lg">
       <Typography {...typoH1Props}>Github Activity</Typography>
       <Divider className={classes.divider} />
-      {isLoading ? (
+      {data.isLoading ? (
         <div>Loading ...</div>
       ) : (
-        <List className={classes.root}>{formatActivities(data, classes)}</List>
+        <List className={classes.root}>
+          {formatActivities(data.content, classes)}
+        </List>
       )}
     </Container>
   );
