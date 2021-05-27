@@ -21,6 +21,7 @@ import MenuBookIcon from "@material-ui/icons/MenuBook";
 import AccountTreeOutlinedIcon from "@material-ui/icons/AccountTreeOutlined";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 
 import config from "./config.json";
 
@@ -37,6 +38,7 @@ const mapIcons = new Map([
   ["contactme", <DraftsIcon />],
   ["logbook", <MenuBookIcon />],
   ["projects", <AccountTreeOutlinedIcon />],
+  ["projects-archived", <PowerSettingsNewIcon />],
 ]);
 
 type SidePanelProps = {

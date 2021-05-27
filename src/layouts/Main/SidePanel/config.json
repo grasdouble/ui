@@ -30,5 +30,17 @@
         "path": "/projects/leetcode"
       }
     ]
+  },
+  {
+    "key": "projects-archived",
+    "text": "Projects archived",
+    "path": "#",
+    "nested": [
+      {
+        "key": "dashboard",
+        "text": "Dashboard",
+        "path": "/projects-archived/dashboard"
+      }
+    ]
   }
 ]

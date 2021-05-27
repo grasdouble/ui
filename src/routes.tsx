@@ -3,8 +3,7 @@ import { Route } from "react-router-dom";
 import AboutMe from "pages/AboutMe";
 import Background from "pages/Background";
 import Logbook from "pages/Logbook";
-import Grabot from "pages/Projects/Grabot";
-import Leetcode from "pages/Projects/Leetcode";
+import Projects from "pages/Projects/Projects";
 
 export const routes = [
   {
@@ -22,11 +21,19 @@ export const routes = [
   },
   {
     path: "/projects/grabot",
-    component: Grabot,
+    component: () => <Projects readmeUrl="Sanoofr/Grabot/main/README.md" />,
   },
   {
     path: "/projects/leetcode",
-    component: Leetcode,
+    component: () => (
+      <Projects readmeUrl="grasdouble/leetcode/main/README.md" />
+    ),
+  },
+  {
+    path: "/projects-archived/dashboard",
+    component: () => (
+      <Projects readmeUrl="grasdouble/Dashboard/master/README.md" />
+    ),
   },
 ];
 

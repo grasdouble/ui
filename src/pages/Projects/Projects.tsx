@@ -14,12 +14,16 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+type ProjectProps = {
+  readmeUrl: string;
+};
+
 type fetchState = {
   isLoading: boolean;
   content: string | undefined;
 };
 
-const Grabot: React.FunctionComponent = () => {
+const Projects: React.FunctionComponent<ProjectProps> = ({ readmeUrl }) => {
   const classes = useStyles();
 
   const [data, setData] = useState<fetchState>({
@@ -31,15 +35,13 @@ const Grabot: React.FunctionComponent = () => {
     const fetchData = async () => {
       setData({ isLoading: true, content: undefined });
 
-      const res = await fetch(
-        "https://raw.githubusercontent.com/Sanoofr/Grabot/main/README.md"
-      );
+      const res = await fetch(`https://raw.githubusercontent.com/${readmeUrl}`);
       const text = await res.text();
 
       setData({ isLoading: false, content: text });
     };
     fetchData();
-  }, [setData]);
+  }, [setData, readmeUrl]);
 
   return (
     <MainTemplate>
@@ -54,4 +56,4 @@ const Grabot: React.FunctionComponent = () => {
   );
 };
 
-export default Grabot;
+export default Projects;
