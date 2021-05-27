@@ -21,9 +21,10 @@ import MenuBookIcon from "@material-ui/icons/MenuBook";
 import AccountTreeOutlinedIcon from "@material-ui/icons/AccountTreeOutlined";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
-import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 
-import config from "./config.json";
+import config from "routes.json";
+import { RouteConfig } from "routes";
 
 const useStyles = makeStyles({
   list: {
@@ -44,12 +45,6 @@ const mapIcons = new Map([
 type SidePanelProps = {
   sidepanelState: boolean;
   sidepanelFct: Function;
-};
-type RouteConfig = {
-  key: string;
-  text: string;
-  path: string;
-  nested?: RouteConfig[];
 };
 
 const CustomLink = (

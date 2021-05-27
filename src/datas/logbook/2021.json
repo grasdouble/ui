@@ -21,6 +21,23 @@
     ]
   },
   {
+    "date": "2021-05-27",
+    "contents": [
+      {
+        "value": "Add archived projects and finally rework on the router",
+        "type": "title"
+      },
+      {
+        "value": "I started this session to add old projects on the website and, 2 hours later, i finally reworked the way to manage the router and the sidepanel.",
+        "type": "text"
+      },
+      {
+        "value": "At the end the changes on project side is not fully finished... :(",
+        "type": "text"
+      }
+    ]
+  },
+  {
     "date": "2021-05-26",
     "contents": [
       {

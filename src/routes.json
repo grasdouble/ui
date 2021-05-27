@@ -1,0 +1,101 @@
+[
+  {
+    "key": "aboutme",
+    "text": "About Me",
+    "component": "AboutMe",
+    "path": "/",
+    "exact": true
+  },
+  {
+    "key": "background",
+    "text": "Background",
+    "component": "AboutMe",
+    "path": "/background"
+  },
+  {
+    "key": "logbook",
+    "text": "Logbook",
+    "component": "Logbook",
+    "path": "/logbook"
+  },
+  {
+    "key": "projects",
+    "text": "Projects",
+    "path": "#",
+    "nested": [
+      {
+        "key": "leetcode",
+        "text": "Leetcode",
+        "component": "Projects",
+        "path": "/projects/leetcode",
+        "projectInfo": {
+          "startDate": "2021-01-10",
+          "githubUrl": "https://github.com/grasdouble/leetcode",
+          "readmePath": "grasdouble/leetcode/main/README.md"
+        }
+      },
+      {
+        "key": "grabot",
+        "text": "Grabot",
+        "component": "Projects",
+        "path": "/projects/grabot",
+        "projectInfo": {
+          "startDate": "2020-11-25",
+          "githubUrl": "https://github.com/Sanoofr/Grabot",
+          "readmePath": "Sanoofr/Grabot/main/README.md"
+        }
+      }
+    ]
+  },
+  {
+    "key": "projects-archived",
+    "text": "Projects archived",
+    "path": "#",
+    "nested": [
+      {
+        "key": "dashboard",
+        "text": "Dashboard",
+        "component": "Projects",
+        "path": "/projects-archived/dashboard",
+        "projectInfo": {
+          "startDate": "2019-04-19",
+          "githubUrl": "https://github.com/grasdouble/Dashboard",
+          "readmePath": "grasdouble/Dashboard/master/README.md"
+        }
+      },
+      {
+        "key": "annuaire-musees-back",
+        "text": "AnnuaireMusees (Back)",
+        "component": "Projects",
+        "path": "/projects-archived/annuaire-musees-back",
+        "projectInfo": {
+          "startDate": "2015-05-26",
+          "githubUrl": "https://github.com/grasdouble/AnnuaireMusees_Back",
+          "readmePath": "grasdouble/AnnuaireMusees_Back/master/README.md"
+        }
+      },
+      {
+        "key": "annuaire-musees-front",
+        "text": "AnnuaireMusees (Front)",
+        "component": "Projects",
+        "path": "/projects-archived/annuaire-musees-front",
+        "projectInfo": {
+          "startDate": "2015-05-29",
+          "githubUrl": "https://github.com/grasdouble/AnnuaireMusees_Front",
+          "readmePath": "grasdouble/AnnuaireMusees_Front/master/README.md"
+        }
+      },
+      {
+        "key": "model-passportjs-init",
+        "text": "Model_PassportJS-Init",
+        "component": "Projects",
+        "path": "/projects-archived/model-passportjs-init",
+        "projectInfo": {
+          "startDate": "2015-02-01",
+          "githubUrl": "https://github.com/grasdouble/Model_PassportJS-Init",
+          "readmePath": "grasdouble/Model_PassportJS-Init/master/README.md"
+        }
+      }
+    ]
+  }
+]
