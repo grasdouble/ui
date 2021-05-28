@@ -9,7 +9,7 @@
   {
     "key": "background",
     "text": "Background",
-    "component": "AboutMe",
+    "component": "Background",
     "path": "/background"
   },
   {
@@ -21,6 +21,7 @@
   {
     "key": "projects",
     "text": "Projects",
+    "component": "None",
     "path": "#",
     "nested": [
       {
@@ -28,10 +29,12 @@
         "text": "Leetcode",
         "component": "Projects",
         "path": "/projects/leetcode",
-        "projectInfo": {
-          "startDate": "2021-01-10",
-          "githubUrl": "https://github.com/grasdouble/leetcode",
-          "readmePath": "grasdouble/leetcode/main/README.md"
+        "props": {
+          "projectInfo": {
+            "startDate": "2021-01-10",
+            "githubUrl": "https://github.com/grasdouble/leetcode",
+            "readmePath": "grasdouble/leetcode/main/README.md"
+          }
         }
       },
       {
@@ -39,10 +42,12 @@
         "text": "Grabot",
         "component": "Projects",
         "path": "/projects/grabot",
-        "projectInfo": {
-          "startDate": "2020-11-25",
-          "githubUrl": "https://github.com/Sanoofr/Grabot",
-          "readmePath": "Sanoofr/Grabot/main/README.md"
+        "props": {
+          "projectInfo": {
+            "startDate": "2020-11-25",
+            "githubUrl": "https://github.com/Sanoofr/Grabot",
+            "readmePath": "Sanoofr/Grabot/main/README.md"
+          }
         }
       }
     ]
@@ -50,6 +55,7 @@
   {
     "key": "projects-archived",
     "text": "Projects archived",
+    "component": "None",
     "path": "#",
     "nested": [
       {
@@ -57,10 +63,12 @@
         "text": "Dashboard",
         "component": "Projects",
         "path": "/projects-archived/dashboard",
-        "projectInfo": {
-          "startDate": "2019-04-19",
-          "githubUrl": "https://github.com/grasdouble/Dashboard",
-          "readmePath": "grasdouble/Dashboard/master/README.md"
+        "props": {
+          "projectInfo": {
+            "startDate": "2019-04-19",
+            "githubUrl": "https://github.com/grasdouble/Dashboard",
+            "readmePath": "grasdouble/Dashboard/master/README.md"
+          }
         }
       },
       {
@@ -68,10 +76,12 @@
         "text": "AnnuaireMusees (Back)",
         "component": "Projects",
         "path": "/projects-archived/annuaire-musees-back",
-        "projectInfo": {
-          "startDate": "2015-05-26",
-          "githubUrl": "https://github.com/grasdouble/AnnuaireMusees_Back",
-          "readmePath": "grasdouble/AnnuaireMusees_Back/master/README.md"
+        "props": {
+          "projectInfo": {
+            "startDate": "2015-05-26",
+            "githubUrl": "https://github.com/grasdouble/AnnuaireMusees_Back",
+            "readmePath": "grasdouble/AnnuaireMusees_Back/master/README.md"
+          }
         }
       },
       {
@@ -79,10 +89,12 @@
         "text": "AnnuaireMusees (Front)",
         "component": "Projects",
         "path": "/projects-archived/annuaire-musees-front",
-        "projectInfo": {
-          "startDate": "2015-05-29",
-          "githubUrl": "https://github.com/grasdouble/AnnuaireMusees_Front",
-          "readmePath": "grasdouble/AnnuaireMusees_Front/master/README.md"
+        "props": {
+          "projectInfo": {
+            "startDate": "2015-05-29",
+            "githubUrl": "https://github.com/grasdouble/AnnuaireMusees_Front",
+            "readmePath": "grasdouble/AnnuaireMusees_Front/master/README.md"
+          }
         }
       },
       {
@@ -90,10 +102,12 @@
         "text": "Model_PassportJS-Init",
         "component": "Projects",
         "path": "/projects-archived/model-passportjs-init",
-        "projectInfo": {
-          "startDate": "2015-02-01",
-          "githubUrl": "https://github.com/grasdouble/Model_PassportJS-Init",
-          "readmePath": "grasdouble/Model_PassportJS-Init/master/README.md"
+        "props": {
+          "projectInfo": {
+            "startDate": "2015-02-01",
+            "githubUrl": "https://github.com/grasdouble/Model_PassportJS-Init",
+            "readmePath": "grasdouble/Model_PassportJS-Init/master/README.md"
+          }
         }
       }
     ]

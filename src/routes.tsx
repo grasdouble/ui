@@ -1,3 +1,4 @@
+import React from "react";
 import { Route } from "react-router-dom";
 
 import AboutMe from "pages/AboutMe";
@@ -20,8 +21,10 @@ export type RouteConfig = {
   path: string;
   exact?: boolean;
   nested?: RouteConfig[];
-  component?: string;
-  projectInfo?: ProjectInfo;
+  component: string;
+  props?: {
+    projectInfo?: ProjectInfo;
+  };
 };
 
 type RoutePath = {
@@ -30,31 +33,24 @@ type RoutePath = {
   exact: boolean;
 };
 
+// TODO: Find a solution to replace any
+const components: any = {
+  AboutMe: AboutMe,
+  Background: Background,
+  Logbook: Logbook,
+  Projects: Projects,
+  None: UnderConstruction,
+};
+
 const getRouteConfig = (result: RoutePath[], route: RouteConfig) => {
   if (route.nested) {
     result.push(...route.nested.reduce(getRouteConfig, []));
   } else {
-    let component = null;
-    switch (route.component) {
-      case "AboutMe":
-        component = AboutMe;
-        break;
-      case "Background":
-        component = Background;
-        break;
-      case "Logbook":
-        component = Logbook;
-        break;
-      case "Projects":
-        component = () => <Projects projectInfo={route.projectInfo} />;
-        break;
-      default:
-        component = UnderConstruction;
-    }
+    const Compo = components[route.component];
 
     result.push({
       path: route.path,
-      component: component,
+      component: () => <Compo {...route.props} />,
       exact: route.exact || false,
     });
   }
