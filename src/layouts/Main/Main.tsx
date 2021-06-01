@@ -44,7 +44,6 @@ const useStyles = makeStyles((theme: Theme) =>
     gridMain: {
       flexGrow: 1,
     },
-    gridLeftPane: {},
     links: {
       [theme.breakpoints.down("sm")]: {
         paddingLeft: theme.spacing(2),
@@ -93,14 +92,15 @@ const Main: React.FunctionComponent = (props) => {
             work properly or the content may be empty !!
           </Typography>
           <Divider className={classes.divider} />
+
           <Grid
             container
             className={classes.gridMain}
             justify="flex-start"
             spacing={5}
           >
-            <Grid key="leftPane" item sm={12} md={3} lg={2}>
-              <Grid container className={classes.gridLeftPane} justify="center">
+            <Grid key="leftPane" item xs={12} md={3} lg={2}>
+              <Grid container justify="center">
                 <Grid key="avatar" item>
                   <Avatar
                     alt="Sebastien Le Mouillour"
@@ -151,7 +151,7 @@ const Main: React.FunctionComponent = (props) => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid key="content" item sm={12} md={9} lg={10}>
+            <Grid key="rightPane" item xs={12} md={9} lg={10}>
               {props.children}
             </Grid>
           </Grid>

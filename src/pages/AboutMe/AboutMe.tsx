@@ -3,6 +3,7 @@ import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
 
 import MainTemplate from "layouts/Main";
@@ -28,13 +29,13 @@ const AboutMe: React.FunctionComponent = () => {
   return (
     <MainTemplate>
       <Grid container spacing={6}>
-        <Grid key="description" item sm={12} md={12} lg={12}>
+        <Grid key="description" item xs={12}>
           <Typography {...typoH1Props}>About Me</Typography>
           <Divider className={classes.divider} />
           <Typography {...typoTextProps}>
             Developer since approximatively <b>{nbXp} years</b>, I started to
-            develop on backend side and after <b>8 years to work with Java</b>,
-            I decide to change to work more on frontend activities. <br />
+            develop on backend side and after <b>8 years to work with Java</b>
+            , I decide to change to work more on frontend activities. <br />
           </Typography>
           <Typography {...typoTextProps}>
             <b>Since 2015</b>, I'm working on different frontend projects
@@ -48,10 +49,10 @@ const AboutMe: React.FunctionComponent = () => {
           </Typography>
           <Divider className={classes.divider} />
         </Grid>
-        <Grid key="logbook" item sm={12} md={6} lg={6}>
+        <Grid key="logbook" item xs={12} md={6} lg={6}>
           <LogbookEntry />
         </Grid>
-        <Grid key="github" item sm={12} md={6} lg={6}>
+        <Grid key="github" item xs={12} md={6} lg={6}>
           <GithubActivity />
         </Grid>
       </Grid>
