@@ -27,24 +27,27 @@ const AboutMe: React.FunctionComponent = () => {
 
   return (
     <MainTemplate>
-      <Typography {...typoH1Props}>About Me</Typography>
-      <Divider className={classes.divider} />
-      <Typography {...typoTextProps}>
-        Developer since approximatively <b>{nbXp} years</b>, I started to
-        develop on backend side and after <b>8 years to work with Java</b>, I
-        decide to change to work more on frontend activities. <br />
-      </Typography>
-      <Typography {...typoTextProps}>
-        <b>Since 2015</b>, I'm working on different frontend projects (firstly
-        with <b>Angular</b> and after with <b>ReactJS</b> as framework).
-      </Typography>
-      <Typography {...typoTextProps}>
-        I'm currently <b>Principal Frontend Engineer</b> at Talend where I have
-        the opportunity to continue to increase my skills and to share my
-        knowledges with others.
-      </Typography>
-      <Divider className={classes.divider} />
-      <Grid container spacing={5}>
+      <Grid container spacing={6}>
+        <Grid key="description" item sm={12} md={12} lg={12}>
+          <Typography {...typoH1Props}>About Me</Typography>
+          <Divider className={classes.divider} />
+          <Typography {...typoTextProps}>
+            Developer since approximatively <b>{nbXp} years</b>, I started to
+            develop on backend side and after <b>8 years to work with Java</b>,
+            I decide to change to work more on frontend activities. <br />
+          </Typography>
+          <Typography {...typoTextProps}>
+            <b>Since 2015</b>, I'm working on different frontend projects
+            (firstly with <b>Angular</b> and after with <b>ReactJS</b> as
+            framework).
+          </Typography>
+          <Typography {...typoTextProps}>
+            I'm currently <b>Principal Frontend Engineer</b> at Talend where I
+            have the opportunity to continue to increase my skills and to share
+            my knowledges with others.
+          </Typography>
+          <Divider className={classes.divider} />
+        </Grid>
         <Grid key="logbook" item sm={12} md={6} lg={6}>
           <LogbookEntry />
         </Grid>

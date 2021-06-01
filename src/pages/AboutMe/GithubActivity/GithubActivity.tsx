@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 
 import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -132,7 +132,7 @@ const GithubActivity: React.FunctionComponent = () => {
   }, [setData]);
 
   return (
-    <Container maxWidth="lg">
+    <Box>
       <Typography {...typoH1Props}>Github Activity</Typography>
       <Divider className={classes.divider} />
       {data.isLoading ? (
@@ -142,7 +142,7 @@ const GithubActivity: React.FunctionComponent = () => {
           {formatActivities(data.content, classes)}
         </List>
       )}
-    </Container>
+    </Box>
   );
 };
 
