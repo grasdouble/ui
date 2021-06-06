@@ -56,13 +56,13 @@ const formatActivityItem = (
 
   const getGithubContent = (commit: GithubCommitInfo) => {
     return (
-      <React.Fragment>
+      <React.Fragment key={`${commit.sha}_fragment`}>
         <ListItem alignItems="flex-start" key={commit.sha}>
-          <ListItemAvatar key={`avatar_${commit.sha}`}>
+          <ListItemAvatar key={`${commit.sha}_avatar`}>
             <Avatar alt={login} src={avatarUrl} />
           </ListItemAvatar>
           <ListItemText
-            key={`info_${commit.sha}`}
+            key={`${commit.sha}_info`}
             primary={commit.message}
             secondary={
               <React.Fragment>

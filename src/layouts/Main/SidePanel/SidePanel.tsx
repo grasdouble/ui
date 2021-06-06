@@ -93,13 +93,22 @@ const SidePanel: React.FunctionComponent<SidePanelProps> = ({
     } else {
       const isOpen = open.get(route.key);
       return (
-        <React.Fragment>
-          <ListItem button onClick={(e) => handleClick(route.key, e)}>
+        <React.Fragment key={`${route.key}_fragment`}>
+          <ListItem
+            button
+            onClick={(e) => handleClick(route.key, e)}
+            key={route.key}
+          >
             <ListItemIcon>{mapIcons.get(route.key)}</ListItemIcon>
             <ListItemText primary={route.text} />
             {isOpen ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
-          <Collapse in={isOpen} timeout="auto" unmountOnExit>
+          <Collapse
+            in={isOpen}
+            timeout="auto"
+            unmountOnExit
+            key={`${route.key}_collaple`}
+          >
             <List component="div" disablePadding>
               {(route.nested || []).map(getSidePanelContent)}
             </List>

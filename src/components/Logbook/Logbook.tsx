@@ -101,7 +101,7 @@ export const Logbook: React.FunctionComponent<LogbookProps> = ({
   const getLogbook = (logbookItem: LogbookDay) => {
     return (
       logbookItem.date !== "0000-00-00" && (
-        <React.Fragment>
+        <React.Fragment key={`logbook_item_fragment_${logbookItem.date}`}>
           <Divider
             className={classes.divider}
             key={`logbook_item_divider_${logbookItem.date}`}
