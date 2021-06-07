@@ -1,5 +1,4 @@
 import React from "react";
-import clsx from "clsx";
 
 import { Link as LinkRouter, LinkProps, useLocation } from "react-router-dom";
 
@@ -7,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
+import Hidden from "@material-ui/core/Hidden";
 
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -23,14 +23,22 @@ import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 
+import { drawerWidth } from "layouts/Main/constants";
 import config from "routes.json";
 import { RouteConfig } from "routes";
 
-const useStyles = makeStyles({
-  list: {
-    width: 250,
+const useStyles = makeStyles((theme) => ({
+  toolbar: theme.mixins.toolbar,
+  drawer: {
+    [theme.breakpoints.up("sm")]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
   },
-});
+  drawerPaper: {
+    width: drawerWidth,
+  },
+}));
 
 const mapIcons = new Map([
   ["aboutme", <AccountCircleIcon />],
@@ -130,23 +138,37 @@ const SidePanel: React.FunctionComponent<SidePanelProps> = ({
   };
 
   return (
-    <div>
-      <Drawer
-        anchor="left"
-        open={sidepanelState}
-        onClose={toggleDrawer(false, sidepanelFct)}
-      >
-        <div
-          className={clsx(classes.list)}
-          role="presentation"
-          onClick={toggleDrawer(false, sidepanelFct)}
-          onKeyDown={toggleDrawer(false, sidepanelFct)}
+    <nav className={classes.drawer}>
+      <Hidden smUp implementation="css">
+        <Drawer
+          anchor="left"
+          open={sidepanelState}
+          onClose={toggleDrawer(false, sidepanelFct)}
         >
+          <div
+            role="presentation"
+            onClick={toggleDrawer(false, sidepanelFct)}
+            onKeyDown={toggleDrawer(false, sidepanelFct)}
+          >
+            <List>{config.map(getSidePanelContent)}</List>
+            <Divider />
+          </div>
+        </Drawer>
+      </Hidden>
+      <Hidden xsDown implementation="css">
+        <Drawer
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+          variant="permanent"
+          open
+        >
+          <div className={classes.toolbar} />
           <List>{config.map(getSidePanelContent)}</List>
           <Divider />
-        </div>
-      </Drawer>
-    </div>
+        </Drawer>
+      </Hidden>
+    </nav>
   );
 };
 

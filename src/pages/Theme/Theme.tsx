@@ -3,11 +3,11 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 
-import MainTemplate from "layouts/Main";
+import Layout from "layouts";
 
 const ThemePage: React.FunctionComponent = () => {
   return (
-    <MainTemplate>
+    <Layout>
       <Container maxWidth="lg">
         <Typography variant="h1">Responsive h1</Typography>
         <Typography variant="h2">Responsive h2</Typography>
@@ -26,7 +26,7 @@ const ThemePage: React.FunctionComponent = () => {
         <Typography variant="overline">overline</Typography>
         <br />
       </Container>
-    </MainTemplate>
+    </Layout>
   );
 };
 

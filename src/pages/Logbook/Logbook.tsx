@@ -5,17 +5,17 @@ import Typography from "@material-ui/core/Typography";
 import { typoH1Props, typoH3Props } from "utils/typoProps";
 import LogbookComponent from "components/Logbook";
 
-import MainTemplate from "layouts/Main";
+import Layout from "layouts";
 
 const Logbook: React.FunctionComponent = () => {
   return (
-    <MainTemplate>
+    <Layout>
       <Typography {...typoH1Props}>Logbook - 2021</Typography>
       <Typography {...typoH3Props}>
         A Logbook to talk about all and nothing in the same place
       </Typography>
       <LogbookComponent />
-    </MainTemplate>
+    </Layout>
   );
 };
 

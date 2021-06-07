@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 
-import MainTemplate from "layouts/Main";
+import Layout from "layouts";
 
 import GithubActivity from "./GithubActivity";
 import LogbookEntry from "./LogbookEntry";
@@ -26,7 +26,7 @@ const AboutMe: React.FunctionComponent = () => {
   const nbXp = new Date().getFullYear() - 2007;
 
   return (
-    <MainTemplate>
+    <Layout>
       <Grid container spacing={6}>
         <Grid key="description" item xs={12}>
           <Typography {...typoH1Props}>About Me</Typography>
@@ -55,7 +55,7 @@ const AboutMe: React.FunctionComponent = () => {
           <GithubActivity />
         </Grid>
       </Grid>
-    </MainTemplate>
+    </Layout>
   );
 };
 

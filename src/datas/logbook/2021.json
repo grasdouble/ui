@@ -21,6 +21,19 @@
     ]
   },
   {
+    "date": "2021-06-07",
+    "contents": [
+      {
+        "value": "Improve desktop layout",
+        "type": "title"
+      },
+      {
+        "value": "Linked to feedback that I received, I reworked the theme to have the menu always available when there is enough space (especially on desktop).",
+        "type": "text"
+      }
+    ]
+  },
+  {
     "date": "2021-05-27",
     "contents": [
       {
@@ -109,12 +122,7 @@
       {
         "value": "I change also the imports to use absolute path instead of relative path. That will help to understand from where come the imported code.",
         "type": "text"
-      }
-    ]
-  },
-  {
-    "date": "2021-05-21",
-    "contents": [
+      },
       {
         "value": "The website is online",
         "type": "title"

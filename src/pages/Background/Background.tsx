@@ -14,7 +14,7 @@ import Steria from "./Steria";
 import Infotel from "./Infotel";
 import Talend from "./Talend";
 
-import MainTemplate from "layouts/Main";
+import Layout from "layouts";
 
 const getSteps = () => {
   return ["IM'Info", "Sopra/Steria", "Infotel", "Talend"];
@@ -53,7 +53,7 @@ const Background: React.FunctionComponent = () => {
   };
 
   return (
-    <MainTemplate>
+    <Layout>
       <Stepper
         alternativeLabel
         nonLinear
@@ -90,7 +90,7 @@ const Background: React.FunctionComponent = () => {
           Next
         </Button>
       </div>
-    </MainTemplate>
+    </Layout>
   );
 };
 

@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import Link from "@material-ui/core/Link";
 
-import MainTemplate from "layouts/Main";
+import Layout from "layouts";
 import { ProjectInfo } from "routes";
 import { typoH1Props } from "utils/typoProps";
 
@@ -60,7 +60,7 @@ const Projects: React.FunctionComponent<ProjectProps> = ({ projectInfo }) => {
   }, [setData, projectInfo]);
 
   return (
-    <MainTemplate>
+    <Layout>
       {data.isLoading ? (
         <div>Loading ...</div>
       ) : (
@@ -102,7 +102,7 @@ const Projects: React.FunctionComponent<ProjectProps> = ({ projectInfo }) => {
           </Grid>
         )
       )}
-    </MainTemplate>
+    </Layout>
   );
 };
 

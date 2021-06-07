@@ -8,7 +8,6 @@ import { routes, RouteWithSubRoutes } from "routes";
 import UnderConstruction from "components/UnderConstruction";
 
 function App() {
-  
   const GetContent = () => {
     if (true) {
       return (
@@ -25,10 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header"></header>
-      <main>
-        <GetContent />
-      </main>
+      <GetContent />
     </div>
   );
 }

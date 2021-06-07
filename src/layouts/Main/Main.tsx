@@ -1,5 +1,4 @@
 import React from "react";
-import clsx from "clsx";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -28,11 +27,10 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: "flex",
     },
-    toolbar: {
-      ...theme.mixins.toolbar,
-    },
+    toolbar: theme.mixins.toolbar,
     content: {
       flexGrow: 1,
+      width: '100vw',
       padding: theme.spacing(3),
       marginLeft: theme.spacing(0),
       marginRight: theme.spacing(0),
@@ -80,83 +78,85 @@ const Main: React.FunctionComponent = (props) => {
 
   return (
     <MuiThemeProvider theme={isLight ? themeLight : themeDark}>
-      <CssBaseline />
-      <HeaderBar sidepanelFct={setOpen} />
-      <SidePanel sidepanelState={open} sidepanelFct={setOpen} />
-      <main className={clsx(classes.content)}>
-        <div className={classes.toolbar} />
-        <Container maxWidth={false}>
-          <Divider className={classes.divider} />
-          <Typography {...typoH4Props} color="error" align="center">
-            !! The website is still under construction and some pages may not
-            work properly or the content may be empty !!
-          </Typography>
-          <Divider className={classes.divider} />
+      <div className={classes.root}>
+        <CssBaseline />
+        <HeaderBar sidepanelFct={setOpen} />
+        <SidePanel sidepanelState={open} sidepanelFct={setOpen} />
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          <Container maxWidth={false}>
+            <Divider className={classes.divider} />
+            <Typography {...typoH4Props} color="error" align="center">
+              !! The website is still under construction and some pages may not
+              work properly or the content may be empty !!
+            </Typography>
+            <Divider className={classes.divider} />
 
-          <Grid
-            container
-            className={classes.gridMain}
-            justify="flex-start"
-            spacing={5}
-          >
-            <Grid key="leftPane" item xs={12} md={3} lg={2}>
-              <Grid container justify="center">
-                <Grid key="avatar" item>
-                  <Avatar
-                    alt="Sebastien Le Mouillour"
-                    className={classes.avatar}
-                    src="/img/avatar.jfif"
-                  >
-                    Sébastien
-                    <br />
-                    LE MOUILLOUR
-                  </Avatar>
-                </Grid>
-                <Grid key="links" className={classes.links} item>
-                  <Box textAlign="center">
-                    <Box textAlign="left">
-                      <Button
-                        variant="outlined"
-                        color="primary"
-                        startIcon={<LinkedInIcon fontSize="large" />}
-                        target="_blank"
-                        href="https://www.linkedin.com/in/sebastienlemouillour/"
-                      >
-                        LinkedIn
-                      </Button>
+            <Grid
+              container
+              className={classes.gridMain}
+              justify="flex-start"
+              spacing={5}
+            >
+              <Grid key="leftPane" item xs={12} md={3} lg={2}>
+                <Grid container justify="center">
+                  <Grid key="avatar" item>
+                    <Avatar
+                      alt="Sebastien Le Mouillour"
+                      className={classes.avatar}
+                      src="/img/avatar.jfif"
+                    >
+                      Sébastien
+                      <br />
+                      LE MOUILLOUR
+                    </Avatar>
+                  </Grid>
+                  <Grid key="links" className={classes.links} item>
+                    <Box textAlign="center">
+                      <Box textAlign="left">
+                        <Button
+                          variant="outlined"
+                          color="primary"
+                          startIcon={<LinkedInIcon fontSize="large" />}
+                          target="_blank"
+                          href="https://www.linkedin.com/in/sebastienlemouillour/"
+                        >
+                          LinkedIn
+                        </Button>
+                      </Box>
+                      <Box textAlign="left" mt={1}>
+                        <Button
+                          variant="outlined"
+                          color="primary"
+                          startIcon={<CodeIcon fontSize="large" />}
+                          target="_blank"
+                          href="https://leetcode.com/smouillour/"
+                        >
+                          LeetCode
+                        </Button>
+                      </Box>
+                      <Box textAlign="left" mt={1}>
+                        <Button
+                          variant="outlined"
+                          color="secondary"
+                          startIcon={<AlternateEmailIcon fontSize="large" />}
+                          target="_blank"
+                          href="mailto:sebastien.lemouillour@gmail.com"
+                        >
+                          Contact Me
+                        </Button>
+                      </Box>
                     </Box>
-                    <Box textAlign="left" mt={1}>
-                      <Button
-                        variant="outlined"
-                        color="primary"
-                        startIcon={<CodeIcon fontSize="large" />}
-                        target="_blank"
-                        href="https://leetcode.com/smouillour/"
-                      >
-                        LeetCode
-                      </Button>
-                    </Box>
-                    <Box textAlign="left" mt={1}>
-                      <Button
-                        variant="outlined"
-                        color="secondary"
-                        startIcon={<AlternateEmailIcon fontSize="large" />}
-                        target="_blank"
-                        href="mailto:sebastien.lemouillour@gmail.com"
-                      >
-                        Contact Me
-                      </Button>
-                    </Box>
-                  </Box>
+                  </Grid>
                 </Grid>
               </Grid>
+              <Grid key="rightPane" item xs={12} md={9} lg={10}>
+                {props.children}
+              </Grid>
             </Grid>
-            <Grid key="rightPane" item xs={12} md={9} lg={10}>
-              {props.children}
-            </Grid>
-          </Grid>
-        </Container>
-      </main>
+          </Container>
+        </main>
+      </div>
     </MuiThemeProvider>
   );
 };

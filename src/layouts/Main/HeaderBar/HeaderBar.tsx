@@ -1,5 +1,4 @@
 import React from "react";
-import clsx from "clsx";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -10,17 +9,17 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      display: "flex",
-    },
+    toolbar: theme.mixins.toolbar,
     appBar: {
-      transition: theme.transitions.create(["width", "margin"], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
+      [theme.breakpoints.up("sm")]: {
+        zIndex: theme.zIndex.drawer + 1,
+      },
     },
     menuButton: {
-      marginRight: 36,
+      marginRight: theme.spacing(2),
+      [theme.breakpoints.up("sm")]: {
+        display: "none",
+      },
     },
   })
 );
@@ -34,22 +33,20 @@ const HeaderBar: React.FunctionComponent<MyProps> = ({ sidepanelFct }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="fixed" className={clsx(classes.appBar)}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={() => sidepanelFct(true)}
-            edge="start"
-            className={clsx(classes.menuButton)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography noWrap>Sebastien Le Mouillour</Typography>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar position="fixed" className={classes.appBar}>
+      <Toolbar variant="dense">
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={() => sidepanelFct(true)}
+          edge="start"
+          className={classes.menuButton}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography noWrap>Sebastien Le Mouillour</Typography>
+      </Toolbar>
+    </AppBar>
   );
 };
 
