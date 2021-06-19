@@ -14,8 +14,16 @@ const themeDarkOption = deepmerge(themeCommonOptions, {
       // icon: "rgba(255, 255, 255, 0.5)",
     },
     primary: {
-      main: "rgba(0, 124, 150,1)",
+      light: "rgba(0, 140, 150, 1)",
+      main: "rgba(0, 120, 150, 1)",
+      dark: "rgba(0, 100, 150, 1)",
     },
+    secondary: {
+      light: "rgba(230, 120, 130, 1)",
+      main: "rgba(200, 120, 130, 1)",
+      dark: "rgba(200, 120, 150, 1)",
+    },
+
     divider: "rgba(255, 255, 255, 0.12)",
     background: {
       paper: "#303030",

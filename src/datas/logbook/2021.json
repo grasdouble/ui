@@ -21,6 +21,27 @@
     ]
   },
   {
+    "date": "2021-06-20",
+    "contents": [
+      {
+        "value": "Move to dark theme",
+        "type": "title"
+      },
+      {
+        "value": "Small change to replace light theme with the dark one. i adapted a little bit the default color by for the header and buttons.",
+        "type": "text"
+      },
+      {
+        "value": "I think the website looks less than a good site like that.",
+        "type": "text"
+      },
+      {
+        "value": "",
+        "type": "caption"
+      }
+    ]
+  },
+  {
     "date": "2021-06-07",
     "contents": [
       {

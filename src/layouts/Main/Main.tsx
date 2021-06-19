@@ -115,7 +115,7 @@ const Main: React.FunctionComponent = (props) => {
                     <Box textAlign="center">
                       <Box textAlign="left">
                         <Button
-                          variant="outlined"
+                          variant="contained"
                           color="primary"
                           startIcon={<LinkedInIcon fontSize="large" />}
                           target="_blank"
@@ -126,7 +126,7 @@ const Main: React.FunctionComponent = (props) => {
                       </Box>
                       <Box textAlign="left" mt={1}>
                         <Button
-                          variant="outlined"
+                          variant="contained"
                           color="primary"
                           startIcon={<CodeIcon fontSize="large" />}
                           target="_blank"
@@ -137,7 +137,7 @@ const Main: React.FunctionComponent = (props) => {
                       </Box>
                       <Box textAlign="left" mt={1}>
                         <Button
-                          variant="outlined"
+                          variant="contained"
                           color="secondary"
                           startIcon={<AlternateEmailIcon fontSize="large" />}
                           target="_blank"
