@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const Main: React.FunctionComponent = (props) => {
   const classes = useStyles();
 
-  const isLight = true;
+  const isLight = false;
   const [open, setOpen] = React.useState(false);
 
   return (
