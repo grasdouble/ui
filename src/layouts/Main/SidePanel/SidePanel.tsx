@@ -38,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     width: drawerWidth,
   },
+  icon: {
+    minWidth: "40px",
+  },
 }));
 
 const mapIcons = new Map([
@@ -94,7 +97,7 @@ const SidePanel: React.FunctionComponent<SidePanelProps> = ({
           selected={route.path === location.pathname}
           component={(props) => CustomLink(route.path, props)}
         >
-          <ListItemIcon>{mapIcons.get(route.key)}</ListItemIcon>
+          <ListItemIcon className={classes.icon}>{mapIcons.get(route.key)}</ListItemIcon>
           <ListItemText primary={route.text} />
         </ListItem>
       );
@@ -107,7 +110,7 @@ const SidePanel: React.FunctionComponent<SidePanelProps> = ({
             onClick={(e) => handleClick(route.key, e)}
             key={route.key}
           >
-            <ListItemIcon>{mapIcons.get(route.key)}</ListItemIcon>
+            <ListItemIcon className={classes.icon}>{mapIcons.get(route.key)}</ListItemIcon>
             <ListItemText primary={route.text} />
             {isOpen ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
