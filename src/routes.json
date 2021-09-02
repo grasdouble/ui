@@ -49,6 +49,19 @@
             "readmePath": "Sanoofr/Grabot/main/README.md"
           }
         }
+      },
+      {
+        "key": "dotfiles",
+        "text": "Dotfiles",
+        "component": "Projects",
+        "path": "/projects/dotfiles",
+        "props": {
+          "projectInfo": {
+            "startDate": "2021-01-29",
+            "githubUrl": "https://github.com/grasdouble/Dotfiles",
+            "readmePath": "grasdouble/Dotfiles/main/README.md"
+          }
+        }
       }
     ]
   },

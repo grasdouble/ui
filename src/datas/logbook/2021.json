@@ -21,6 +21,27 @@
     ]
   },
   {
+    "date": "2021-09-02",
+    "contents": [
+      {
+        "value": "It's time to rework on personal projects",
+        "type": "title"
+      },
+      {
+        "value": "Since my last log entry, I had too much work to have time for my personal projects but today, I decided to take few time to fix some bugs on my dotfile project.",
+        "type": "text"
+      },
+      {
+        "value": "In fact, I reseted my personal laptop and i decided to reuse my script to install and configure all what I need to develop but of course all was not working has expected...",
+        "type": "text"
+      },
+      {
+        "value": "That was the opportunity to identify missing things or wrong configurations on my script but also to add more things (like automatically install vscode, iterm2, ...) and also to update the Readme file to explain how it's works.",
+        "type": "text"
+      }
+    ]
+  },
+  {
     "date": "2021-06-20",
     "contents": [
       {
