@@ -11,23 +11,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16.8'
-      - name: Setup Yarn
-        uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install # will run `yarn install` command
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
         with:
           find: "SECRET_GOOGLE_ANALYTICS"
           replace: ${{ secrets.google_analytics }}
           include: "config.json"
-      - name: Build Webapp
-        uses: borales/actions-yarn@v2.0.0
+      - uses: actions/setup-node@v2
         with:
-          cmd: build # will run `yarn build` command
+          node-version: '16.8'
+          cache: 'yarn'
+      - run: yarn install
+      - run: yarn build
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
