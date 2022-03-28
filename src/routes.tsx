@@ -1,5 +1,4 @@
 import React from "react";
-import { Route } from "react-router-dom";
 
 import AboutMe from "pages/AboutMe";
 import Background from "pages/Background";
@@ -50,26 +49,11 @@ const getRouteConfig = (result: RoutePath[], route: RouteConfig) => {
 
     result.push({
       path: route.path,
-      component: () => <Compo {...route.props} />,
+      component: () => <Compo {...route.props}/>,
       exact: route.exact || false,
     });
   }
   return result;
 };
 
-export const routes = routesConfig.reduce(getRouteConfig, []);
-
-// A special wrapper for <Route> that knows how to
-// handle "sub"-routes by passing them in a `routes`
-// prop to the component it renders.
-export const RouteWithSubRoutes = (route: any) => {
-  return (
-    <Route
-      path={route.path}
-      render={(props) => (
-        // pass the sub-routes down to keep nesting
-        <route.component {...props} routes={route.routes} />
-      )}
-    />
-  );
-};
+export const myRoutes = routesConfig.reduce(getRouteConfig, []);

@@ -1,0 +1,44 @@
+[
+  {
+    "date": "0000-00-00",
+    "contents": [
+      {
+        "value": "",
+        "type": "title"
+      },
+      {
+        "value": "",
+        "type": "subtitle"
+      },
+      {
+        "value": "",
+        "type": "text"
+      },
+      {
+        "value": "",
+        "type": "caption"
+      }
+    ]
+  },
+  {
+    "date": "2022-03-28",
+    "contents": [
+      {
+        "value": "Fix security issues and update dependencies",
+        "type": "title"
+      },
+      {
+        "value": "No big change on the website. Just take time to fix security issues and update dependencies.",
+        "type": "text"
+      },
+      {
+        "value": "Most important changes was on React Router Dom but, now, it should be ok.",
+        "type": "text"
+      },
+      {
+        "value": "That was the opportunity to identify missing things or wrong configurations on my script but also to add more things (like automatically install vscode, iterm2, ...) and also to update the Readme file to explain how it's works.",
+        "type": "text"
+      }
+    ]
+  }
+]

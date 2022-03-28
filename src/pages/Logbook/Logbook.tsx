@@ -10,7 +10,7 @@ import Layout from "layouts";
 const Logbook: React.FunctionComponent = () => {
   return (
     <Layout>
-      <Typography {...typoH1Props}>Logbook - 2021</Typography>
+      <Typography {...typoH1Props}>Logbook: 2021-2022</Typography>
       <Typography {...typoH6Props}>
         A Logbook to talk about all and nothing in the same place
       </Typography>

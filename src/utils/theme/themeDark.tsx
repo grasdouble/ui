@@ -1,4 +1,4 @@
-import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import { createTheme, responsiveFontSizes } from "@material-ui/core/styles";
 // @ts-ignore
 import { deepmerge } from "@material-ui/utils";
 import { themeCommonOptions } from "./themeCommonOptions";
@@ -31,7 +31,7 @@ const themeDarkOption = deepmerge(themeCommonOptions, {
     },
   },
 });
-let themeDark = createMuiTheme(themeDarkOption);
+let themeDark = createTheme(themeDarkOption);
 themeDark = responsiveFontSizes(themeDark);
 
 export { themeDark };

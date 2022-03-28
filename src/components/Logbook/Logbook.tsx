@@ -12,6 +12,7 @@ import {
 } from "utils/typoProps";
 
 import data2021 from "datas/logbook/2021.json";
+import data2022 from "datas/logbook/2022.json";
 import { ClassNameMap } from "@material-ui/styles";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -96,7 +97,7 @@ export const Logbook: React.FunctionComponent<LogbookProps> = ({
   onlyLast,
 }) => {
   const classes = useStyles();
-  const data = onlyLast ? [data2021[1]] : data2021;
+  const data = onlyLast ? [data2022[1]] : [...data2022,...data2021];
 
   const getLogbook = (logbookItem: LogbookDay) => {
     return (

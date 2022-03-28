@@ -2,20 +2,28 @@ import React from "react";
 
 import "@fontsource/roboto";
 
-import { Switch } from "react-router-dom";
-import { routes, RouteWithSubRoutes } from "routes";
+import { Routes, Route } from "react-router-dom";
+import { myRoutes } from "routes";
 
 import UnderConstruction from "components/UnderConstruction";
 
 function App() {
-  const GetContent = () => {
+  const GetContent = (props: any) => {
     if (true) {
       return (
-        <Switch>
-          {routes.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route} />
+        <Routes>
+          {myRoutes.map(({ path, component }, i) => (
+            <Route
+              key={i}
+              path={path}
+              element={
+                <React.Fragment>
+                  {component({ ...props })}
+                </React.Fragment>
+              }
+            />
           ))}
-        </Switch>
+        </Routes>
       );
     } else {
       return <UnderConstruction />;
