@@ -10,7 +10,8 @@
     "key": "background",
     "text": "Background",
     "component": "Background",
-    "path": "/background"
+    "path": "/background",
+    "hidden": true
   },
   {
     "key": "logbook",

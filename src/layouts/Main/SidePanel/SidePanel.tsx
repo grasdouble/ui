@@ -94,49 +94,51 @@ const SidePanel: React.FunctionComponent<SidePanelProps> = ({
   const [refreshMe, refreshSidepanel] = React.useState(false);
 
   const getSidePanelContent = (route: RouteConfig) => {
-    if (route.path !== "#") {
-      return (
-        <ListItem
-          button
-          key={route.key}
-          selected={route.path === location.pathname}
-          component={(props) => CustomLink(route.path, props)}
-        >
-          <ListItemIcon className={classes.icon}>
-            {mapIcons.get(route.key)}
-          </ListItemIcon>
-          <ListItemText primary={route.text} />
-        </ListItem>
-      );
-    } else {
-      const isOpen = collapsedMenuState.get(route.key);
-      return (
-        <React.Fragment key={`${route.key}_fragment`}>
+    if (!route.hidden) {
+      if (route.path !== "#") {
+        return (
           <ListItem
             button
-            onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
-              handleClick(route.key, e)
-            }
             key={route.key}
+            selected={route.path === location.pathname}
+            component={(props) => CustomLink(route.path, props)}
           >
             <ListItemIcon className={classes.icon}>
               {mapIcons.get(route.key)}
             </ListItemIcon>
             <ListItemText primary={route.text} />
-            {isOpen ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
-          <Collapse
-            in={isOpen}
-            timeout="auto"
-            unmountOnExit
-            key={`${route.key}_collaple`}
-          >
-            <List component="div" disablePadding>
-              {(route.nested || []).map(getSidePanelContent)}
-            </List>
-          </Collapse>
-        </React.Fragment>
-      );
+        );
+      } else {
+        const isOpen = collapsedMenuState.get(route.key);
+        return (
+          <React.Fragment key={`${route.key}_fragment`}>
+            <ListItem
+              button
+              onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
+                handleClick(route.key, e)
+              }
+              key={route.key}
+            >
+              <ListItemIcon className={classes.icon}>
+                {mapIcons.get(route.key)}
+              </ListItemIcon>
+              <ListItemText primary={route.text} />
+              {isOpen ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            <Collapse
+              in={isOpen}
+              timeout="auto"
+              unmountOnExit
+              key={`${route.key}_collaple`}
+            >
+              <List component="div" disablePadding>
+                {(route.nested || []).map(getSidePanelContent)}
+              </List>
+            </Collapse>
+          </React.Fragment>
+        );
+      }
     }
   };
 

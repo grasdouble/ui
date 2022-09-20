@@ -18,6 +18,7 @@ export type RouteConfig = {
   key: string;
   text: string;
   path: string;
+  hidden?: boolean;
   exact?: boolean;
   nested?: RouteConfig[];
   component: string;
@@ -49,7 +50,7 @@ const getRouteConfig = (result: RoutePath[], route: RouteConfig) => {
 
     result.push({
       path: route.path,
-      component: () => <Compo {...route.props}/>,
+      component: () => <Compo {...route.props} />,
       exact: route.exact || false,
     });
   }
