@@ -1,33 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import React, { useState, useEffect } from 'react';
+import { styled } from '@mui/material/styles';
 
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import Divider from "@material-ui/core/Divider";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
 
-import { typoH1Props } from "utils/typoProps";
+import { typoH1Props } from 'utils/typoProps';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    divider: {
-      marginBottom: "20px",
-    },
-    root: {
-      width: "100%",
-      overflow: "auto",
-      maxHeight: 300,
-      backgroundColor: theme.palette.background.paper,
-    },
-    inline: {
-      display: "inline",
-    },
-  })
-);
+const PREFIX = 'GithubActivity';
+
+const classes = {
+  divider: `${PREFIX}-divider`,
+  root: `${PREFIX}-root`,
+  inline: `${PREFIX}-inline`,
+};
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  [`& .${classes.divider}`]: {
+    marginBottom: '20px',
+  },
+
+  [`& .${classes.root}`]: {
+    width: '100%',
+    overflow: 'auto',
+    maxHeight: 300,
+    backgroundColor: theme.palette.background.paper,
+  },
+
+  [`& .${classes.inline}`]: {
+    display: 'inline',
+  },
+}));
 
 type GithubActivityItem = {
   actor: { display_login: string; avatar_url: string };
@@ -45,7 +53,7 @@ type fetchState = {
 
 const formatActivityItem = (
   activity: GithubActivityItem,
-  classes: { inline: string; divider: string }
+  classes: { inline: string; divider: string },
 ) => {
   const login = activity.actor.display_login;
   const avatarUrl = activity.actor.avatar_url;
@@ -72,7 +80,7 @@ const formatActivityItem = (
                   className={classes.inline}
                   color="textPrimary"
                 >
-                  On:{" "}
+                  On:{' '}
                 </Typography>
                 {repoName}
                 <br />
@@ -82,9 +90,9 @@ const formatActivityItem = (
                   className={classes.inline}
                   color="textPrimary"
                 >
-                  branch:{" "}
+                  branch:{' '}
                 </Typography>
-                {branchName.replace("refs/heads/", "")}
+                {branchName.replace('refs/heads/', '')}
                 <br />
                 <Typography
                   component="span"
@@ -92,7 +100,7 @@ const formatActivityItem = (
                   className={classes.inline}
                   color="textPrimary"
                 >
-                  Date:{" "}
+                  Date:{' '}
                 </Typography>
                 {activityPush}
               </React.Fragment>
@@ -107,15 +115,13 @@ const formatActivityItem = (
   return commits.map(getGithubContent);
 };
 
-const formatActivities = (activities: any[], classes: any) => {
-  return activities.map((activity) => {
+const formatActivities = (activities: any[]) => {
+  return activities.map(activity => {
     return formatActivityItem(activity, classes);
   });
 };
 
 const GithubActivity: React.FunctionComponent = () => {
-  const classes = useStyles();
-
   const [data, setData] = useState<fetchState>({
     isLoading: false,
     content: [],
@@ -124,7 +130,7 @@ const GithubActivity: React.FunctionComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       setData({ isLoading: true, content: [] });
-      const res = await fetch("https://api.github.com/users/Noofreuuuh/events");
+      const res = await fetch('https://api.github.com/users/Noofreuuuh/events');
       const json = await res.json();
       setData({ isLoading: false, content: json });
     };
@@ -132,17 +138,15 @@ const GithubActivity: React.FunctionComponent = () => {
   }, [setData]);
 
   return (
-    <Box>
+    <StyledBox>
       <Typography {...typoH1Props}>Github Activity</Typography>
       <Divider className={classes.divider} />
       {data.isLoading ? (
         <div>Loading ...</div>
       ) : (
-        <List className={classes.root}>
-          {formatActivities(data.content, classes)}
-        </List>
+        <List className={classes.root}>{formatActivities(data.content)}</List>
       )}
-    </Box>
+    </StyledBox>
   );
 };
 

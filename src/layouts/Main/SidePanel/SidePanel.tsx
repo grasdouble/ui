@@ -1,56 +1,69 @@
-import React from "react";
+import React from 'react';
 
-import { Link as LinkRouter, LinkProps, useLocation } from "react-router-dom";
+import { styled } from '@mui/material/styles';
 
-import { makeStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
-import Hidden from "@material-ui/core/Hidden";
+import { Link as LinkRouter, LinkProps, useLocation } from 'react-router-dom';
 
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import Collapse from "@material-ui/core/Collapse";
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import Hidden from '@mui/material/Hidden';
 
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import BookmarksIcon from "@material-ui/icons/Bookmarks";
-import InsertChartIcon from "@material-ui/icons/InsertChart";
-import DraftsIcon from "@material-ui/icons/Drafts";
-import MenuBookIcon from "@material-ui/icons/MenuBook";
-import AccountTreeOutlinedIcon from "@material-ui/icons/AccountTreeOutlined";
-import ExpandLess from "@material-ui/icons/ExpandLess";
-import ExpandMore from "@material-ui/icons/ExpandMore";
-import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Collapse from '@mui/material/Collapse';
 
-import { drawerWidth } from "layouts/Main/constants";
-import config from "routes.json";
-import { RouteConfig } from "routes";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import BookmarksIcon from '@mui/icons-material/Bookmarks';
+import InsertChartIcon from '@mui/icons-material/InsertChart';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import AccountTreeOutlinedIcon from '@mui/icons-material/AccountTreeOutlined';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 
-const useStyles = makeStyles((theme) => ({
-  toolbar: theme.mixins.toolbar,
-  drawer: {
-    [theme.breakpoints.up("sm")]: {
+import { drawerWidth, responsiveLimit } from 'layouts/Main/constants';
+import config from 'routes.json';
+import { RouteConfig } from 'routes';
+
+const PREFIX = 'SidePanel';
+
+const classes = {
+  toolbar: `${PREFIX}-toolbar`,
+  drawer: `${PREFIX}-drawer`,
+  drawerPaper: `${PREFIX}-drawerPaper`,
+  icon: `${PREFIX}-icon`,
+};
+
+const Nav = styled('nav')(({ theme }) => ({
+  [`& .${classes.toolbar}`]: theme.mixins.toolbar,
+
+  [`&.${classes.drawer}`]: {
+    [theme.breakpoints.up(responsiveLimit)]: {
       width: drawerWidth,
       flexShrink: 0,
     },
   },
-  drawerPaper: {
+
+  [`& .${classes.drawerPaper}`]: {
     width: drawerWidth,
   },
-  icon: {
-    minWidth: "40px",
+
+  [`& .${classes.icon}`]: {
+    minWidth: '40px',
   },
 }));
 
 const mapIcons = new Map([
-  ["aboutme", <AccountCircleIcon />],
-  ["background", <BookmarksIcon />],
-  ["skills", <InsertChartIcon />],
-  ["contactme", <DraftsIcon />],
-  ["logbook", <MenuBookIcon />],
-  ["projects", <AccountTreeOutlinedIcon />],
-  ["projects-archived", <PowerSettingsNewIcon />],
+  ['aboutme', <AccountCircleIcon />],
+  ['background', <BookmarksIcon />],
+  ['skills', <InsertChartIcon />],
+  ['contactme', <DraftsIcon />],
+  ['logbook', <MenuBookIcon />],
+  ['projects', <AccountTreeOutlinedIcon />],
+  ['projects-archived', <PowerSettingsNewIcon />],
 ]);
 
 type SidePanelProps = {
@@ -64,7 +77,7 @@ const CustomLink = (
   path: string,
   props: JSX.IntrinsicAttributes &
     LinkProps &
-    React.RefAttributes<HTMLAnchorElement>
+    React.RefAttributes<HTMLAnchorElement>,
 ) => {
   return <LinkRouter {...props} to={path} />;
 };
@@ -73,9 +86,9 @@ const toggleDrawer =
   (open: boolean, sidepanelFct: Function) =>
   (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
-      event.type === "keydown" &&
-      ((event as React.KeyboardEvent).key === "Tab" ||
-        (event as React.KeyboardEvent).key === "Shift")
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
     ) {
       return;
     }
@@ -89,19 +102,18 @@ const SidePanel: React.FunctionComponent<SidePanelProps> = ({
   collapsedMenuState,
   collapsedMenuFct,
 }) => {
-  const classes = useStyles();
   const location = useLocation();
   const [refreshMe, refreshSidepanel] = React.useState(false);
 
   const getSidePanelContent = (route: RouteConfig) => {
     if (!route.hidden) {
-      if (route.path !== "#") {
+      if (route.path !== '#') {
         return (
           <ListItem
             button
             key={route.key}
             selected={route.path === location.pathname}
-            component={(props) => CustomLink(route.path, props)}
+            component={props => CustomLink(route.path, props)}
           >
             <ListItemIcon className={classes.icon}>
               {mapIcons.get(route.key)}
@@ -145,13 +157,13 @@ const SidePanel: React.FunctionComponent<SidePanelProps> = ({
   const handleClick = (item: string, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    collapsedMenuState.set(item, true);
+    collapsedMenuState.set(item, !collapsedMenuState.get(item));
     collapsedMenuFct(collapsedMenuState);
     refreshSidepanel(!refreshMe);
   };
 
   return (
-    <nav className={classes.drawer}>
+    <Nav className={classes.drawer}>
       <Hidden smUp implementation="css">
         <Drawer
           anchor="left"
@@ -168,7 +180,7 @@ const SidePanel: React.FunctionComponent<SidePanelProps> = ({
           </div>
         </Drawer>
       </Hidden>
-      <Hidden xsDown implementation="css">
+      <Hidden mdDown implementation="css">
         <Drawer
           classes={{
             paper: classes.drawerPaper,
@@ -181,7 +193,7 @@ const SidePanel: React.FunctionComponent<SidePanelProps> = ({
           <Divider />
         </Drawer>
       </Hidden>
-    </nav>
+    </Nav>
   );
 };
 

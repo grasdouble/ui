@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import "@fontsource/roboto";
+import '@fontsource/roboto';
 
-import { Routes, Route } from "react-router-dom";
-import { myRoutes } from "routes";
+import { Routes, Route } from 'react-router-dom';
+import { myRoutes } from 'routes';
 
-import UnderConstruction from "components/UnderConstruction";
+import UnderConstruction from 'components/UnderConstruction';
 
 function App() {
   const GetContent = (props: any) => {
@@ -17,17 +17,14 @@ function App() {
               key={i}
               path={path}
               element={
-                <React.Fragment>
-                  {component({ ...props })}
-                </React.Fragment>
+                <React.Fragment>{component({ ...props })}</React.Fragment>
               }
             />
           ))}
         </Routes>
       );
-    } else {
-      return <UnderConstruction />;
     }
+    return <UnderConstruction />;
   };
 
   return (

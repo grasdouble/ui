@@ -1,28 +1,37 @@
-import React from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
+import React from 'react';
+import { styled } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
 
-import MenuIcon from "@material-ui/icons/Menu";
+import MenuIcon from '@mui/icons-material/Menu';
+import { responsiveLimit } from '../constants';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    toolbar: theme.mixins.toolbar,
-    appBar: {
-      [theme.breakpoints.up("sm")]: {
-        zIndex: theme.zIndex.drawer + 1,
-      },
+const PREFIX = 'HeaderBar';
+
+const classes = {
+  toolbar: `${PREFIX}-toolbar`,
+  appBar: `${PREFIX}-appBar`,
+  menuButton: `${PREFIX}-menuButton`,
+};
+
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  [`& .${classes.toolbar}`]: theme.mixins.toolbar,
+
+  [`&.${classes.appBar}`]: {
+    [theme.breakpoints.up(responsiveLimit)]: {
+      zIndex: theme.zIndex.drawer + 1,
     },
-    menuButton: {
-      marginRight: theme.spacing(2),
-      [theme.breakpoints.up("sm")]: {
-        display: "none",
-      },
+  },
+
+  [`& .${classes.menuButton}`]: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up(responsiveLimit)]: {
+      display: 'none',
     },
-  })
-);
+  },
+}));
 
 interface MyProps {
   children?: React.ReactNode;
@@ -30,10 +39,8 @@ interface MyProps {
 }
 
 const HeaderBar: React.FunctionComponent<MyProps> = ({ sidepanelFct }) => {
-  const classes = useStyles();
-
   return (
-    <AppBar position="fixed" className={classes.appBar}>
+    <StyledAppBar position="fixed" className={classes.appBar} enableColorOnDark>
       <Toolbar variant="dense">
         <IconButton
           color="inherit"
@@ -41,12 +48,13 @@ const HeaderBar: React.FunctionComponent<MyProps> = ({ sidepanelFct }) => {
           onClick={() => sidepanelFct(true)}
           edge="start"
           className={classes.menuButton}
+          size="large"
         >
           <MenuIcon />
         </IconButton>
         <Typography noWrap>Sebastien Le Mouillour</Typography>
       </Toolbar>
-    </AppBar>
+    </StyledAppBar>
   );
 };
 

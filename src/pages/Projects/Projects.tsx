@@ -1,31 +1,41 @@
-import React, { useState, useEffect } from "react";
-import ReactMarkdown from "react-markdown";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import React, { useState, useEffect } from 'react';
+import { styled } from '@mui/material/styles';
+import ReactMarkdown from 'react-markdown';
 
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import Divider from "@material-ui/core/Divider";
-import Link from "@material-ui/core/Link";
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Divider from '@mui/material/Divider';
+import Link from '@mui/material/Link';
 
-import Layout from "layouts";
-import { ProjectInfo } from "routes";
-import { typoH1Props } from "utils/typoProps";
+import Layout from 'layouts';
+import { linkStyle } from 'layouts/Main/constants';
+import { ProjectInfo } from 'routes';
+import { typoH1Props } from 'utils/typoProps';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    markdown: {
-      "& img": {
-        maxWidth: "80vw",
-      },
+const PREFIX = 'Projects';
+
+const classes = {
+  markdown: `${PREFIX}-markdown`,
+  divider: `${PREFIX}-divider`,
+  inline: `${PREFIX}-inline`,
+};
+
+const ProjectsStyled = styled('div')(({ theme }) => ({
+  [`& .${classes.markdown}`]: {
+    '& img': {
+      maxWidth: '80vw',
     },
-    divider: {
-      marginBottom: "20px",
-    },
-    inline: {
-      textDecoration: "underline",
-    },
-  })
-);
+    a: linkStyle,
+  },
+
+  [`& .${classes.divider}`]: {
+    marginBottom: '20px',
+  },
+
+  [`& .${classes.inline}`]: {
+    textDecoration: 'underline',
+  },
+}));
 
 type ProjectProps = {
   projectInfo?: ProjectInfo;
@@ -37,8 +47,6 @@ type fetchState = {
 };
 
 const Projects: React.FunctionComponent<ProjectProps> = ({ projectInfo }) => {
-  const classes = useStyles();
-
   const [data, setData] = useState<fetchState>({
     isLoading: false,
     content: undefined,
@@ -47,10 +55,10 @@ const Projects: React.FunctionComponent<ProjectProps> = ({ projectInfo }) => {
   useEffect(() => {
     const fetchData = async () => {
       setData({ isLoading: true, content: undefined });
-      let text = "";
+      let text = '';
       if (projectInfo) {
         const res = await fetch(
-          `https://raw.githubusercontent.com/${projectInfo.readmePath}`
+          `https://raw.githubusercontent.com/${projectInfo.readmePath}`,
         );
         text = await res.text();
       }
@@ -61,47 +69,49 @@ const Projects: React.FunctionComponent<ProjectProps> = ({ projectInfo }) => {
 
   return (
     <Layout>
-      {data.isLoading ? (
-        <div>Loading ...</div>
-      ) : (
-        projectInfo && (
-          <Grid container spacing={5}>
-            <Grid key="info" item sm={12} md={4} lg={4}>
-              <Typography {...typoH1Props}>Info</Typography>
-              <Divider className={classes.divider} />
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-                Start date:
-              </Typography>{" "}
-              {projectInfo.startDate}
-              <br />
-              <Typography
-                component="span"
-                variant="body2"
-                className={classes.inline}
-                color="textPrimary"
-              >
-                Github:
-              </Typography>{" "}
-              <Link href={projectInfo.githubUrl}>
-                {projectInfo.githubUrl.replace("https://github.com/", "")}
-              </Link>
-              <br />
+      <ProjectsStyled>
+        {data.isLoading ? (
+          <div>Loading ...</div>
+        ) : (
+          projectInfo && (
+            <Grid container spacing={5}>
+              <Grid key="info" item sm={12} md={4} lg={4}>
+                <Typography {...typoH1Props}>Info</Typography>
+                <Divider className={classes.divider} />
+                <Typography
+                  component="span"
+                  variant="body2"
+                  className={classes.inline}
+                  color="textPrimary"
+                >
+                  Start date:
+                </Typography>{' '}
+                {projectInfo.startDate}
+                <br />
+                <Typography
+                  component="span"
+                  variant="body2"
+                  className={classes.inline}
+                  color="textPrimary"
+                >
+                  Github:
+                </Typography>{' '}
+                <Link href={projectInfo.githubUrl}>
+                  {projectInfo.githubUrl.replace('https://github.com/', '')}
+                </Link>
+                <br />
+              </Grid>
+              <Grid key="readme" item sm={12} md={8} lg={8}>
+                <Typography {...typoH1Props}>Readme.md</Typography>
+                <Divider className={classes.divider} />
+                <ReactMarkdown className={classes.markdown}>
+                  {data.content || 'Oops! There was a problem retrieving data'}
+                </ReactMarkdown>
+              </Grid>
             </Grid>
-            <Grid key="readme" item sm={12} md={8} lg={8}>
-              <Typography {...typoH1Props}>Readme.md</Typography>
-              <Divider className={classes.divider} />
-              <ReactMarkdown className={classes.markdown}>
-                {data.content || "Oops! There was a problem retrieving data"}
-              </ReactMarkdown>
-            </Grid>
-          </Grid>
-        )
-      )}
+          )
+        )}
+      </ProjectsStyled>
     </Layout>
   );
 };
