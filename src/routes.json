@@ -11,7 +11,7 @@
     "text": "Background",
     "component": "Background",
     "path": "/background",
-    "hidden": true
+    "hidden": false
   },
   {
     "key": "logbook",
