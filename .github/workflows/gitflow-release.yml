@@ -29,7 +29,7 @@ jobs:
       - name: Display inputs
         run: |
           echo "Github event ref branch  : ${{ github.event.ref }}"
-          echo "Github actor             : ${{ GITHUB_ACTOR }}"
+          echo "Github actor             : $GITHUB_ACTOR"
           echo "Github branch            : ${GITHUB_REF#refs/heads/}"
           echo "Release scope            : ${{ github.event.inputs.scope }}"
   ci-gitflow-create:
