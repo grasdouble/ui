@@ -122,7 +122,7 @@ jobs:
         run: |
           echo "Merge ${GITHUB_REF#refs/heads/} to main"
           git checkout main
-          git merge --ff ${GITHUB_REF#refs/heads/}
+          git merge --ff origin/${GITHUB_REF#refs/heads/}
           git push origin
   ci-gitflow-merge-develop:
     environment: Need Review
@@ -144,5 +144,5 @@ jobs:
         run: |
           echo "Merge ${GITHUB_REF#refs/heads/} to develop"
           git checkout develop
-          git merge --ff ${GITHUB_REF#refs/heads/}
+          git merge --ff origin/${GITHUB_REF#refs/heads/}
           git push origin
