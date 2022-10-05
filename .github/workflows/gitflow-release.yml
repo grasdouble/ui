@@ -69,7 +69,6 @@ jobs:
           # fetch-depth: to be able to detect diff between release branch and main branch
           fetch-depth: 0
           ref: ${{ github.event.ref }}
-          persist-credentials: false
 
       - name: setup git config
         run: |
