@@ -65,7 +65,7 @@ jobs:
           # fetch-depth: to be able to detect diff between release branch and main branch
           fetch-depth: 0
           ref: ${{ github.event.ref }}
-          token: ${{secrets.GIT_TOKEN}}
+          #token: ${{secrets.GIT_TOKEN}}
 
       - name: setup git config
         run: |
