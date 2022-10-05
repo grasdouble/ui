@@ -87,7 +87,7 @@ jobs:
         if: steps.release.outputs.releaseVersion
         uses: devops-infra/action-pull-request@v0.4.2
         with:
-          github_token: ${{ secrets.GIT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           source_branch: ${{ steps.release.outputs.releasebranch }}
           target_branch: main
           title: Release ${{ steps.release.outputs.releaseVersion }}
@@ -110,7 +110,7 @@ jobs:
         if: steps.release.outputs.releaseVersion
         uses: devops-infra/action-pull-request@v0.4.2
         with:
-          github_token: ${{ secrets.GIT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           source_branch: ${{ steps.release.outputs.releasebranch }}
           target_branch: develop
           title: Release ${{ steps.release.outputs.releaseVersion }}
