@@ -32,9 +32,13 @@ jobs:
           echo "Github actor             : $GITHUB_ACTOR"
           echo "Github branch            : ${GITHUB_REF#refs/heads/}"
           echo "Release scope            : ${{ github.event.inputs.scope }}"
-  ci-gitflow-create:
+
+  ci-gitflow-create-release:
     environment: Need Review
     runs-on: ubuntu-latest
+    outputs:
+      releasebranch: ${{ steps.release.outputs.releasebranch }}
+      releaseVersion: ${{ steps.release.outputs.releaseVersion }}
     steps:
       - name: Error - Missing scope
         if: github.event.inputs.scope == 'nothing'
@@ -83,16 +87,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create pull request to main
+  ci-gitflow-pr-develop:
+    environment: Need Review
+    runs-on: ubuntu-latest
+    needs: [ci-gitflow-create-release]
+    steps:
+      - name: Create pull request to develop
         if: steps.release.outputs.releaseVersion
         uses: devops-infra/action-pull-request@v0.4.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          source_branch: ${{ steps.release.outputs.releasebranch }}
+          source_branch: ${{ needs.ci-gitflow-create-release.outputs.releasebranch}}
           target_branch: main
-          title: Release ${{ steps.release.outputs.releaseVersion }}
+          title: Release ${{ needs.ci-gitflow-create-release.outputs.releaseVersion }}
           body: |
-            ## Release ${{ steps.release.outputs.releaseVersion }}
+            ## Release ${{ needs.ci-gitflow-create-release.outputs.releaseVersion }}
             **Automated pull request**
             ## Summary
             <!-- Diff summary - START -->
@@ -106,16 +115,21 @@ jobs:
           draft: false
           get_diff: true
 
-      - name: Create pull request to develop
+  ci-gitflow-pr-main:
+    environment: Need Review
+    runs-on: ubuntu-latest
+    needs: [ci-gitflow-create-release, ci-gitflow-pr-develop]
+    steps:
+      - name: Create pull request to main
         if: steps.release.outputs.releaseVersion
         uses: devops-infra/action-pull-request@v0.4.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          source_branch: ${{ steps.release.outputs.releasebranch }}
-          target_branch: develop
-          title: Release ${{ steps.release.outputs.releaseVersion }}
+          source_branch: ${{ needs.ci-gitflow-create-release.outputs.releasebranch}}
+          target_branch: main
+          title: Release ${{ needs.ci-gitflow-create-release.outputs.releaseVersion }}
           body: |
-            ## Release ${{ steps.release.outputs.releaseVersion }}
+            ## Release ${{ needs.ci-gitflow-create-release.outputs.releaseVersion }}
             **Automated pull request**
             ## Summary
             <!-- Diff summary - START -->
