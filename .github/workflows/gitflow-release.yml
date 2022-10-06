@@ -94,7 +94,7 @@ jobs:
     steps:
       - name: Create pull request to develop
         if: needs.ci-gitflow-create-release.outputs.releaseVersion
-        uses: actions/github-script
+        uses: actions/github-script@v6
         with:
           script: |
             const { repo, owner } = context.repo;
@@ -122,7 +122,7 @@ jobs:
     steps:
       - name: Create pull request to main
         if: needs.ci-gitflow-create-release.outputs.releaseVersion
-        uses: actions/github-script
+        uses: actions/github-script@v6
         with:
           script: |
             const { repo, owner } = context.repo;
