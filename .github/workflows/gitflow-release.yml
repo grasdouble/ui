@@ -99,7 +99,7 @@ jobs:
           script: |
             const { repo, owner } = context.repo;
             const result = await github.rest.pulls.create({
-              title: 'Release ${{ needs.ci-gitflow-create-release.outputs.releaseVersion }} ',
+              title: '[Develop] Release ${{ needs.ci-gitflow-create-release.outputs.releaseVersion }} ',
               owner,
               repo,
               head: '${{ needs.ci-gitflow-create-release.outputs.releasebranch}}',
@@ -127,7 +127,7 @@ jobs:
           script: |
             const { repo, owner } = context.repo;
             const result = await github.rest.pulls.create({
-              title: 'Release ${{ needs.ci-gitflow-create-release.outputs.releaseVersion }} ',
+              title: '[Main] Release ${{ needs.ci-gitflow-create-release.outputs.releaseVersion }} ',
               owner,
               repo,
               head: '${{ needs.ci-gitflow-create-release.outputs.releasebranch}}',
