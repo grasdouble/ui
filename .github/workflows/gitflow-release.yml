@@ -93,7 +93,7 @@ jobs:
     needs: [ci-gitflow-create-release]
     steps:
       - name: Create pull request to develop
-        if: steps.release.outputs.releaseVersion
+        if: needs.ci-gitflow-create-release.outputs.releaseVersion
         uses: devops-infra/action-pull-request@v0.4.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -121,7 +121,7 @@ jobs:
     needs: [ci-gitflow-create-release, ci-gitflow-pr-develop]
     steps:
       - name: Create pull request to main
-        if: steps.release.outputs.releaseVersion
+        if: needs.ci-gitflow-create-release.outputs.releaseVersion
         uses: devops-infra/action-pull-request@v0.4.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
