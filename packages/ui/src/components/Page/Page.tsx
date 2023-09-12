@@ -12,6 +12,7 @@ export const Page: React.FC = () => {
 
   return (
     <article>
+      <h1 className="text-red-500">Hello World</h1>
       <Header
         user={user}
         onLogin={() => setUser({ name: "Jane Doe" })}

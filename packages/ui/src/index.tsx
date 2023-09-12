@@ -1,5 +1,6 @@
 // component exports
-export { Card } from "./card";
-export { Button } from "./Button";
-export { Header } from "./Header";
-export { Page } from "./Page";
+export { Card } from "./components/card";
+export { Button } from "./components/Button";
+export { Button as ButtonTailwind } from "./components/ButtonTailwind";
+export { Header } from "./components/Header";
+export { Page } from "./components/Page";

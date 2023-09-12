@@ -37,6 +37,7 @@ export const Button = ({
   const mode = primary
     ? "storybook-button--primary"
     : "storybook-button--secondary";
+  // const mode = primary ? "bg-blue-500" : "bg-red-500";
   return (
     <button
       type="button"
