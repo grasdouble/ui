@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "storybook dev -p 6006",
+    "dev:doc": "storybook dev -p 6006 --docs",
     "build": "storybook build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
@@ -33,6 +34,7 @@
     "@vitejs/plugin-react": "^4.0.3",
     "config": "workspace:*",
     "eslint": "^8.45.0",
+    "eslint-plugin-mdx": "^2.2.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.13",

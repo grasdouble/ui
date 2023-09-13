@@ -3,12 +3,12 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Badge } from "@grasdouble/ui";
 
 const meta = {
-  title: "Badge",
+  title: "Root/Badge",
   component: Badge,
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
+  tags: [""],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     label: {
@@ -32,20 +32,60 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-  args: {
-    label: "Frontend",
-    color: "gray",
-    size: "small",
-  },
-};
-
 export const GrayBadge: Story = {
   args: {
     label: "Marketing",
     color: "gray",
     size: "small",
   },
+};
+
+export const AllColors = {
+  decorators: [
+    () => (
+      <>
+        <span style={{ margin: "0.5em" }}>
+          <Badge {...GrayBadge.args} />
+        </span>
+        <span style={{ margin: "0.5em" }}>
+          <Badge {...GrayBadge.args} color="red" label="Backend" />
+        </span>
+        <span style={{ margin: "0.5em" }}>
+          <Badge {...GrayBadge.args} color="yellow" label="QA" />
+        </span>
+        <span style={{ margin: "0.5em" }}>
+          <Badge {...GrayBadge.args} color="green" label="Design" />
+        </span>
+        <span style={{ margin: "0.5em" }}>
+          <Badge {...GrayBadge.args} color="blue" label="DevOps" />
+        </span>
+        <span style={{ margin: "0.5em" }}>
+          <Badge {...GrayBadge.args} color="indigo" label="UX" />
+        </span>
+        <span style={{ margin: "0.5em" }}>
+          <Badge {...GrayBadge.args} color="purple" label="Product" />
+        </span>
+      </>
+    ),
+  ],
+};
+
+export const AllSize = {
+  decorators: [
+    () => (
+      <>
+        <span style={{ margin: "0.5em" }}>
+          <Badge {...GrayBadge.args} label="small" />
+        </span>
+        <span style={{ margin: "0.5em" }}>
+          <Badge {...GrayBadge.args} size="medium" label="medium" />
+        </span>
+        <span style={{ margin: "0.5em" }}>
+          <Badge {...GrayBadge.args} size="large" label="large" />
+        </span>
+      </>
+    ),
+  ],
 };
 
 export const RedBadge: Story = {

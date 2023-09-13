@@ -3,6 +3,7 @@ import { Preview } from "@storybook/react";
 import { DocsContainer } from "./DocsContainer";
 
 import { themes } from "@storybook/theming";
+import * as DocBlock from "@storybook/blocks";
 
 import "../src/globals.css";
 
@@ -23,6 +24,16 @@ const preview: Preview = {
     },
     docs: {
       container: DocsContainer,
+      page: () => (
+        <>
+          <DocBlock.Title />
+          <DocBlock.Subtitle />
+          <DocBlock.Description />
+          <DocBlock.Primary />
+          <DocBlock.Controls />
+          <DocBlock.Stories />
+        </>
+      ),
     },
   },
 };
