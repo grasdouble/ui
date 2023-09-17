@@ -19,7 +19,6 @@ const config: StorybookConfig = {
     // getAbsolutePath("@storybook/addon-themes"), keep trace of it for the moment but not used for now
     getAbsolutePath("storybook-dark-mode"),
     getAbsolutePath("@storybook/theming"),
-    getAbsolutePath("@storybook/addon-mdx-gfm"),
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),

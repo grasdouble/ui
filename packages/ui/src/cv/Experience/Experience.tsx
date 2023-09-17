@@ -6,7 +6,7 @@ import dataEN from "./data.en.json";
 export const Experience = (index: number) => {
   const xp = dataEN[3];
 
-  const getBadgeColor = (tagType) => {
+  const getBadgeColor = (tagType: string) => {
     switch (tagType) {
       case "database":
         return "green";
@@ -29,6 +29,8 @@ export const Experience = (index: number) => {
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
           {xp.company}
         </h1>
+        <h2>{xp.dates}</h2>
+        <h3>{xp.description}</h3>
         <p className="mt-6 text-base leading-7 text-gray-600">
           <p className="mt-6 text-base leading-7 text-gray-600">
             {xp.tags.map((tag) => (
@@ -40,17 +42,6 @@ export const Experience = (index: number) => {
             ))}
           </p>
         </p>
-        <div className="mt-10 flex items-center justify-center gap-x-6">
-          <a
-            href="#"
-            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Go back home
-          </a>
-          <a href="#" className="text-sm font-semibold text-gray-900">
-            Contact support <span aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
       </div>
     </main>
   );
