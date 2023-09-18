@@ -32,7 +32,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const GrayBadge: Story = {
+export const Primary: Story = {
   args: {
     label: "Marketing",
     color: "gray",
@@ -45,25 +45,25 @@ export const AllColors = {
     () => (
       <>
         <span style={{ margin: "0.5em" }}>
-          <Badge {...GrayBadge.args} />
+          <Badge {...Primary.args} />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Badge {...GrayBadge.args} color="red" label="Backend" />
+          <Badge {...Primary.args} color="red" label="Backend" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Badge {...GrayBadge.args} color="yellow" label="QA" />
+          <Badge {...Primary.args} color="yellow" label="QA" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Badge {...GrayBadge.args} color="green" label="Design" />
+          <Badge {...Primary.args} color="green" label="Design" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Badge {...GrayBadge.args} color="blue" label="DevOps" />
+          <Badge {...Primary.args} color="blue" label="DevOps" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Badge {...GrayBadge.args} color="indigo" label="UX" />
+          <Badge {...Primary.args} color="indigo" label="UX" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Badge {...GrayBadge.args} color="purple" label="Product" />
+          <Badge {...Primary.args} color="purple" label="Product" />
         </span>
       </>
     ),
@@ -75,13 +75,13 @@ export const AllSize = {
     () => (
       <>
         <span style={{ margin: "0.5em" }}>
-          <Badge {...GrayBadge.args} label="small" />
+          <Badge {...Primary.args} label="small" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Badge {...GrayBadge.args} size="medium" label="medium" />
+          <Badge {...Primary.args} size="medium" label="medium" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Badge {...GrayBadge.args} size="large" label="large" />
+          <Badge {...Primary.args} size="large" label="large" />
         </span>
       </>
     ),

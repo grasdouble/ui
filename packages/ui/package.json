@@ -9,15 +9,15 @@
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
-    "@turbo/gen": "^1.10.12",
-    "@types/node": "^20.5.2",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
+    "@turbo/gen": "^1.10.14",
+    "@types/node": "^20.6.2",
+    "@types/react": "^18.2.22",
+    "@types/react-dom": "^18.2.7",
     "config": "workspace:*",
     "eslint-config-custom": "workspace:*",
     "react": "^18.2.0",
     "tsconfig": "workspace:*",
-    "typescript": "^4.5.2"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
