@@ -9,7 +9,7 @@
     "dev:doc": "storybook dev -p 6006 --docs",
     "build": "storybook build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "predeploy": "pnpm run build",
+    "predeploy": "pnpm run build --docs",
     "deploy-storybook": "touch ./storybook-static/.nojekyll && gh-pages -d storybook-static -t true"
   },
   "dependencies": {

@@ -57,11 +57,11 @@ export const Primary: Story = {
         "4xlarge",
       ],
     },
-    type: {
+    variant: {
       control: "radio",
-      description: "The type of the avatar",
+      description: "The variant of the avatar",
       options: ["circle", "square"],
-      name: "avatar.type",
+      name: "avatar.variant",
       table: {
         category: "Avatar",
         type: {
@@ -117,15 +117,15 @@ export const Primary: Story = {
   },
   args: {
     size: "xlarge",
-    type: "circle",
+    variant: "circle",
     imgURL:
       "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     color: "none",
     position: "top",
   },
-  render: ({ type, imgURL, color, position, ...args }) => {
+  render: ({ variant, imgURL, color, position, ...args }) => {
     args.avatar = {
-      type,
+      variant,
       imgURL,
     };
     args.notification = {
@@ -138,12 +138,12 @@ export const Primary: Story = {
 };
 
 const avatarCircle: AvatarProps["avatar"] = {
-  type: "circle",
+  variant: "circle",
   imgURL:
     "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
 const avatarSquare: AvatarProps["avatar"] = {
-  type: "square",
+  variant: "square",
   imgURL:
     "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
@@ -151,11 +151,11 @@ const avatarSquare: AvatarProps["avatar"] = {
 export const AllSize = {
   argTypes: {
     ...hiddenArgTypes,
-    type: {
+    variant: {
       control: "radio",
       description: "The type of the avatar",
       options: ["circle", "square"],
-      name: "avatar.type",
+      name: "avatar.variant",
       table: {
         type: {
           summary: "circle | square",
@@ -167,31 +167,31 @@ export const AllSize = {
     },
   },
   args: {
-    type: "circle",
+    variant: "circle",
   },
-  render: ({ type }: AvatarPropsAndCustomArgs) => {
+  render: ({ variant }: AvatarPropsAndCustomArgs) => {
     return (
       <center>
         <span style={{ margin: "0.5em" }}>
-          <Avatar avatar={{ ...avatarCircle, type }} size="small" />
+          <Avatar avatar={{ ...avatarCircle, variant }} size="small" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Avatar avatar={{ ...avatarCircle, type }} size="medium" />
+          <Avatar avatar={{ ...avatarCircle, variant }} size="medium" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Avatar avatar={{ ...avatarCircle, type }} size="large" />
+          <Avatar avatar={{ ...avatarCircle, variant }} size="large" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Avatar avatar={{ ...avatarCircle, type }} size="xlarge" />
+          <Avatar avatar={{ ...avatarCircle, variant }} size="xlarge" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Avatar avatar={{ ...avatarCircle, type }} size="2xlarge" />
+          <Avatar avatar={{ ...avatarCircle, variant }} size="2xlarge" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Avatar avatar={{ ...avatarCircle, type }} size="3xlarge" />
+          <Avatar avatar={{ ...avatarCircle, variant }} size="3xlarge" />
         </span>
         <span style={{ margin: "0.5em" }}>
-          <Avatar avatar={{ ...avatarCircle, type }} size="4xlarge" />
+          <Avatar avatar={{ ...avatarCircle, variant }} size="4xlarge" />
         </span>
       </center>
     );
