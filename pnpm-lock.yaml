@@ -179,7 +179,14 @@ importers:
         specifier: 5.2.2
         version: 5.2.2
 
-  packages/config: {}
+  packages/config:
+    dependencies:
+      tailwindcss:
+        specifier: 3.3.3
+        version: 3.3.3
+      tailwindcss-animate:
+        specifier: ^1.0.6
+        version: 1.0.7(tailwindcss@3.3.3)
 
   packages/eslint-config-custom:
     devDependencies:

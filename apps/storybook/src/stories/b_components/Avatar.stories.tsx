@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Avatar } from "@grasdouble/ui";
-import { AvatarProps } from "@grasdouble/ui/src/components/Avatar/Avatar";
+import {
+  AvatarImageProps,
+  AvatarNotificationProps,
+  AvatarProps,
+} from "@grasdouble/ui/src/components/Avatar/Avatar";
 
 type AvatarPropsAndCustomArgs = React.ComponentProps<typeof Avatar> &
-  AvatarProps["avatar"] &
-  AvatarProps["notification"];
+  AvatarImageProps &
+  AvatarNotificationProps;
 
 const meta = {
   title: "2. Components/Avatar",
@@ -47,15 +51,7 @@ export const Primary: Story = {
     size: {
       control: "select",
       description: "The size of the avatar",
-      options: [
-        "small",
-        "medium",
-        "large",
-        "xlarge",
-        "2xlarge",
-        "3xlarge",
-        "4xlarge",
-      ],
+      options: ["xsmall", "small", "medium", "large", "xlarge"],
     },
     variant: {
       control: "radio",
@@ -173,6 +169,9 @@ export const AllSize = {
     return (
       <center>
         <span style={{ margin: "0.5em" }}>
+          <Avatar avatar={{ ...avatarCircle, variant }} size="xsmall" />
+        </span>
+        <span style={{ margin: "0.5em" }}>
           <Avatar avatar={{ ...avatarCircle, variant }} size="small" />
         </span>
         <span style={{ margin: "0.5em" }}>
@@ -183,15 +182,6 @@ export const AllSize = {
         </span>
         <span style={{ margin: "0.5em" }}>
           <Avatar avatar={{ ...avatarCircle, variant }} size="xlarge" />
-        </span>
-        <span style={{ margin: "0.5em" }}>
-          <Avatar avatar={{ ...avatarCircle, variant }} size="2xlarge" />
-        </span>
-        <span style={{ margin: "0.5em" }}>
-          <Avatar avatar={{ ...avatarCircle, variant }} size="3xlarge" />
-        </span>
-        <span style={{ margin: "0.5em" }}>
-          <Avatar avatar={{ ...avatarCircle, variant }} size="4xlarge" />
         </span>
       </center>
     );

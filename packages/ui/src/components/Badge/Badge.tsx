@@ -1,6 +1,8 @@
-import { getTailwindColor, getTailwindSize } from "./BadgeHelpers";
+import { getBadgeClasses } from "./BadgeHelpers";
 
-interface BadgeProps {
+import "./Badge.css";
+
+export interface BadgeProps {
   size?: "small" | "medium" | "large";
   label: string;
   color:
@@ -21,15 +23,7 @@ export const Badge = ({
   color = "gray",
   ...props
 }: BadgeProps) => {
-  const { bgColorClass, textColorClass, shadowColorClass } =
-    getTailwindColor(color);
-  const sizeClass = getTailwindSize(size);
+  const badgeClasses = getBadgeClasses(color, size);
 
-  return (
-    <span
-      className={`inline-flex items-center rounded-md px-2 py-1 ${bgColorClass} ${sizeClass} ${textColorClass} ring-1 ring-inset ring-gray-500/10 shadow-black ${shadowColorClass}`}
-    >
-      {label}
-    </span>
-  );
+  return <span className={`${badgeClasses}`}>{label}</span>;
 };

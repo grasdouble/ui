@@ -8,5 +8,9 @@
     "eslint-preset.js",
     "postcss.config.js",
     "tailwind.config.js"
-  ]
+  ],
+  "dependencies": {
+    "tailwindcss": "3.3.3",
+    "tailwindcss-animate": "^1.0.6"
+  }
 }

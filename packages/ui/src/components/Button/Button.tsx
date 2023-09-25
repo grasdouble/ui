@@ -1,12 +1,13 @@
 // Define a component using Tailwind CSS
-import { getTailwindColor, getTailwindSize } from "../Button/ButtonHelpers";
+import { getButtonClasses } from "../Button/ButtonHelpers";
 
-interface ButtonProps {
+import "./Button.css";
+export interface ButtonProps {
   label: string;
   variant: "solid" | "text" | "link" | "dashed";
   danger?: boolean;
   disabled?: boolean;
-  size: "x-small" | "small" | "medium" | "large";
+  size: "xsmall" | "small" | "medium" | "large";
 }
 
 /** Button component */
@@ -17,15 +18,7 @@ export const Button = ({
   disabled = false,
   size,
 }: ButtonProps) => {
-  const { bgColorClass, textColorClass, shadowColorClass, extraClass } =
-    getTailwindColor(variant, danger, disabled);
-  const sizeClass = getTailwindSize(size);
+  const buttonClasses = getButtonClasses(variant, danger, disabled, size);
 
-  return (
-    <button
-      className={`${sizeClass} ${bgColorClass} ${textColorClass} ${shadowColorClass} ${extraClass}`}
-    >
-      {label}
-    </button>
-  );
+  return <button className={`${buttonClasses}`}>{label}</button>;
 };

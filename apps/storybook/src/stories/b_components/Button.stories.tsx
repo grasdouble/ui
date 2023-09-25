@@ -32,7 +32,7 @@ const meta = {
     size: {
       control: "select",
       description: "The size of the badge",
-      options: ["x-small", "small", "medium", "large"],
+      options: ["xsmall", "small", "medium", "large"],
     },
   },
 } satisfies Meta<typeof Button>;
@@ -106,32 +106,32 @@ export const AllSize = {
         <span>
           <Button
             {...Primary.args}
-            label="x-small"
-            size="x-small"
+            label="xsmall"
+            size="xsmall"
             variant="solid"
           />
         </span>
         <span>
           <Button
             {...Primary.args}
-            label="x-small"
-            size="x-small"
+            label="xsmall"
+            size="xsmall"
             variant="text"
           />
         </span>
         <span>
           <Button
             {...Primary.args}
-            label="x-small"
-            size="x-small"
+            label="xsmall"
+            size="xsmall"
             variant="dashed"
           />
         </span>
         <span>
           <Button
             {...Primary.args}
-            label="x-small"
-            size="x-small"
+            label="xsmall"
+            size="xsmall"
             variant="link"
           />
         </span>

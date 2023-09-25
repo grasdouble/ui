@@ -1,54 +1,43 @@
-import {
-  getAvatarSizeClasses,
-  getAvatarTypeClasses,
-  getNotificationSizeClasses,
-  getNotificationColorClasses,
-  getNotificationPositionClasses,
-} from "./AvatarHelpers";
+import { getAvatarClasses, getNotificationClasses } from "./AvatarHelpers";
 
+import "./Avatar.css";
+
+export interface AvatarImageProps {
+  variant?: "circle" | "square";
+  imgURL: string;
+}
+export interface AvatarNotificationProps {
+  color: "none" | "green" | "orange" | "red" | "gray";
+  position: "top" | "bottom";
+}
 export interface AvatarProps {
-  avatar: {
-    variant?: "circle" | "square";
-    imgURL: string;
-  };
-  notification?: {
-    color: "none" | "green" | "orange" | "red" | "gray";
-    position: "top" | "bottom";
-  };
-  size?:
-    | "small"
-    | "medium"
-    | "large"
-    | "xlarge"
-    | "2xlarge"
-    | "3xlarge"
-    | "4xlarge";
+  avatar: AvatarImageProps;
+  notification?: AvatarNotificationProps;
+  size?: "xsmall" | "small" | "medium" | "large" | "xlarge";
 }
 
 /** Avatar component */
 export const Avatar = ({
   avatar,
   notification = { color: "none", position: "top" },
-  size = "small",
+  size = "medium",
 }: AvatarProps) => {
+  const { variant, imgURL } = avatar;
+  const { color, position } = notification;
   return (
     <span className="relative inline-block">
       <img
-        className={`${getAvatarSizeClasses(size)} ${getAvatarTypeClasses(
-          avatar.variant
-        )} ring-2 ring-white`}
-        src={avatar.imgURL}
+        className={`${getAvatarClasses(variant, size)}`}
+        src={imgURL}
         alt=""
       />
-      {notification?.color && notification.color !== "none" && (
+      {color && color !== "none" && (
         <span
-          className={`absolute right-0 block rounded-full ring-2 ring-white ${getNotificationSizeClasses(
-            size
-          )} ${getNotificationColorClasses(
-            notification?.color
-          )} ${getNotificationPositionClasses(
-            avatar.variant,
-            notification?.position
+          className={`${getNotificationClasses(
+            size,
+            variant,
+            color,
+            position
           )}`}
         />
       )}
