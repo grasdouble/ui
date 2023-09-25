@@ -5,7 +5,7 @@ export { Button } from "./components/Button";
 // export {Typography} from "./components/Typography";
 
 // Layout components
-// export { Divider } from "./components/Divider";
+export { Divider } from "./components/Divider";
 // export { Grid } from "./components/Grid";
 // export { Layout } from "./components/Layout";
 // export { Space } from "./components/Space";

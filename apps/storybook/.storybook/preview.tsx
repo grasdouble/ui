@@ -5,7 +5,7 @@ import { DocsContainer } from "./DocsContainer";
 import { themes } from "@storybook/theming";
 import * as DocBlock from "@storybook/blocks";
 
-import "../src/globals.css";
+import "../src/tailwind.css";
 
 const preview: Preview = {
   parameters: {

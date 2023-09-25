@@ -20,6 +20,10 @@ const config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        "root-background-color-light": "var(--bg-light)",
+        "root-background-color-dark": "var(--bg-dark)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
