@@ -1,0 +1,16 @@
+{
+  "storyExplorer.server.internal.enabled": false,
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript",
+    "typescript": "javascript",
+    "typescriptreact": "html",
+    "css": "css"
+  }
+}
