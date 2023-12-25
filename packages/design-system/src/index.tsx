@@ -1,3 +1,5 @@
+import "./tailwind.css";
+
 // General components
 export { Button } from "./components/Button";
 // export {FloatButton} from "./components/FloatButton";

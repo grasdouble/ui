@@ -7,8 +7,7 @@
     ".eslintrc.js",
     "eslint-preset.js",
     "postcss.config.js",
-    "tailwind.config.js",
-    "tailwind.css"
+    "tailwind.config.js"
   ],
   "dependencies": {
     "tailwindcss": "3.3.5",

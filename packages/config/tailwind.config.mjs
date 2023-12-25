@@ -11,7 +11,6 @@ const config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/stories/**/*.{js,ts,jsx,tsx}",
-    "../../packages/ui/**/*.{js,ts,jsx,tsx}", // Add the ui package
   ],
   theme: {
     extend: {
