@@ -1,4 +1,4 @@
-@import "config/tailwind.css";
+@import "@grasdouble/ui-config/tailwind.css";
 
 :root {
   --foreground-rgb: 0, 0, 0;

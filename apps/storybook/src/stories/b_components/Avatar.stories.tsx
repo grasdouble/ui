@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Avatar } from "@grasdouble/ui";
-import {
-  AvatarImageProps,
+import { Avatar } from "@grasdouble/ui-design-system";
+import type {
   AvatarNotificationProps,
   AvatarProps,
-} from "@grasdouble/ui/src/components/Avatar/Avatar";
+  AvatarImageProps,
+} from "@grasdouble/ui-design-system";
 
 type AvatarPropsAndCustomArgs = React.ComponentProps<typeof Avatar> &
   AvatarImageProps &

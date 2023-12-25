@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ["ui"],
+  transpilePackages: ["@grasdouble/ui-design-system"],
 };
 
 module.exports = nextConfig;

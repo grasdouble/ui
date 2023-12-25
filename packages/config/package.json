@@ -1,5 +1,5 @@
 {
-  "name": "config",
+  "name": "@grasdouble/ui-config",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -7,7 +7,8 @@
     ".eslintrc.js",
     "eslint-preset.js",
     "postcss.config.js",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    "tailwind.css"
   ],
   "dependencies": {
     "tailwindcss": "3.3.5",

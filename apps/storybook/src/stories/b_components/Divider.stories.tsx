@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Divider } from "@grasdouble/ui";
+import { Divider } from "@grasdouble/ui-design-system";
 
 const meta = {
   title: "2. Components/Divider",

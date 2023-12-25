@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button } from "@grasdouble/ui";
+import { Button } from "@grasdouble/ui-design-system";
 
 const meta = {
   title: "2. Components/Button",
