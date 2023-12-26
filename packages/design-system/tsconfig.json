@@ -1,0 +1,12 @@
+{
+  "extends": "@grasdouble/ui-tsconfig/react-library.json",
+  "include": ["src/**/*"],
+  "exclude": ["dist", "build", "node_modules"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declaration": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "resolveJsonModule": true
+  }
+}

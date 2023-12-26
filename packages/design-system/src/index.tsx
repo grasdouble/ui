@@ -1,3 +1,5 @@
+import "./tailwind.css";
+
 // General components
 export { Button } from "./components/Button";
 // export {FloatButton} from "./components/FloatButton";
@@ -40,6 +42,11 @@ export { Divider } from "./components/Divider";
 
 // Data display components
 export { Avatar } from "./components/Avatar";
+export type {
+  AvatarImageProps,
+  AvatarNotificationProps,
+  AvatarProps,
+} from "./components/Avatar";
 export { Badge } from "./components/Badge";
 // export {Calendar} from "./components/Calendar";
 // export { Card } from "./components/Card";

@@ -1,5 +1,5 @@
 // Define a component using Tailwind CSS
-import { getButtonClasses } from "../Button/ButtonHelpers";
+import { getButtonClasses } from "./ButtonHelpers";
 
 import "./Button.css";
 export interface ButtonProps {

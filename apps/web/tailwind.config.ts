@@ -1,1 +1,1 @@
-module.exports = require("config/tailwind.config");
+module.exports = require("@grasdouble/ui-config/tailwind.config");

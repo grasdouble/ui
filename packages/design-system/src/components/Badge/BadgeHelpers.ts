@@ -1,18 +1,21 @@
-import { BadgeProps } from "./Badge";
+import type { BadgeProps } from "./Badge";
 
-export const getBadgeClasses = (color?: BadgeProps["color"], size?: BadgeProps["size"]) => {
+export const getBadgeClasses = (
+  color?: BadgeProps["color"],
+  size?: BadgeProps["size"]
+) => {
   let result = "";
 
   // Get Color Classes
   const colorMapping = {
-    red: 'badge-red',
-    yellow: 'badge-yellow',
-    green: 'badge-green',
-    blue: 'badge-blue',
-    indigo: 'badge-indigo',
-    purple: 'badge-purple',
-    pink: 'badge-pink',
-    gray: 'badge-gray',
+    red: "badge-red",
+    yellow: "badge-yellow",
+    green: "badge-green",
+    blue: "badge-blue",
+    indigo: "badge-indigo",
+    purple: "badge-purple",
+    pink: "badge-pink",
+    gray: "badge-gray",
   };
   result += (color && colorMapping[color]) || "badge-gray";
 

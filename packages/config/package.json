@@ -1,5 +1,5 @@
 {
-  "name": "config",
+  "name": "@grasdouble/ui-config",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",

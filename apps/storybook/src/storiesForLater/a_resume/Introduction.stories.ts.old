@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ResumeIntroduction } from "@grasdouble/ui";
+import { ResumeIntroduction } from "@grasdouble/ui-design-system";
 
 const meta = {
   title: "1. Resume/1.2. Introduction",

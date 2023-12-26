@@ -1,20 +1,10 @@
-import { getAvatarClasses, getNotificationClasses } from "./AvatarHelpers";
+import {
+  getAvatarClasses,
+  getNotificationClasses,
+  AvatarProps,
+} from "./AvatarHelpers";
 
 import "./Avatar.css";
-
-export interface AvatarImageProps {
-  variant?: "circle" | "square";
-  imgURL: string;
-}
-export interface AvatarNotificationProps {
-  color: "none" | "green" | "orange" | "red" | "gray";
-  position: "top" | "bottom";
-}
-export interface AvatarProps {
-  avatar: AvatarImageProps;
-  notification?: AvatarNotificationProps;
-  size?: "xsmall" | "small" | "medium" | "large" | "xlarge";
-}
 
 /** Avatar component */
 export const Avatar = ({
@@ -23,6 +13,7 @@ export const Avatar = ({
   size = "medium",
 }: AvatarProps) => {
   const { variant, imgURL } = avatar;
+  console.log("Avatar");
   const { color, position } = notification;
   return (
     <span className="relative inline-block">

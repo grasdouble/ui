@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Badge } from "@grasdouble/ui";
+import { Badge } from "@grasdouble/ui-design-system";
 
 const meta = {
   title: "2. Components/Badge",
