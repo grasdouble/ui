@@ -3,4 +3,4 @@ export type {
   AvatarImageProps,
   AvatarNotificationProps,
   AvatarProps,
-} from "./Avatar";
+} from "./AvatarHelpers";

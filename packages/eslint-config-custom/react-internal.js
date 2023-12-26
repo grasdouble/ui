@@ -35,5 +35,14 @@ module.exports = {
 
   rules: {
     // add specific rules configurations here
+    "unicorn/filename-case": [
+      "error",
+      {
+        cases: {
+          camelCase: true,
+          pascalCase: true,
+        },
+      },
+    ],
   },
 };

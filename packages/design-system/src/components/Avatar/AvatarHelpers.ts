@@ -1,8 +1,16 @@
-import {
-  AvatarImageProps,
-  AvatarNotificationProps,
-  AvatarProps,
-} from "./Avatar";
+export interface AvatarImageProps {
+  variant?: "circle" | "square";
+  imgURL: string;
+}
+export interface AvatarNotificationProps {
+  color: "none" | "green" | "orange" | "red" | "gray";
+  position: "top" | "bottom";
+}
+export interface AvatarProps {
+  avatar: AvatarImageProps;
+  notification?: AvatarNotificationProps;
+  size?: "xsmall" | "small" | "medium" | "large" | "xlarge";
+}
 
 export const getAvatarClasses = (
   variant?: AvatarImageProps["variant"],
@@ -46,7 +54,7 @@ export const getNotificationClasses = (
     gray: " bg-gray-400",
   };
   if (color === "none" || !color) return result;
-  result += (color && notificationColorMapping[color]) || "";
+  result += notificationColorMapping[color] || "";
 
   // Get Size Classes
   const notificationSizeMapping = {

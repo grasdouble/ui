@@ -1,1 +1,1 @@
-module.exports = require("@grasdouble/ui-config/.eslintrc");
+module.exports = require("@grasdouble/ui-eslint-config-custom/react-internal");
